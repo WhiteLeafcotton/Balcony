@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkyNest Balcony Co.</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fdfdfd;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00796b;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00796b;
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1200x600/00796b/ffffff?text=SkyNest+Balcony+Design') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero-text {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #00796b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #004d40;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #00796b;
+    }
+
+    .shop-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .shop-item {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .shop-item:hover {
+      transform: scale(1.03);
+    }
+
+    .shop-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-section {
+      background: #eef7f6;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background: #00796b;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #004d40;
+    }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f0f0f0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .card-container,
+      .shop-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">SkyNest</div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text fade-in">
+      <h1>Transform Your Balcony into a Sanctuary</h1>
+      <p>Custom designs, curated kits, and expert style for small spaces in NYC.</p>
+      <a href="#services" class="btn">Start Designing</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section fade-in" id="services">
+    <h2>Our Services</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Mini Makeover</h3>
+        <p>Quick layout, product guide, and setup for renters or small spaces.</p>
+        <p class="price">Starts at $800</p>
+      </div>
+      <div class="card">
+        <h3>Premium Transformation</h3>
+        <p>Full redesign with furniture, greenery, lighting, and seasonal setup.</p>
+        <p class="price">Starts at $2,500</p>
+      </div>
+      <div class="card">
+        <h3>Virtual E-Design</h3>
+        <p>Digital layout plan, mood board, and clickable shopping list.</p>
+        <p class="price">Starts at $250</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Preview Section -->
+  <section class="section fade-in" id="shop">
+    <h2>Featured Balcony Kits</h2>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1588854337119-1caa5f0d798f" alt="Cozy Nights Kit" />
+        <h4>Cozy Nights Kit</h4>
+        <p>Includes blanket, lanterns, heater</p>
+        <p>$199</p>
+      </div>
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1618221446137-bfcf3520c6d5" alt="Plant Lover Starter Kit" />
+        <h4>Plant Lover Starter Kit</h4>
+        <p>Vertical planter, pots, water can</p>
+        <p>$179</p>
+      </div>
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt="Rental-Ready Deck Kit" />
+        <h4>Rental-Ready Deck Kit</h4>
+        <p>Modular flooring, fold-up chairs</p>
+        <p>$249</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section fade-in" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Tell us about your space..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="socials">
+      <p>Follow us on Instagram: <a href="#">@skynestdesign</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 SkyNest Balcony Co. | NYC-Based Balcony Design</p>
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>
