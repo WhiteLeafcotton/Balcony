@@ -165,8 +165,8 @@
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
-      <!-- Cozy Kits 1-5 -->
-      ${[...Array(5)].map((_, i) => `
+      <!-- Cozy Kits 1-10 -->
+      ${[...Array(10)].map((_, i) => `
         <div class="kit">
           <img src="https://via.placeholder.com/300x140?text=Cozy+Kit+${i+1}" onclick="openModal(${i+1}, 'cozy')">
           <h4>Cozy Kit ${i+1}</h4>
@@ -179,8 +179,8 @@
 
     <h2>Plant Lover Kits</h2>
     <div class="carousel">
-      <!-- Plant Kits 1-5 -->
-      ${[...Array(5)].map((_, i) => `
+      <!-- Plant Kits 1-10 -->
+      ${[...Array(10)].map((_, i) => `
         <div class="kit">
           <img src="https://via.placeholder.com/300x140?text=Plant+Kit+${i+1}" onclick="openModal(${i+1}, 'plant')">
           <h4>Plant Kit ${i+1}</h4>
@@ -260,12 +260,12 @@
     }
 
     const kitImages = {
-      cozy: [...Array(5)].map((_, i) => [
+      cozy: [...Array(10)].map((_, i) => [
         `https://via.placeholder.com/500x300?text=Cozy+Kit+${i+1}+Main`,
         `https://via.placeholder.com/500x300?text=Cozy+Kit+${i+1}+Item+1`,
         `https://via.placeholder.com/500x300?text=Cozy+Kit+${i+1}+Item+2`
       ]),
-      plant: [...Array(5)].map((_, i) => [
+      plant: [...Array(10)].map((_, i) => [
         `https://via.placeholder.com/500x300?text=Plant+Kit+${i+1}+Main`,
         `https://via.placeholder.com/500x300?text=Plant+Kit+${i+1}+Item+1`,
         `https://via.placeholder.com/500x300?text=Plant+Kit+${i+1}+Item+2`
@@ -294,6 +294,7 @@
   </script>
 </body>
 </html>
+
 
 
 
