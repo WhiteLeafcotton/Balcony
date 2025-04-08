@@ -2,77 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="SkyNest Balcony Co. | Transform your NYC balcony into a stunning sanctuary with curated kits and custom design services." />
+  <meta property="og:title" content="SkyNest Balcony Co." />
+  <meta property="og:description" content="Custom designs, curated kits, and expert style for small spaces in NYC." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x600/00796b/ffffff?text=SkyNest+Balcony+Design" />
   <title>SkyNest Balcony Co.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #3a5a40;
-      --secondary: #a3b18a;
-      --accent: #d4a373;
-      --light: #fefae0;
-      --dark: #2c2c2c;
-    }
-
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      background-color: var(--light);
-      color: var(--dark);
+      color: #333;
+      background: #fdfdfd;
     }
 
     header {
-      background: var(--primary);
-      color: white;
+      background: #fff;
       padding: 1rem 2rem;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
+      color: #00796b;
+      animation: fadeInDown 1s ease forwards;
     }
 
-    nav ul {
+    .nav-links {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
-    nav ul li a {
-      color: white;
+    .nav-links a {
       text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
     }
 
-    .mobile-nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      color: white;
-      border: none;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    section {
-      padding: 3rem 0;
+    .nav-links a:hover {
+      color: #00796b;
     }
 
     .hero {
-      background: url('https://images.unsplash.com/photo-1503342394128-c104d54dba5a?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      background: url('https://via.placeholder.com/1200x600/00796b/ffffff?text=SkyNest+Balcony+Design') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
       text-align: center;
-      padding: 5rem 2rem;
-      border-radius: 0.75rem;
+      padding: 0 2rem;
+    }
+
+    .hero-text {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+      animation: fadeInUp 1.5s ease forwards;
     }
 
     .hero h1 {
@@ -81,166 +90,264 @@
     }
 
     .btn {
-      background-color: var(--accent);
+      display: inline-block;
+      margin-top: 1rem;
+      background: #00796b;
       color: white;
       padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
       text-decoration: none;
-      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
     }
 
-    .services {
+    .btn:hover {
+      background: #004d40;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .card-container {
       display: flex;
-      flex-wrap: wrap;
       gap: 2rem;
+      flex-wrap: wrap;
       justify-content: center;
+      margin-top: 2rem;
     }
 
-    .service-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 1rem;
+    .card {
+      background: #f9f9f9;
       padding: 1.5rem;
+      border-radius: 10px;
       width: 300px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    .service-card img {
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #00796b;
+    }
+
+    .shop-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .shop-item {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .shop-item:hover {
+      transform: scale(1.03);
+    }
+
+    .shop-item img {
       width: 100%;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-section {
+      background: #eef7f6;
     }
 
     .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       max-width: 500px;
       margin: auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .contact-form input,
     .contact-form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
+      padding: 0.75rem;
       border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      font-size: 1rem;
+      border-radius: 5px;
     }
 
-    .footer {
+    .contact-form button {
+      background: #00796b;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #004d40;
+    }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    footer {
       text-align: center;
       padding: 2rem;
-      background: var(--secondary);
-      color: white;
+      background: #f0f0f0;
+      font-size: 0.9rem;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      nav ul {
+      .nav-links {
         flex-direction: column;
-        display: none;
-        background: var(--primary);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
+        align-items: center;
+        margin-top: 1rem;
       }
 
-      nav ul.show {
-        display: flex;
+      .card-container,
+      .shop-grid {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .mobile-nav-toggle {
-        display: block;
+      .hero h1 {
+        font-size: 2rem;
       }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo">SkyNest Balcony Co.</div>
-    <button class="mobile-nav-toggle" onclick="toggleMenu()">☰</button>
-    <nav>
-      <ul id="nav-links">
+    <nav class="navbar">
+      <div class="logo">SkyNest</div>
+      <ul class="nav-links">
         <li><a href="#services">Services</a></li>
-        <li><a href="#kits">Kits</a></li>
+        <li><a href="#shop">Shop</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Elevate Your Outdoor Space</h1>
-      <p>Custom balcony kits and design consulting across NYC.</p>
-      <a href="#contact" class="btn">Get Started</a>
-    </section>
+  <section class="hero">
+    <div class="hero-text fade-in">
+      <h1>Transform Your Balcony into a Sanctuary</h1>
+      <p>Custom designs, curated kits, and expert style for small spaces in NYC.</p>
+      <a href="#services" class="btn">Start Designing</a>
+    </div>
+  </section>
 
-    <section id="services">
-      <h2 style="text-align:center; margin-bottom:2rem;">Our Services</h2>
-      <div class="services">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1588854337221-891005f75ba1?auto=format&fit=crop&w=800&q=80" alt="Design">
-          <h3>Balcony Design</h3>
-          <p>We create space-maximizing, stylish designs tailored to your lifestyle.</p>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1578946953732-c21f2f3b5f4b?auto=format&fit=crop&w=800&q=80" alt="Installation">
-          <h3>Kit Installation</h3>
-          <p>We deliver and install custom kits that transform your outdoor nook.</p>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="Consulting">
-          <h3>Consultation</h3>
-          <p>Not sure what works? Book a consult and we’ll help you plan it out.</p>
-        </div>
+  <section class="section fade-in" id="services">
+    <h2>Our Services</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Mini Makeover</h3>
+        <p>Quick layout, product guide, and setup for renters or small spaces.</p>
+        <p class="price">Starts at $800</p>
       </div>
-    </section>
-
-    <section id="kits">
-      <h2 style="text-align:center; margin: 3rem 0 1rem;">Featured Balcony Kits</h2>
-      <div class="services">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1603993097397-89d87b9c3c36?auto=format&fit=crop&w=800&q=80" alt="Kit 1">
-          <h3>Zen Corner Kit</h3>
-          <p>Everything you need for a cozy, peaceful balcony retreat.</p>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1601121140079-9d865e042b10?auto=format&fit=crop&w=800&q=80" alt="Kit 2">
-          <h3>Mini Garden Kit</h3>
-          <p>Planters, soil, and design pieces for your own urban oasis.</p>
-        </div>
+      <div class="card">
+        <h3>Premium Transformation</h3>
+        <p>Full redesign with furniture, greenery, lighting, and seasonal setup.</p>
+        <p class="price">Starts at $2,500</p>
       </div>
-    </section>
+      <div class="card">
+        <h3>Virtual E-Design</h3>
+        <p>Digital layout plan, mood board, and clickable shopping list.</p>
+        <p class="price">Starts at $250</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2 style="text-align:center; margin: 3rem 0 1rem;">Contact Us</h2>
-      <form class="contact-form" action="https://formspree.io/f/xnnpoybl" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="_replyto" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button class="btn" type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
+  <section class="section fade-in" id="shop">
+    <h2>Featured Balcony Kits</h2>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1588854337119-1caa5f0d798f" alt="Cozy Nights Kit" />
+        <h4>Cozy Nights Kit</h4>
+        <p>Includes blanket, lanterns, heater</p>
+        <p>$199</p>
+      </div>
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1618221446137-bfcf3520c6d5" alt="Plant Lover Starter Kit" />
+        <h4>Plant Lover Starter Kit</h4>
+        <p>Vertical planter, pots, water can</p>
+        <p>$179</p>
+      </div>
+      <div class="shop-item">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" alt="Rental-Ready Deck Kit" />
+        <h4>Rental-Ready Deck Kit</h4>
+        <p>Modular flooring, fold-up chairs</p>
+        <p>$249</p>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 SkyNest Balcony Co. | Designed in NYC 🗽</p>
+  <section class="section contact-section fade-in" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" action="https://formspree.io/f/xnnpoybl" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Tell us about your space..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="socials">
+      <p>Follow us on Instagram: <a href="https://www.instagram.com/skynestdesign" target="_blank">@skynestdesign</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SkyNest Balcony Co. | NYC-Based Balcony Design</p>
   </footer>
 
   <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('nav-links');
-      navLinks.classList.toggle('show');
-    }
-  </script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
-
