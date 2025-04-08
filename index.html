@@ -60,11 +60,13 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       margin: 10px;
       text-align: center;
+      width: 250px;
+      display: inline-block;
     }
     .kit img {
       width: 100%;
       border-radius: 10px;
-      height: 180px;
+      height: 160px;
       object-fit: cover;
     }
     .kit button {
@@ -127,119 +129,89 @@
     </nav>
   </header>
 
+  <section class="section fade-in" id="services">
+    <h2>Transform Your Space</h2>
+    <p>SkyNest specializes in transforming small urban balconies into personalized outdoor sanctuaries. We offer custom designs, curated kits, and expert services to create the perfect outdoor space, whether for relaxation or entertainment.</p>
+  </section>
+
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
       <!-- Cozy Kits 1-10 -->
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+1">
+        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+1">
         <h4>Cozy Winter Retreat</h4>
         <p>$149 - Create a warm and inviting space with plush blankets, a hot cocoa set, and twinkling fairy lights for a cozy winter retreat.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Cozy Winter Retreat', 149, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+2">
+        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+2">
         <h4>Snuggle Ready Kit</h4>
         <p>$159 - Perfect for long evenings, featuring soft pillows, a fleece throw, and your favorite tea blends to unwind.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Snuggle Ready Kit', 159, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+3">
+        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+3">
         <h4>Ultimate Comfort Kit</h4>
         <p>$169 - Get the ultimate comfort with oversized cushions, a cozy blanket, and a decorative candle for an ambiance boost.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Ultimate Comfort Kit', 169, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+4">
+        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+4">
         <h4>Balcony Bliss</h4>
         <p>$179 - A kit to elevate your balcony with comfy seating, string lights, and plants for a relaxing outdoor experience.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Balcony Bliss', 179, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+5">
+        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+5">
         <h4>Autumn Escape Kit</h4>
         <p>$189 - Designed for fall, featuring pumpkin-scented candles, a soft throw, and decorative pillows to create the perfect escape.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Autumn Escape Kit', 189, this.previousElementSibling.value)">Add to Cart</button>
       </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+6">
-        <h4>Mountain Lodge Kit</h4>
-        <p>$199 - Bring the charm of a mountain lodge to your space with rustic decor, woolen throws, and a set of cozy slippers.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Mountain Lodge Kit', 199, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+7">
-        <h4>Evening Tranquility</h4>
-        <p>$209 - This kit is all about creating a tranquil evening with a calming tea set, candles, and soft throws.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Evening Tranquility', 209, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+8">
-        <h4>Rainy Day Comfort</h4>
-        <p>$219 - Perfect for a rainy day with books, a soft robe, and a set of herbal teas to enjoy from your cozy space.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Rainy Day Comfort', 219, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+9">
-        <h4>Winter Wonderland</h4>
-        <p>$229 - A kit to make your balcony feel like a winter wonderland with snowflake-themed decorations, blankets, and soft lighting.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Winter Wonderland', 229, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
     </div>
 
     <h2>Plant Lover Kits</h2>
     <div class="carousel">
-      <!-- Plant Kits 1-10 -->
+      <!-- Plant Kits 1-5 -->
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+1">
+        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+1">
         <h4>Urban Jungle Kit</h4>
         <p>$129 - Transform your balcony into an urban jungle with an assortment of low-maintenance plants and decorative pots.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Urban Jungle Kit', 129, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+2">
+        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+2">
         <h4>Succulent Garden Kit</h4>
         <p>$139 - Bring a touch of greenery to your space with a carefully curated selection of succulents, ideal for small balconies.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Succulent Garden Kit', 139, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+3">
+        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+3">
         <h4>Herb Garden Kit</h4>
         <p>$149 - A kit for balcony chefs, including a variety of herbs in stylish planters to grow your own fresh ingredients.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Herb Garden Kit', 149, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+4">
+        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+4">
         <h4>Botanical Beauty Kit</h4>
         <p>$159 - Elegant flowers and foliage designed to add beauty and color to any balcony, perfect for sunny spaces.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Botanical Beauty Kit', 159, this.previousElementSibling.value)">Add to Cart</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+5">
+        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+5">
         <h4>Zen Garden Kit</h4>
         <p>$169 - Create a peaceful retreat with bamboo, rocks, and moss in this serene zen garden kit for your balcony.</p>
         <input type="number" min="1" value="1"/>
         <button onclick="addToCart('Zen Garden Kit', 169, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+6">
-        <h4>Pet-Friendly Plant Kit</h4>
-        <p>$179 - A selection of non-toxic plants safe for pets, perfect for balconies that are family-friendly.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Pet-Friendly Plant Kit', 179, this.previousElementSibling.value)">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -290,6 +262,7 @@
   </script>
 </body>
 </html>
+
 
 
 
