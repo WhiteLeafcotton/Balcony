@@ -12,20 +12,106 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; }
-    header { background: #00796b; color: white; padding: 1rem; }
-    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-    .nav-links { list-style: none; display: flex; gap: 1rem; }
-    .nav-links a { color: white; text-decoration: none; font-weight: 500; }
-    .section { padding: 2rem; max-width: 1200px; margin: auto; }
-    .carousel { margin-bottom: 2rem; }
-    .kit { padding: 1rem; text-align: center; }
-    .kit img { width: 100%; border-radius: 10px; height: 180px; object-fit: cover; }
-    .kit button { background: #00796b; color: white; border: none; padding: 0.5rem 1rem; margin-top: 0.5rem; cursor: pointer; }
-    .cart-icon { position: fixed; bottom: 20px; right: 20px; background: #00796b; color: white; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 2000; }
-    .cart-popup { position: fixed; bottom: 70px; right: 20px; background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 1rem; display: none; z-index: 3000; width: 300px; }
-    .card-container { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .card { background: #f4f4f4; padding: 1rem; border-radius: 10px; flex: 1 1 45%; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #00796b;
+      color: white;
+      padding: 1rem;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .carousel {
+      margin-bottom: 3rem;
+    }
+    .kit {
+      padding: 1rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 10px;
+      text-align: center;
+    }
+    .kit img {
+      width: 100%;
+      border-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+    .kit button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .card-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1 1 45%;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .cart-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00796b;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 2000;
+    }
+    .cart-popup {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      display: none;
+      z-index: 3000;
+      width: 300px;
+    }
   </style>
 </head>
 <body>
@@ -43,42 +129,117 @@
 
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
-    <div class="carousel cozy-carousel">
-      <!-- Cozy Kits 1–10 -->
-      ${Array.from({ length: 10 }, (_, i) => `
+    <div class="carousel">
+      <!-- Cozy Kits 1-10 -->
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Cozy+${i+1}" />
-        <h4>Cozy Kit ${i+1}</h4>
-        <p>$${149 + i * 10}</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Cozy Kit ${i+1}', ${149 + i * 10}, this.previousElementSibling.value)">Add to Cart</button>
-      </div>`).join('')}
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+1">
+        <h4>Cozy Winter Retreat</h4>
+        <p>$149 - Create a warm and inviting space with plush blankets, a hot cocoa set, and twinkling fairy lights for a cozy winter retreat.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Cozy Winter Retreat', 149, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+2">
+        <h4>Snuggle Ready Kit</h4>
+        <p>$159 - Perfect for long evenings, featuring soft pillows, a fleece throw, and your favorite tea blends to unwind.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Snuggle Ready Kit', 159, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+3">
+        <h4>Ultimate Comfort Kit</h4>
+        <p>$169 - Get the ultimate comfort with oversized cushions, a cozy blanket, and a decorative candle for an ambiance boost.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Ultimate Comfort Kit', 169, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+4">
+        <h4>Balcony Bliss</h4>
+        <p>$179 - A kit to elevate your balcony with comfy seating, string lights, and plants for a relaxing outdoor experience.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Balcony Bliss', 179, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+5">
+        <h4>Autumn Escape Kit</h4>
+        <p>$189 - Designed for fall, featuring pumpkin-scented candles, a soft throw, and decorative pillows to create the perfect escape.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Autumn Escape Kit', 189, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+6">
+        <h4>Mountain Lodge Kit</h4>
+        <p>$199 - Bring the charm of a mountain lodge to your space with rustic decor, woolen throws, and a set of cozy slippers.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Mountain Lodge Kit', 199, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+7">
+        <h4>Evening Tranquility</h4>
+        <p>$209 - This kit is all about creating a tranquil evening with a calming tea set, candles, and soft throws.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Evening Tranquility', 209, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+8">
+        <h4>Rainy Day Comfort</h4>
+        <p>$219 - Perfect for a rainy day with books, a soft robe, and a set of herbal teas to enjoy from your cozy space.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Rainy Day Comfort', 219, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Cozy+Kit+9">
+        <h4>Winter Wonderland</h4>
+        <p>$229 - A kit to make your balcony feel like a winter wonderland with snowflake-themed decorations, blankets, and soft lighting.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Winter Wonderland', 229, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
     </div>
 
     <h2>Plant Lover Kits</h2>
-    <div class="carousel plant-carousel">
-      <!-- Plant Kits 1–10 -->
-      ${Array.from({ length: 10 }, (_, i) => `
+    <div class="carousel">
+      <!-- Plant Kits 1-10 -->
       <div class="kit">
-        <img src="https://via.placeholder.com/300x200?text=Plant+${i+1}" />
-        <h4>Plant Kit ${i+1}</h4>
-        <p>$${129 + i * 10}</p>
-        <input type="number" min="1" value="1" />
-        <button onclick="addToCart('Plant Kit ${i+1}', ${129 + i * 10}, this.previousElementSibling.value)">Add to Cart</button>
-      </div>`).join('')}
-    </div>
-  </section>
-
-  <section class="section fade-in" id="blog">
-    <h2>Balcony Living Blog</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Maximizing Small Spaces</h3>
-        <p>Learn how to make the most of a tiny NYC balcony with furniture and greenery hacks.</p>
+        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+1">
+        <h4>Urban Jungle Kit</h4>
+        <p>$129 - Transform your balcony into an urban jungle with an assortment of low-maintenance plants and decorative pots.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Urban Jungle Kit', 129, this.previousElementSibling.value)">Add to Cart</button>
       </div>
-      <div class="card">
-        <h3>Lighting Tips for Ambience</h3>
-        <p>Discover how string lights and lanterns can transform your space into a cozy retreat.</p>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+2">
+        <h4>Succulent Garden Kit</h4>
+        <p>$139 - Bring a touch of greenery to your space with a carefully curated selection of succulents, ideal for small balconies.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Succulent Garden Kit', 139, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+3">
+        <h4>Herb Garden Kit</h4>
+        <p>$149 - A kit for balcony chefs, including a variety of herbs in stylish planters to grow your own fresh ingredients.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Herb Garden Kit', 149, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+4">
+        <h4>Botanical Beauty Kit</h4>
+        <p>$159 - Elegant flowers and foliage designed to add beauty and color to any balcony, perfect for sunny spaces.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Botanical Beauty Kit', 159, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+5">
+        <h4>Zen Garden Kit</h4>
+        <p>$169 - Create a peaceful retreat with bamboo, rocks, and moss in this serene zen garden kit for your balcony.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Zen Garden Kit', 169, this.previousElementSibling.value)">Add to Cart</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/300x200?text=Plant+Kit+6">
+        <h4>Pet-Friendly Plant Kit</h4>
+        <p>$179 - A selection of non-toxic plants safe for pets, perfect for balconies that are family-friendly.</p>
+        <input type="number" min="1" value="1"/>
+        <button onclick="addToCart('Pet-Friendly Plant Kit', 179, this.previousElementSibling.value)">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -89,32 +250,42 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    $(document).ready(function() {
-      $('.cozy-carousel, .plant-carousel').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: false,
-        arrows: true,
-        dots: true,
-        responsive: [
-          { breakpoint: 768, settings: { slidesToShow: 1 } },
-          { breakpoint: 1024, settings: { slidesToShow: 2 } }
-        ]
-      });
+    $('.carousel').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: false,
+      arrows: true,
+      dots: true,
+      responsive: [
+        { breakpoint: 768, settings: { slidesToShow: 1 } },
+        { breakpoint: 1024, settings: { slidesToShow: 2 } }
+      ]
     });
 
-    const cart = [];
+    let cart = [];
     function addToCart(name, price, qty) {
       cart.push({ name, price, qty });
       renderCart();
     }
+
     function toggleCart() {
       const popup = document.getElementById('cart-popup');
       popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
     }
+
     function renderCart() {
       const popup = document.getElementById('cart-popup');
-      popup.innerHTML = '<h4>Your Cart</h4>' + cart.map(item => `<p>${item.qty}x ${item.name} - $${item.price}</p>`).join('');
+      if (cart.length === 0) {
+        popup.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+      }
+      popup.innerHTML = '<h4>Your Cart</h4>' + cart.map(item => `
+        <p>${item.qty}x ${item.name} - $${item.price}</p>
+      `).join('') + '<button onclick="checkout()">Checkout</button>';
+    }
+
+    function checkout() {
+      alert('Redirecting to payment... (integration coming soon)');
     }
   </script>
 </body>
