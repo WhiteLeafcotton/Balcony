@@ -54,29 +54,34 @@
       margin-bottom: 3rem;
     }
     .kit {
-      padding: 1rem;
+      padding: 0.5rem;
       background: white;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       margin: 10px;
       text-align: center;
-      width: 250px;
-      display: inline-block;
+      font-size: 0.9rem;
     }
     .kit img {
       width: 100%;
       border-radius: 10px;
-      height: 160px;
+      height: 140px;
       object-fit: cover;
+      cursor: pointer;
     }
     .kit button {
       margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       background: #00796b;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .kit input {
+      width: 50px;
+      margin-top: 0.3rem;
     }
     .card-container {
       display: flex;
@@ -114,6 +119,29 @@
       z-index: 3000;
       width: 300px;
     }
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 4000;
+    }
+    .modal-content {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+    }
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .modal-content button {
+      margin: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -130,94 +158,70 @@
   </header>
 
   <section class="section fade-in" id="services">
-    <h2>Transform Your Space</h2>
-    <p>SkyNest specializes in transforming small urban balconies into personalized outdoor sanctuaries. We offer custom designs, curated kits, and expert services to create the perfect outdoor space, whether for relaxation or entertainment.</p>
+    <h2>Our Services</h2>
+    <p>We design, plan, and style your balcony with curated kits and custom options for cozy, urban outdoor living.</p>
   </section>
 
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
-      <!-- Cozy Kits 1-10 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+1">
-        <h4>Cozy Winter Retreat</h4>
-        <p>$149 - Create a warm and inviting space with plush blankets, a hot cocoa set, and twinkling fairy lights for a cozy winter retreat.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Cozy Winter Retreat', 149, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+2">
-        <h4>Snuggle Ready Kit</h4>
-        <p>$159 - Perfect for long evenings, featuring soft pillows, a fleece throw, and your favorite tea blends to unwind.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Snuggle Ready Kit', 159, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+3">
-        <h4>Ultimate Comfort Kit</h4>
-        <p>$169 - Get the ultimate comfort with oversized cushions, a cozy blanket, and a decorative candle for an ambiance boost.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Ultimate Comfort Kit', 169, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+4">
-        <h4>Balcony Bliss</h4>
-        <p>$179 - A kit to elevate your balcony with comfy seating, string lights, and plants for a relaxing outdoor experience.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Balcony Bliss', 179, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Cozy+Kit+5">
-        <h4>Autumn Escape Kit</h4>
-        <p>$189 - Designed for fall, featuring pumpkin-scented candles, a soft throw, and decorative pillows to create the perfect escape.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Autumn Escape Kit', 189, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
+      <!-- Cozy Kits 1-5 -->
+      ${[...Array(5)].map((_, i) => `
+        <div class="kit">
+          <img src="https://via.placeholder.com/300x140?text=Cozy+Kit+${i+1}" onclick="openModal(${i+1}, 'cozy')">
+          <h4>Cozy Kit ${i+1}</h4>
+          <p>Includes: Warm lighting, comfy cushions, throw blanket</p>
+          <p>$${149+i*10}</p>
+          <input type="number" min="1" value="1"/>
+          <button onclick="addToCart('Cozy Kit ${i+1}', ${149+i*10}, this.previousElementSibling.value)">Add to Cart</button>
+        </div>`).join('')}
     </div>
 
     <h2>Plant Lover Kits</h2>
     <div class="carousel">
       <!-- Plant Kits 1-5 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+1">
-        <h4>Urban Jungle Kit</h4>
-        <p>$129 - Transform your balcony into an urban jungle with an assortment of low-maintenance plants and decorative pots.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Urban Jungle Kit', 129, this.previousElementSibling.value)">Add to Cart</button>
+      ${[...Array(5)].map((_, i) => `
+        <div class="kit">
+          <img src="https://via.placeholder.com/300x140?text=Plant+Kit+${i+1}" onclick="openModal(${i+1}, 'plant')">
+          <h4>Plant Kit ${i+1}</h4>
+          <p>Includes: Planters, soil, seasonal plants, tools</p>
+          <p>$${129+i*10}</p>
+          <input type="number" min="1" value="1"/>
+          <button onclick="addToCart('Plant Kit ${i+1}', ${129+i*10}, this.previousElementSibling.value)">Add to Cart</button>
+        </div>`).join('')}
+    </div>
+  </section>
+
+  <section class="section fade-in" id="blog">
+    <h2>Balcony Living Blog</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Maximizing Small Spaces</h3>
+        <p>Learn how to make the most of a tiny NYC balcony with furniture and greenery hacks.</p>
       </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+2">
-        <h4>Succulent Garden Kit</h4>
-        <p>$139 - Bring a touch of greenery to your space with a carefully curated selection of succulents, ideal for small balconies.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Succulent Garden Kit', 139, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+3">
-        <h4>Herb Garden Kit</h4>
-        <p>$149 - A kit for balcony chefs, including a variety of herbs in stylish planters to grow your own fresh ingredients.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Herb Garden Kit', 149, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+4">
-        <h4>Botanical Beauty Kit</h4>
-        <p>$159 - Elegant flowers and foliage designed to add beauty and color to any balcony, perfect for sunny spaces.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Botanical Beauty Kit', 159, this.previousElementSibling.value)">Add to Cart</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/250x160?text=Plant+Kit+5">
-        <h4>Zen Garden Kit</h4>
-        <p>$169 - Create a peaceful retreat with bamboo, rocks, and moss in this serene zen garden kit for your balcony.</p>
-        <input type="number" min="1" value="1"/>
-        <button onclick="addToCart('Zen Garden Kit', 169, this.previousElementSibling.value)">Add to Cart</button>
+      <div class="card">
+        <h3>Lighting Tips for Ambience</h3>
+        <p>Discover how string lights and lanterns can transform your space into a cozy retreat.</p>
       </div>
     </div>
   </section>
 
+  <section class="section fade-in" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email us at hello@skynestbalcony.com or follow us on social media @skynestco for updates and consultations.</p>
+  </section>
+
   <div class="cart-icon" onclick="toggleCart()">🛒</div>
   <div class="cart-popup" id="cart-popup"></div>
+  <div class="modal" id="imgModal">
+    <div class="modal-content">
+      <img id="modalImage" src="" />
+      <br />
+      <button onclick="prevImage()">Previous</button>
+      <button onclick="nextImage()">Next</button>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
@@ -239,29 +243,58 @@
       cart.push({ name, price, qty });
       renderCart();
     }
-
     function toggleCart() {
       const popup = document.getElementById('cart-popup');
       popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
     }
-
     function renderCart() {
       const popup = document.getElementById('cart-popup');
       if (cart.length === 0) {
         popup.innerHTML = '<p>Your cart is empty.</p>';
         return;
       }
-      popup.innerHTML = '<h4>Your Cart</h4>' + cart.map(item => `
-        <p>${item.qty}x ${item.name} - $${item.price}</p>
-      `).join('') + '<button onclick="checkout()">Checkout</button>';
+      popup.innerHTML = '<h4>Your Cart</h4>' + cart.map(item => `<p>${item.qty}x ${item.name} - $${item.price}</p>`).join('') + '<button onclick="checkout()">Checkout</button>';
     }
-
     function checkout() {
       alert('Redirecting to payment... (integration coming soon)');
+    }
+
+    const kitImages = {
+      cozy: [...Array(5)].map((_, i) => [
+        `https://via.placeholder.com/500x300?text=Cozy+Kit+${i+1}+Main`,
+        `https://via.placeholder.com/500x300?text=Cozy+Kit+${i+1}+Item+1`,
+        `https://via.placeholder.com/500x300?text=Cozy+Kit+${i+1}+Item+2`
+      ]),
+      plant: [...Array(5)].map((_, i) => [
+        `https://via.placeholder.com/500x300?text=Plant+Kit+${i+1}+Main`,
+        `https://via.placeholder.com/500x300?text=Plant+Kit+${i+1}+Item+1`,
+        `https://via.placeholder.com/500x300?text=Plant+Kit+${i+1}+Item+2`
+      ])
+    };
+
+    let currentSlide = 0;
+    let currentImages = [];
+    function openModal(index, type) {
+      currentImages = kitImages[type][index - 1];
+      currentSlide = 0;
+      document.getElementById('modalImage').src = currentImages[currentSlide];
+      document.getElementById('imgModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('imgModal').style.display = 'none';
+    }
+    function nextImage() {
+      currentSlide = (currentSlide + 1) % currentImages.length;
+      document.getElementById('modalImage').src = currentImages[currentSlide];
+    }
+    function prevImage() {
+      currentSlide = (currentSlide - 1 + currentImages.length) % currentImages.length;
+      document.getElementById('modalImage').src = currentImages[currentSlide];
     }
   </script>
 </body>
 </html>
+
 
 
 
