@@ -62,10 +62,8 @@
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+    .carousel {
+      margin-bottom: 3rem;
     }
     .kit {
       padding: 0.5rem;
@@ -76,7 +74,6 @@
       text-align: center;
       font-size: 0.85rem;
       width: 220px;
-      flex: 1 1 calc(33.33% - 20px); /* Adjust width to create 3 items per row */
     }
     .kit img {
       width: 100%;
@@ -99,6 +96,42 @@
       width: 50px;
       margin-top: 0.3rem;
     }
+    .card-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1 1 45%;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .cart-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00796b;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 2000;
+    }
+    .cart-popup {
+      position: fixed;
+      bottom: 70px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+      display: none;
+      z-index: 3000;
+      width: 300px;
+    }
     .modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -112,18 +145,22 @@
       background: white;
       padding: 1rem;
       border-radius: 10px;
-      max-width: 600px;
+      max-width: 500px;
       text-align: center;
     }
     .modal-content img {
       max-width: 100%;
       border-radius: 10px;
     }
-    .modal-content .slick-prev, .modal-content .slick-next {
-      color: #00796b;
+    .modal-content button {
+      margin: 0.5rem;
     }
-    .carousel {
-      margin-bottom: 3rem;
+    .slick-prev, .slick-next {
+      background-color: #00796b;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 50%;
+      z-index: 10;
     }
   </style>
 </head>
@@ -141,79 +178,74 @@
   </header>
   <div class="hero">Transform Your NYC Balcony</div>
 
+  <!-- Services -->
+  <section class="section fade-in" id="services">
+    <h2>Our Services</h2>
+    <p>We design, plan, and style your balcony with curated kits and custom options for cozy, urban outdoor living.</p>
+  </section>
+
   <!-- Shop -->
-  <section class="section" id="shop">
-    <h2>Curated Kits for Your Balcony</h2>
-    
-    <!-- Cozy Nights Kits -->
-    <h3>Cozy Nights Kits</h3>
-    <div class="row">
+  <section class="section fade-in" id="shop">
+    <h2>Cozy Nights Kits</h2>
+    <div class="carousel">
+      <!-- 10 kits here -->
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1">
         <h3>Urban Retreat</h3>
         <p>Create a chic evening oasis with plush throws, decorative candles, and elegant string lights.</p>
         <button>Shop Now</button>
       </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+2" alt="Cozy Kit 2">
-        <h3>Midnight Comfort</h3>
-        <p>Transform your balcony into a cozy escape with soft cushions, ambient lighting, and a warm blanket.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+3" alt="Cozy Kit 3">
-        <h3>Twilight Vibes</h3>
-        <p>Bring your space to life with a mix of cozy textures and gentle lighting for those perfect evening moments.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Repeat for 7 more kits -->
+      <!-- Add 9 more kits here similarly -->
     </div>
 
-    <!-- Evening Escape Kits -->
-    <h3>Evening Escape Kits</h3>
-    <div class="row">
+    <h2>Plant Lover Kits</h2>
+    <div class="carousel">
+      <!-- 10 kits here -->
       <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Evening+Kit+1" alt="Evening Kit 1">
-        <h3>Night Bliss</h3>
-        <p>Indulge in a warm, relaxing setup perfect for late-night balcony lounging.</p>
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+1" alt="Plant Kit 1">
+        <h3>Urban Jungle</h3>
+        <p>Bring lush greenery to your balcony with a mix of indoor plants that thrive in the urban environment.</p>
         <button>Shop Now</button>
       </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Evening+Kit+2" alt="Evening Kit 2">
-        <h3>Soft Glow</h3>
-        <p>Create a magical setting with soft lighting and plush pillows for comfort.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Repeat for 8 more kits -->
+      <!-- Add 9 more kits here similarly -->
     </div>
 
-    <!-- Rustic Charm Kits -->
-    <h3>Rustic Charm Kits</h3>
-    <div class="row">
+    <h2>Rental-Friendly Kits</h2>
+    <div class="carousel">
+      <!-- 10 kits here -->
       <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rustic+Kit+1" alt="Rustic Kit 1">
-        <h3>Woodland Glow</h3>
-        <p>Natural wood accents and vintage lanterns create a rustic yet comfortable balcony setting.</p>
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+1" alt="Rental Kit 1">
+        <h3>Easy Setup</h3>
+        <p>Perfect for renters—temporary and stylish solutions that are easy to set up and remove without damage.</p>
         <button>Shop Now</button>
       </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rustic+Kit+2" alt="Rustic Kit 2">
-        <h3>Farmhouse Chic</h3>
-        <p>Blend rustic charm with modern comfort for a unique balcony design.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Repeat for 8 more kits -->
+      <!-- Add 9 more kits here similarly -->
     </div>
   </section>
 
-  <!-- Modal with slideshow -->
+  <!-- Contact -->
+  <section class="section fade-in" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out. Our team is here to help you design your dream balcony.</p>
+  </section>
+
+  <!-- Shopping Cart Icon -->
+  <div class="cart-icon">
+    <i class="fas fa-shopping-cart"></i>
+  </div>
+
+  <div class="cart-popup">
+    <h3>Your Cart</h3>
+    <p>No items in the cart.</p>
+  </div>
+
   <div class="modal">
     <div class="modal-content">
       <h2>Product Details</h2>
-      <div class="modal-slideshow">
-        <div><img src="https://via.placeholder.com/300x200?text=Item+1" alt="Item 1"></div>
-        <div><img src="https://via.placeholder.com/300x200?text=Item+2" alt="Item 2"></div>
-        <div><img src="https://via.placeholder.com/300x200?text=Item+3" alt="Item 3"></div>
+      <div class="slick-carousel">
+        <img src="https://via.placeholder.com/300x200?text=Product+1" alt="Product Image 1">
+        <img src="https://via.placeholder.com/300x200?text=Product+2" alt="Product Image 2">
+        <img src="https://via.placeholder.com/300x200?text=Product+3" alt="Product Image 3">
       </div>
       <button>Close</button>
     </div>
@@ -223,7 +255,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
     $(document).ready(function(){
-      $('.row').slick({
+      $('.carousel').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
@@ -244,24 +276,26 @@
         ]
       });
 
+      $('.cart-icon').click(function() {
+        $('.cart-popup').toggle();
+      });
+
       $('.kit').click(function() {
-        const img1 = "https://via.placeholder.com/300x200?text=Item+1";
-        const img2 = "https://via.placeholder.com/300x200?text=Item+2";
-        const img3 = "https://via.placeholder.com/300x200?text=Item+3";
-        
-        $('.modal-slideshow').slick('unslick');
-        $('.modal-slideshow').html(`
-          <div><img src="${img1}" alt="Item 1"></div>
-          <div><img src="${img2}" alt="Item 2"></div>
-          <div><img src="${img3}" alt="Item 3"></div>
-        `);
-        
-        $('.modal-slideshow').slick({
-          dots: true,
+        const productImages = [
+          $(this).find('img').attr('src'), 
+          $(this).find('img').attr('src'), 
+          $(this).find('img').attr('src')
+        ]; // Replace with the actual images of the product
+
+        $('.modal .slick-carousel').slick('unslick');
+        $('.modal .slick-carousel').slick({
           infinite: true,
-          arrows: true,
-          prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-          nextArrow: '<button type="button" class="slick-next">Next</button>',
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+
+        productImages.forEach(imgSrc => {
+          $('.modal .slick-carousel').slick('slickAdd', '<div><img src="' + imgSrc + '" alt="Product Image"></div>');
         });
 
         $('.modal').fadeIn();
