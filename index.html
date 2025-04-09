@@ -37,14 +37,6 @@
       .modal-content { width: 90%; max-width: 90vw; height: auto; }
       .modal-images { height: 400px; }
     }
-    .blog-entry { background-color: #fff; margin-bottom: 1.5rem; padding: 10px 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .blog-entry h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
-    .blog-entry p { font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 1rem; }
-    .blog-entry .read-more { color: #00796b; font-weight: bold; text-decoration: none; cursor: pointer; font-size: 1rem; }
-    .contact-popup { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); display: none; align-items: center; justify-content: center; z-index: 5000; }
-    .contact-form { background-color: white; padding: 2rem; border-radius: 10px; width: 400px; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ddd; }
-    .contact-form button { background: #00796b; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
   </style>
 </head>
 <body>
@@ -55,64 +47,44 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#shop">Shop</a></li>
         <li><a href="#blog">Blog</a></li>
-        <li><button id="contact-btn" style="background: #00796b; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">Contact Us</button></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
   <div class="hero">Transform Your NYC Balcony</div>
-
   <section class="section" id="shop"></section>
-
-  <!-- Blog Section -->
-  <section class="section" id="blog">
-    <h2>Our Blog</h2>
-    <div class="blog-entry">
-      <h3>5 Balcony Design Trends for 2025</h3>
-      <p>Discover the top trends to elevate your balcony and create a cozy oasis. From minimalist designs to lush greenery, find out what will make your space stand out this year.</p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-    <div class="blog-entry">
-      <h3>How to Choose the Perfect Balcony Kit</h3>
-      <p>Not sure which kit is right for your balcony? Learn about different styles and materials to help you pick the perfect kit for your outdoor space.</p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-    <div class="blog-entry">
-      <h3>Space-Saving Tips for Small Balconies</h3>
-      <p>Maximize your balcony space with clever storage solutions and stylish furniture ideas. Turn your small space into a functional retreat!</p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-  </section>
-
-  <!-- Contact Form Popup -->
-  <div class="contact-popup">
-    <div class="contact-form">
-      <h3>Contact Us</h3>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-images"></div>
     </div>
   </div>
 
-  <div class="cart-icon">🛒</div>
-  <div class="cart-popup">
-    <h3>Your Cart</h3>
-    <div class="cart-items"></div>
-    <button id="checkout-btn">Checkout</button>
+  <!-- Contact Us Form Popup -->
+  <div class="contact-popup" style="display:none;">
+    <div class="contact-form">
+      <h3>Contact Us</h3>
+      <form id="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
+    let cart = [];
     const images = {};
     const categories = {
       "Cozy Nights Kits": "cozy",
       "Boho Bliss Kits": "boho",
       "Garden Glow Kits": "garden"
     };
-    const cart = [];
 
     $(document).ready(function() {
       const $shop = $('#shop');
@@ -140,7 +112,7 @@
               <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
               <h3>${title.split(' ')[0]} Kit ${i}</h3>
               <p>Perfect setup for your balcony.</p>
-              <button data-kit="${key}">Shop Now</button>
+              <button>Shop Now</button>
             </div>
           `);
         }
@@ -184,7 +156,7 @@
         $('.modal').css('display', 'flex').hide().fadeIn();
       });
 
-      $(document).on('click', '.modal', function(e) {
+      $('.modal').click(function(e) {
         if (!$(e.target).closest('.modal-content').length) {
           $('.modal').fadeOut();
           if ($('.modal-images').hasClass('slick-initialized')) {
@@ -193,33 +165,53 @@
         }
       });
 
-      $(document).on('click', '.kit button', function() {
-        const kit = $(this).data('kit');
-        cart.push(kit);
+      // Shopping Cart System
+      $('.cart-icon').click(function() {
+        $('.cart-popup').fadeIn();
         updateCart();
       });
 
-      $(document).on('click', '.cart-icon', function() {
-        $('.cart-popup').toggle();
+      $(document).on('click', '.cart-popup', function(e) {
+        if (!$(e.target).closest('.cart-popup .cart-items').length) {
+          $('.cart-popup').fadeOut();
+        }
       });
 
-      $(document).on('click', '#contact-btn', function() {
+      function updateCart() {
+        const $cartItems = $('.cart-items');
+        $cartItems.empty();
+
+        if (cart.length === 0) {
+          $cartItems.append('<p>Your cart is empty.</p>');
+        } else {
+          cart.forEach(item => {
+            $cartItems.append(`<p>${item}</p>`);
+          });
+        }
+      }
+
+      $('#checkout-btn').click(function() {
+        alert('Proceeding to checkout...');
+      });
+
+      // Contact Us Button
+      $('#contact-btn').click(function() {
         $('.contact-popup').fadeIn();
       });
 
+      // Close contact form on outside click
       $(document).on('click', '.contact-popup', function(e) {
         if (!$(e.target).closest('.contact-form').length) {
           $('.contact-popup').fadeOut();
         }
       });
 
-      function updateCart() {
-        const cartItems = $('.cart-items');
-        cartItems.empty();
-        cart.forEach(item => {
-          cartItems.append(`<p>${item}</p>`);
-        });
-      }
+      // Submit Contact Form
+      $('#contact-form').submit(function(e) {
+        e.preventDefault();
+        alert('Message sent!');
+        $('.contact-popup').fadeOut();
+      });
     });
   </script>
 </body>
