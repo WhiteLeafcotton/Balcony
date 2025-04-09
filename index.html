@@ -181,7 +181,7 @@
           $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
         });
 
-        // Initialize slick carousel for the modal
+        // Initialize Slick carousel for Kit Images
         $('#kit-modal .modal-images').slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -189,12 +189,15 @@
           infinite: false
         });
 
+        // Show the modal
         $('#kit-modal').fadeIn();
       });
 
-      // Close Kit Detail Modal
-      $('#kit-modal').click(function() {
-        $(this).fadeOut();
+      // Close Kit Modal if clicked outside of the slideshow
+      $('#kit-modal').click(function(event) {
+        if (!$(event.target).closest('.modal-images').length) {
+          $(this).fadeOut();
+        }
       });
 
       // Open Contact Us Modal
@@ -203,8 +206,10 @@
       });
 
       // Close Contact Us Modal
-      $('#contact-modal').click(function() {
-        $(this).fadeOut();
+      $('#contact-modal').click(function(event) {
+        if (!$(event.target).closest('.modal-content').length) {
+          $(this).fadeOut();
+        }
       });
 
       // Handle Contact Form Submission
