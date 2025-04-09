@@ -146,19 +146,29 @@
       padding: 1rem;
       border-radius: 10px;
       max-width: 700px;
-      text-align: center;
       width: 80%;
+      position: relative;
     }
     .modal-content img {
       max-width: 100%;
       border-radius: 10px;
-      margin-bottom: 1rem;
+      height: auto;
     }
     .modal-content .slick-prev, .modal-content .slick-next {
-      color: #00796b;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      color: white;
     }
-    .modal-content button {
-      margin: 0.5rem;
+    .modal-content .slick-prev {
+      left: 10px;
+    }
+    .modal-content .slick-next {
+      right: 10px;
     }
   </style>
 </head>
@@ -176,51 +186,18 @@
   </header>
   <div class="hero">Transform Your NYC Balcony</div>
 
-  <!-- Services -->
-  <section class="section fade-in" id="services">
-    <h2>Our Services</h2>
-    <p>We design, plan, and style your balcony with curated kits and custom options for cozy, urban outdoor living.</p>
-  </section>
-
-  <!-- Shop -->
+  <!-- Shop Section -->
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
-      <div class="kit" data-toggle="modal" data-target="#myModal">
-        <img src="https://via.placeholder.com/220x140?text=Chair" alt="Chair">
+      <!-- Example Kit -->
+      <div class="kit" data-images='["https://via.placeholder.com/600x400?text=Cozy+Kit+1", "https://via.placeholder.com/600x400?text=Cozy+Kit+2", "https://via.placeholder.com/600x400?text=Cozy+Kit+3"]'>
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1">
         <h3>Urban Retreat</h3>
         <p>Create a chic evening oasis with plush throws, decorative candles, and elegant string lights.</p>
         <button>Shop Now</button>
       </div>
-      <div class="kit" data-toggle="modal" data-target="#myModal">
-        <img src="https://via.placeholder.com/220x140?text=Blanket" alt="Blanket">
-        <h3>Midnight Comfort</h3>
-        <p>Transform your balcony into a cozy escape with soft cushions, ambient lighting, and a warm blanket.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit" data-toggle="modal" data-target="#myModal">
-        <img src="https://via.placeholder.com/220x140?text=Candle" alt="Candle">
-        <h3>Twilight Vibes</h3>
-        <p>Bring your space to life with a mix of cozy textures and gentle lighting for those perfect evening moments.</p>
-        <button>Shop Now</button>
-      </div>
     </div>
-
-    <h2>Plant Lover Kits</h2>
-    <div class="carousel">
-      <!-- Add other kits here -->
-    </div>
-
-    <h2>Rental-Friendly Kits</h2>
-    <div class="carousel">
-      <!-- Add other kits here -->
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="section fade-in" id="contact">
-    <h2>Contact Us</h2>
-    <p>If you have any questions, feel free to reach out. Our team is here to help you design your dream balcony.</p>
   </section>
 
   <!-- Shopping Cart Icon -->
@@ -233,23 +210,19 @@
     <p>No items in the cart.</p>
   </div>
 
-  <!-- Modal with Slide Show -->
-  <div class="modal" id="myModal">
+  <div class="modal">
     <div class="modal-content">
-      <h2>Product Details</h2>
-      <div class="slideshow">
-        <div><img src="https://via.placeholder.com/500x500?text=Chair" alt="Chair"></div>
-        <div><img src="https://via.placeholder.com/500x500?text=Blanket" alt="Blanket"></div>
-        <div><img src="https://via.placeholder.com/500x500?text=Candle" alt="Candle"></div>
-      </div>
-      <button>Close</button>
+      <div class="slick-prev">←</div>
+      <div class="slick-next">→</div>
+      <div class="modal-slides"></div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
+      // Initialize carousel
       $('.carousel').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -271,25 +244,32 @@
         ]
       });
 
-      $('.cart-icon').click(function() {
-        $('.cart-popup').toggle();
-      });
-
+      // Modal functionality with swiping images
       $('.kit').click(function() {
-        $('#myModal').fadeIn();
+        const images = JSON.parse($(this).attr('data-images'));
+        const modalSlides = $('.modal-slides');
+        modalSlides.empty();
+
+        images.forEach(function(img) {
+          modalSlides.append(`<div><img src="${img}" alt="Kit Image"></div>`);
+        });
+
+        $('.modal').fadeIn();
+        $('.modal-content').slick({
+          arrows: true,
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 1,
+          centerPadding: '0',
+        });
       });
 
       $('.modal button').click(function() {
-        $('#myModal').fadeOut();
+        $('.modal').fadeOut();
       });
 
-      // Initialize the slideshow for the modal
-      $('.slideshow').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
+      $('.cart-icon').click(function() {
+        $('.cart-popup').toggle();
       });
     });
   </script>
