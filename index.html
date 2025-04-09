@@ -162,6 +162,17 @@
       border-radius: 50%;
       z-index: 10;
     }
+
+    .kit-row {
+      display: flex;
+      overflow-x: auto;
+      margin-bottom: 3rem;
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+    .kit-row::-webkit-scrollbar {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -187,7 +198,7 @@
   <!-- Shop -->
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
-    <div class="carousel">
+    <div class="kit-row">
       <!-- Cozy Kits (All 10) -->
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1">
@@ -309,6 +320,7 @@
   </script>
 </body>
 </html>
+
 
 
 
