@@ -31,7 +31,7 @@
     .cart-popup { position: fixed; bottom: 70px; right: 20px; background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 1rem; display: none; z-index: 3000; width: 300px; }
     .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: none; align-items: center; justify-content: center; z-index: 4000; }
     .modal-content { background: white; padding: 1rem; border-radius: 15px; width: 90%; max-width: 600px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .modal-images { width: 100%; height: 400px; margin: auto; }
+    .modal-images { width: 100%; height: 400px; margin: auto; display: flex; justify-content: center; align-items: center; }
     .modal-images .slick-slide img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
     .blog-entry { background: #fff; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
     .blog-entry img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; }
@@ -149,9 +149,8 @@
 
           $carousel.append(`
             <div class="kit">
-              <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
-              <h3>${title.split(' ')[0]} Kit ${i}</h3>
-              <p>Perfect setup for your balcony.</p>
+              <img src="${images[key][0]}" alt="${key}" data-kit="${key}" />
+              <h3>${key}</h3>
               <button class="add-to-cart">Add to Cart</button>
               <input type="number" min="1" value="1" />
             </div>
@@ -181,6 +180,7 @@
           <div class="slick-slide"><img src="${images[key][2]}" /></div>
         `);
 
+        // Initialize Slick Carousel on Modal images
         $('#kit-modal .modal-images').slick({
           slidesToShow: 1,
           slidesToScroll: 1,
