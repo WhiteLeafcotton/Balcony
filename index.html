@@ -20,22 +20,23 @@
     .hero { background-image: url('https://via.placeholder.com/1200x400?text=Transform+Your+Balcony'); background-size: cover; background-position: center; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
     .section { padding: 2rem; max-width: 1200px; margin: auto; }
     h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .carousel { margin-bottom: 3rem; display: flex; gap: 10px; flex-wrap: wrap; }
-    .kit { padding: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; font-size: 0.85rem; cursor: pointer; }
-    .kit img { width: 100%; border-radius: 10px; height: 140px; object-fit: cover; }
-    .kit h3 { font-size: 1.1rem; margin-top: 10px; }
+    .carousel { margin-bottom: 3rem; }
+    .carousel .slick-slide { padding: 10px; }
+    .kit { padding: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; font-size: 0.85rem; }
+    .kit img { width: 100%; border-radius: 10px; height: 140px; object-fit: cover; cursor: pointer; }
     .kit button { margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: #00796b; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; }
     .kit input { width: 50px; margin-top: 0.3rem; }
     .cart-icon { position: fixed; bottom: 20px; right: 20px; background: #00796b; color: white; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 2000; }
     .cart-popup { position: fixed; bottom: 70px; right: 20px; background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 1rem; display: none; z-index: 3000; width: 300px; }
     .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: none; align-items: center; justify-content: center; z-index: 4000; }
-    .modal-content { background: white; padding: 1rem; border-radius: 15px; width: 90%; max-width: 600px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .modal-images { width: 100%; height: 400px; margin: auto; display: flex; justify-content: center; align-items: center; }
+    .modal-content { background: white; padding: 1rem; border-radius: 15px; width: 90%; max-width: 400px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .modal-images { width: 100%; height: 600px; }
     .modal-images .slick-slide img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
-    .contact-btn { position: fixed; bottom: 20px; left: 20px; background-color: #00796b; color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 2000; font-size: 1rem; }
-    .contact-form { width: 100%; max-width: 400px; margin: 20px auto; background-color: white; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; }
-    .contact-form input, .contact-form textarea { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-    .contact-form button { background-color: #00796b; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+    @media (max-width: 768px) {
+      .hero { height: 200px; font-size: 1.5rem; }
+      .modal-content { width: 90%; max-width: 90vw; height: auto; }
+      .modal-images { height: 400px; }
+    }
   </style>
 </head>
 <body>
@@ -51,36 +52,16 @@
     </nav>
   </header>
   <div class="hero">Transform Your NYC Balcony</div>
-
-  <!-- Shop Section -->
-  <section class="section" id="shop">
-    <h2>Shop Our Kits</h2>
-    <div class="carousel">
-      <!-- Kit Items -->
-      <div class="kit" data-kit-id="kit1">
-        <img src="https://via.placeholder.com/400x400?text=Cozy+Kit" alt="Cozy Kit"/>
-        <h3>Cozy Balcony Kit</h3>
-        <button>View Details</button>
-      </div>
-      <div class="kit" data-kit-id="kit2">
-        <img src="https://via.placeholder.com/400x400?text=Boho+Kit" alt="Boho Kit"/>
-        <h3>Boho Balcony Kit</h3>
-        <button>View Details</button>
-      </div>
-      <div class="kit" data-kit-id="kit3">
-        <img src="https://via.placeholder.com/400x400?text=Garden+Kit" alt="Garden Kit"/>
-        <h3>Garden Balcony Kit</h3>
-        <button>View Details</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Us Button -->
-  <button id="contact-btn" class="contact-btn">Contact Us</button>
-
-  <!-- Contact Us Form Modal -->
-  <div class="modal" id="contact-modal">
+  <section class="section" id="shop"></section>
+  <div class="modal">
     <div class="modal-content">
+      <div class="modal-images"></div>
+    </div>
+  </div>
+
+  <!-- Contact Us Form Popup -->
+  <div class="contact-popup" style="display:none;">
+    <div class="contact-form">
       <h3>Contact Us</h3>
       <form id="contact-form">
         <label for="name">Your Name</label>
@@ -94,86 +75,147 @@
     </div>
   </div>
 
-  <!-- Kit Details Modal -->
-  <div class="modal" id="kit-modal">
-    <div class="modal-content">
-      <div class="modal-images"></div>
-    </div>
-  </div>
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    const kitDetails = {
-      kit1: [
-        "https://via.placeholder.com/600x400?text=Cozy+Kit+Image+1",
-        "https://via.placeholder.com/600x400?text=Cozy+Kit+Image+2",
-        "https://via.placeholder.com/600x400?text=Cozy+Kit+Image+3"
-      ],
-      kit2: [
-        "https://via.placeholder.com/600x400?text=Boho+Kit+Image+1",
-        "https://via.placeholder.com/600x400?text=Boho+Kit+Image+2",
-        "https://via.placeholder.com/600x400?text=Boho+Kit+Image+3"
-      ],
-      kit3: [
-        "https://via.placeholder.com/600x400?text=Garden+Kit+Image+1",
-        "https://via.placeholder.com/600x400?text=Garden+Kit+Image+2",
-        "https://via.placeholder.com/600x400?text=Garden+Kit+Image+3"
-      ]
+    let cart = [];
+    const images = {};
+    const categories = {
+      "Cozy Nights Kits": "cozy",
+      "Boho Bliss Kits": "boho",
+      "Garden Glow Kits": "garden"
     };
 
     $(document).ready(function() {
-      // Open Kit Detail Modal
-      $('.kit button').click(function() {
-        const kitId = $(this).closest('.kit').data('kit-id');
-        const images = kitDetails[kitId];
+      const $shop = $('#shop');
 
-        $('#kit-modal .modal-images').html(images.map(img => `
-          <div class="slick-slide"><img src="${img}" alt="Kit Detail Image" /></div>
-        `).join(''));
+      Object.entries(categories).forEach(([title, prefix]) => {
+        const $section = $(`
+          <div>
+            <h2>${title}</h2>
+            <div class="carousel"></div>
+          </div>
+        `);
 
-        // Initialize Slick Carousel for modal images
-        $('#kit-modal .modal-images').slick({
-          slidesToShow: 1,
+        const $carousel = $section.find('.carousel');
+
+        for (let i = 1; i <= 7; i++) {
+          const key = `${prefix}${i}`;
+          images[key] = [
+            `https://via.placeholder.com/800x1000?text=${key}+Image+1`,
+            `https://via.placeholder.com/800x1000?text=${key}+Image+2`,
+            `https://via.placeholder.com/800x1000?text=${key}+Image+3`
+          ];
+
+          $carousel.append(`
+            <div class="kit">
+              <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
+              <h3>${title.split(' ')[0]} Kit ${i}</h3>
+              <p>Perfect setup for your balcony.</p>
+              <button>Shop Now</button>
+            </div>
+          `);
+        }
+
+        $shop.append($section);
+
+        $carousel.slick({
+          slidesToShow: 3,
           slidesToScroll: 1,
-          dots: true,
-          infinite: false
+          infinite: false,
+          arrows: true,
+          responsive: [
+            { breakpoint: 768, settings: { slidesToShow: 1 } },
+            { breakpoint: 1024, settings: { slidesToShow: 2 } }
+          ]
+        });
+      });
+
+      $(document).on('click', '.kit img', function() {
+        const kit = $(this).data('kit');
+        const imgs = images[kit] || [];
+        const $modalImages = $('.modal-images');
+        $modalImages.empty();
+        imgs.forEach(src => {
+          $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
         });
 
-        $('#kit-modal').fadeIn();
+        if ($modalImages.hasClass('slick-initialized')) {
+          $modalImages.slick('unslick');
+        }
+
+        $modalImages.slick({
+          dots: true,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          adaptiveHeight: true,
+          arrows: true
+        });
+
+        $('.modal').css('display', 'flex').hide().fadeIn();
       });
 
-      // Close Kit Modal when clicking outside the slideshow
-      $('#kit-modal').click(function(event) {
-        if (!$(event.target).closest('.modal-images').length) {
-          $(this).fadeOut();
+      $('.modal').click(function(e) {
+        if (!$(e.target).closest('.modal-content').length) {
+          $('.modal').fadeOut();
+          if ($('.modal-images').hasClass('slick-initialized')) {
+            $('.modal-images').slick('unslick');
+          }
         }
       });
 
-      // Open Contact Us Modal
+      // Shopping Cart System
+      $('.cart-icon').click(function() {
+        $('.cart-popup').fadeIn();
+        updateCart();
+      });
+
+      $(document).on('click', '.cart-popup', function(e) {
+        if (!$(e.target).closest('.cart-popup .cart-items').length) {
+          $('.cart-popup').fadeOut();
+        }
+      });
+
+      function updateCart() {
+        const $cartItems = $('.cart-items');
+        $cartItems.empty();
+
+        if (cart.length === 0) {
+          $cartItems.append('<p>Your cart is empty.</p>');
+        } else {
+          cart.forEach(item => {
+            $cartItems.append(`<p>${item}</p>`);
+          });
+        }
+      }
+
+      $('#checkout-btn').click(function() {
+        alert('Proceeding to checkout...');
+      });
+
+      // Contact Us Button
       $('#contact-btn').click(function() {
-        $('#contact-modal').fadeIn();
+        $('.contact-popup').fadeIn();
       });
 
-      // Close Contact Us Modal when clicking outside the form
-      $('#contact-modal').click(function(event) {
-        if (!$(event.target).closest('.modal-content').length) {
-          $(this).fadeOut();
+      // Close contact form on outside click
+      $(document).on('click', '.contact-popup', function(e) {
+        if (!$(e.target).closest('.contact-form').length) {
+          $('.contact-popup').fadeOut();
         }
       });
 
-      // Handle Contact Form Submission
+      // Submit Contact Form
       $('#contact-form').submit(function(e) {
         e.preventDefault();
-        alert("Form submitted!");
-        $('#contact-modal').fadeOut();
+        alert('Message sent!');
+        $('.contact-popup').fadeOut();
       });
     });
   </script>
 </body>
 </html>
-
-
 
 
 
