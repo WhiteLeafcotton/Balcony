@@ -137,25 +137,19 @@
           </div>
         `);
 
-        const $carousel = $section.find('.carousel');
+        const kitImages = [1, 2, 3, 4].map(i => `${prefix}-kit${i}.jpg`);
+        images[prefix] = kitImages;
 
-        for (let i = 1; i <= 7; i++) {
-          const key = `${prefix}${i}`;
-          images[key] = [
-            `https://via.placeholder.com/800x1000?text=${key}+Image+1`,
-            `https://via.placeholder.com/800x1000?text=${key}+Image+2`,
-            `https://via.placeholder.com/800x1000?text=${key}+Image+3`
-          ];
-
-          $carousel.append(`
+        kitImages.forEach((img, index) => {
+          $section.find('.carousel').append(`
             <div class="kit">
-              <img src="${images[key][0]}" alt="${key}" data-kit="${key}" />
-              <h3>${key}</h3>
+              <img src="${img}" alt="Kit ${index + 1}" data-kit="${prefix}">
+              <h3>Kit ${index + 1}</h3>
               <button class="add-to-cart">Add to Cart</button>
-              <input type="number" min="1" value="1" />
+              <input type="number" min="1" value="1">
             </div>
           `);
-        }
+        });
 
         $shop.append($section);
       });
@@ -180,7 +174,7 @@
           <div class="slick-slide"><img src="${images[key][2]}" /></div>
         `);
 
-        // Initialize Slick Carousel on Modal images
+        // Initialize Slick Carousel for modal images
         $('#kit-modal .modal-images').slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -220,6 +214,7 @@
   </script>
 </body>
 </html>
+
 
 
 
