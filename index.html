@@ -1,400 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="SkyNest Balcony Co. | Transform your NYC balcony into a stunning sanctuary with curated kits and custom design services." />
-  <meta property="og:title" content="SkyNest Balcony Co." />
-  <meta property="og:description" content="Custom designs, curated kits, and expert style for small spaces in NYC." />
-  <meta property="og:image" content="https://via.placeholder.com/1200x600/00796b/ffffff?text=SkyNest+Balcony+Design" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkyNest Balcony Co.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
   <style>
+    /* Basic Styles */
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background-color: #f4f4f4;
+    }
+    h1, h2 {
+      text-align: center;
       color: #333;
     }
+    section {
+      padding: 50px 0;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Header */
     header {
-      background-color: #00796b;
+      background-color: #333;
       color: white;
-      padding: 1rem;
+      padding: 20px 0;
+      text-align: center;
     }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
-    .nav-links {
+
+    /* Navigation */
+    nav ul {
       list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
-      gap: 1rem;
+      justify-content: center;
+      gap: 20px;
     }
-    .nav-links a {
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 1.2rem;
     }
-    .hero {
-      background-image: url('https://via.placeholder.com/1200x400?text=Transform+Your+Balcony');
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    }
-    .section {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+
+    /* Shop Section */
     .carousel {
-      margin-bottom: 3rem;
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px;
     }
+
     .kit {
-      padding: 0.5rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      font-size: 0.85rem;
-      width: 200px; /* Adjusted width for better layout */
+      padding: 20px;
+      width: 220px;
     }
+
     .kit img {
       width: 100%;
-      border-radius: 10px;
-      height: 140px;
-      object-fit: cover;
-      cursor: pointer;
+      height: auto;
+      border-radius: 8px;
     }
+
+    .kit h3 {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+
+    .kit p {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 5px;
+    }
+
     .kit button {
-      margin-top: 0.5rem;
-      padding: 0.4rem 0.8rem;
-      background: #00796b;
+      background-color: #333;
       color: white;
       border: none;
-      border-radius: 5px;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
       cursor: pointer;
-      font-size: 0.9rem;
     }
-    .kit input {
-      width: 50px;
-      margin-top: 0.3rem;
+
+    .kit button:hover {
+      background-color: #555;
     }
-    .card-container {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .card {
-      flex: 1 1 45%;
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .cart-icon {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #00796b;
+
+    /* Footer */
+    footer {
+      background-color: #333;
       color: white;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 2000;
-    }
-    .cart-popup {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      display: none;
-      z-index: 3000;
-      width: 300px;
-    }
-    .modal {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 4000;
-    }
-    .modal-content {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      max-width: 500px;
       text-align: center;
-    }
-    .modal-content img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-    .modal-content button {
-      margin: 0.5rem;
-    }
-    .slick-prev, .slick-next {
-      background-color: #00796b;
-      color: white;
-      padding: 0.5rem;
-      border-radius: 50%;
-      z-index: 10;
+      padding: 20px;
     }
 
-    /* For category rows with swappable kits */
-    .kit-row {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem;
+    footer p {
+      margin: 0;
     }
-    .kit-row::-webkit-scrollbar {
-      display: none;
-    }
-
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <nav class="navbar">
-      <div class="logo">SkyNest</div>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
+    <h1>SkyNest Balcony Co.</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#shop">Shop</a></li>
-        <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
-  <div class="hero">Transform Your NYC Balcony</div>
 
-  <!-- Services -->
-  <section class="section fade-in" id="services">
-    <h2>Our Services</h2>
-    <p>We design, plan, and style your balcony with curated kits and custom options for cozy, urban outdoor living.</p>
+  <!-- Home Section -->
+  <section id="home" class="fade-in">
+    <h2>Welcome to SkyNest Balcony Co.</h2>
+    <p>Your space, elevated. Transform your balcony into a stylish outdoor retreat with our curated kits.</p>
   </section>
 
-  <!-- Shop -->
-  <section class="section fade-in" id="shop">
+  <!-- About Section -->
+  <section id="about" class="fade-in">
+    <h2>About Us</h2>
+    <p>SkyNest Balcony Co. offers a range of kits designed to enhance the beauty and functionality of your balcony. Our kits are designed for comfort, style, and practicality, whether you're creating a cozy night in or building your own plant sanctuary.</p>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="fade-in">
     <h2>Cozy Nights Kits</h2>
-    <div class="kit-row">
-      <!-- Cozy Kits (All 10) -->
+    <div class="carousel">
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1">
         <h3>Urban Retreat</h3>
-        <p>Plush throws, decorative candles, and elegant string lights.</p>
+        <p>Create a chic evening oasis with plush throws, decorative candles, and elegant string lights.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+2" alt="Cozy Kit 2">
-        <h3>Chic Comfort</h3>
-        <p>Soft cushions, outdoor rugs, and LED lanterns for a stylish touch.</p>
+        <h3>Midnight Comfort</h3>
+        <p>Transform your balcony into a cozy escape with soft cushions, ambient lighting, and a warm blanket.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+3" alt="Cozy Kit 3">
-        <h3>Nighttime Escape</h3>
-        <p>Hanging lights, cozy throws, and a calming atmosphere.</p>
+        <h3>Twilight Vibes</h3>
+        <p>Bring your space to life with a mix of cozy textures and gentle lighting for those perfect evening moments.</p>
         <button>Shop Now</button>
       </div>
+      <!-- Additional 7 kits for Cozy Nights -->
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+4" alt="Cozy Kit 4">
-        <h3>City Hideaway</h3>
-        <p>Comfortable seating, potted plants, and chic accessories.</p>
+        <h3>Relaxing Haven</h3>
+        <p>Perfect for unwinding with a soft throw, plush pillows, and soothing lights.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+5" alt="Cozy Kit 5">
-        <h3>Evening Chill</h3>
-        <p>Cozy blankets, string lights, and a set of lanterns for a perfect evening.</p>
+        <h3>Starlight Comfort</h3>
+        <p>Set the mood with twinkling lights and cozy textiles for your perfect starlit evening.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+6" alt="Cozy Kit 6">
-        <h3>Warm Vibes</h3>
-        <p>Outdoor candles, plush pillows, and cozy seating.</p>
+        <h3>Evening Glow</h3>
+        <p>Soft lighting, comfy cushions, and warm throws for a perfect balcony evening.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+7" alt="Cozy Kit 7">
-        <h3>Romantic Hideout</h3>
-        <p>Dim lights, plush cushions, and calming decor.</p>
+        <h3>Nightfall Escape</h3>
+        <p>Cozy blankets, elegant lanterns, and a calming atmosphere for relaxing evenings.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+8" alt="Cozy Kit 8">
-        <h3>Snuggle Zone</h3>
-        <p>Plush throws, ambient lighting, and floor cushions.</p>
+        <h3>Moonlit Retreat</h3>
+        <p>Soft textures and gentle lighting to create a serene evening atmosphere.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+9" alt="Cozy Kit 9">
-        <h3>Soft Escape</h3>
-        <p>Soft textures, string lights, and stylish seating.</p>
+        <h3>Warmth & Comfort</h3>
+        <p>Perfect for chilly nights, featuring plush throws and warm lighting.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+10" alt="Cozy Kit 10">
-        <h3>Serenity Now</h3>
-        <p>Serene lighting, soft blankets, and relaxing cushions.</p>
+        <h3>Golden Glow</h3>
+        <p>Turn your balcony into a warm, inviting space with golden lights and cozy decor.</p>
         <button>Shop Now</button>
       </div>
     </div>
 
-    <h2>Romantic Getaway Kits</h2>
-    <div class="kit-row">
-      <!-- Romantic Kits (All 10) -->
+    <h2>Plant Lover Kits</h2>
+    <div class="carousel">
       <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+1" alt="Romantic Kit 1">
-        <h3>Starlight Escape</h3>
-        <p>Fairy lights, velvet cushions, and romantic candles.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+2" alt="Romantic Kit 2">
-        <h3>Moonlit Serenity</h3>
-        <p>Outdoor seating, decorative lanterns, and soft throws.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+3" alt="Romantic Kit 3">
-        <h3>Love Nest</h3>
-        <p>Cushions, candles, and soft rugs for a cozy experience.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+4" alt="Romantic Kit 4">
-        <h3>Perfect Moment</h3>
-        <p>Dimmed lighting, soft throws, and ambient lighting.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+5" alt="Romantic Kit 5">
-        <h3>Candlelit Affair</h3>
-        <p>LED candles, plush seating, and soft blankets.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+6" alt="Romantic Kit 6">
-        <h3>Sweet Escape</h3>
-        <p>Comfortable pillows, lanterns, and a warm ambiance.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+7" alt="Romantic Kit 7">
-        <h3>Love & Lights</h3>
-        <p>String lights, soft seating, and intimate touches.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+8" alt="Romantic Kit 8">
-        <h3>Hearts & Hues</h3>
-        <p>Colorful seating, dreamy lights, and soothing scents.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+9" alt="Romantic Kit 9">
-        <h3>Sunset Charm</h3>
-        <p>Outdoor seating, wind chimes, and elegant decor.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+10" alt="Romantic Kit 10">
-        <h3>Twilight Oasis</h3>
-        <p>Fairy lights, comfy cushions, and a tranquil atmosphere.</p>
-        <button>Shop Now</button>
-      </div>
-    </div>
-
-    <h2>Garden Oasis Kits</h2>
-    <div class="kit-row">
-      <!-- Garden Kits (All 10) -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+1" alt="Garden Kit 1">
-        <h3>Urban Greenery</h3>
-        <p>Potted plants, hanging planters, and a green escape.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+2" alt="Garden Kit 2">
-        <h3>Botanical Bliss</h3>
-        <p>Fresh greenery, flowers, and rustic decor.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+3" alt="Garden Kit 3">
-        <h3>Green Haven</h3>
-        <p>Colorful plants, comfortable seating, and cozy rugs.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+4" alt="Garden Kit 4">
-        <h3>Zen Garden</h3>
-        <p>Calming plants, stones, and tranquil design.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+5" alt="Garden Kit 5">
-        <h3>Floral Retreat</h3>
-        <p>Flower-filled baskets, lanterns, and soothing seating.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+6" alt="Garden Kit 6">
-        <h3>Verdant Escape</h3>
-        <p>Hanging plants, bamboo furniture, and lush greenery.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+7" alt="Garden Kit 7">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+1" alt="Plant Kit 1">
         <h3>Urban Jungle</h3>
-        <p>Large potted plants, natural lighting, and sleek design.</p>
+        <p>Bring lush greenery to your balcony with a mix of indoor plants that thrive in the urban environment.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+8" alt="Garden Kit 8">
-        <h3>City Oasis</h3>
-        <p>Planters, cozy throws, and natural accessories.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+9" alt="Garden Kit 9">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+2" alt="Plant Kit 2">
         <h3>Botanical Bliss</h3>
-        <p>Bright flowers, a comfy bench, and a tranquil vibe.</p>
+        <p>Elevate your space with a curated collection of easy-to-care-for plants, including ferns and succulents.</p>
         <button>Shop Now</button>
       </div>
       <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+10" alt="Garden Kit 10">
-        <h3>Herb Garden</h3>
-        <p>Small plants, herb kits, and cozy seating.</p>
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+3" alt="Plant Kit 3">
+        <h3>Zen Garden</h3>
+        <p>Perfect for relaxation: a balanced mix of plants that promote tranquility and clean air.</p>
+        <button>Shop Now</button>
+      </div>
+      <!-- Additional 7 kits for Plant Lover -->
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+4" alt="Plant Kit 4">
+        <h3>Green Escape</h3>
+        <p>Create a relaxing retreat with a variety of green plants and soft lighting.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+5" alt="Plant Kit 5">
+        <h3>Succulent Haven</h3>
+        <p>Bring low-maintenance succulents into your space for a touch of nature.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+6" alt="Plant Kit 6">
+        <h3>Air Purifiers</h3>
+        <p>Fill your space with plants that purify the air and enhance your well-being.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+7" alt="Plant Kit 7">
+        <h3>Balcony Greens</h3>
+        <p>Transform your balcony into a vibrant space with a variety of plants.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+8" alt="Plant Kit 8">
+        <h3>Compact Oasis</h3>
+        <p>Ideal for smaller balconies, these plants will give you a cozy, green space.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+9" alt="Plant Kit 9">
+        <h3>Plant Paradise</h3>
+        <p>Turn your balcony into a botanical paradise with a curated mix of plants.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+10" alt="Plant Kit 10">
+        <h3>Calming Greenery</h3>
+        <p>Enjoy the calming effect of lush plants that create a peaceful space.</p>
+        <button>Shop Now</button>
+      </div>
+    </div>
+
+    <h2>Rental-Friendly Kits</h2>
+    <div class="carousel">
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+1" alt="Rental Kit 1">
+        <h3>Easy Setup</h3>
+        <p>Perfect for renters—temporary and stylish solutions that are easy to set up and remove without damage.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+2" alt="Rental Kit 2">
+        <h3>Quick Refresh</h3>
+        <p>Transform your balcony with removable furniture and decor that’s perfect for rental spaces.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+3" alt="Rental Kit 3">
+        <h3>Flexible Design</h3>
+        <p>Our rental-friendly kit includes lightweight furniture and versatile decor to suit any balcony.</p>
+        <button>Shop Now</button>
+      </div>
+      <!-- Additional 7 kits for Rental-Friendly -->
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+4" alt="Rental Kit 4">
+        <h3>Easy Transition</h3>
+        <p>Make your move easy with furniture and decor that’s simple to pack up and take with you.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+5" alt="Rental Kit 5">
+        <h3>Portable Comfort</h3>
+        <p>Designed for renters who need portable, comfortable options that fit any space.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+6" alt="Rental Kit 6">
+        <h3>Temporary Oasis</h3>
+        <p>Enjoy a stylish space that can be set up and removed quickly without any hassle.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+7" alt="Rental Kit 7">
+        <h3>On-the-Go Style</h3>
+        <p>Stay stylish with easy-to-move pieces perfect for renters who like to mix things up.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+8" alt="Rental Kit 8">
+        <h3>Moveable Comfort</h3>
+        <p>Perfect for renters: lightweight furniture that can be easily moved or packed.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+9" alt="Rental Kit 9">
+        <h3>Easy Decor</h3>
+        <p>Transform your balcony with no-drill decor and furniture that works perfectly for rental spaces.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+10" alt="Rental Kit 10">
+        <h3>Quick Setup</h3>
+        <p>Simple, stylish, and quick-to-set-up kits for renters looking for no-fuss outdoor spaces.</p>
         <button>Shop Now</button>
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SkyNest Balcony Co. | All Rights Reserved</p>
+  </footer>
 </body>
 </html>
+
 
 
 
