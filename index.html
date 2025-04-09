@@ -12,177 +12,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #00796b;
-      color: white;
-      padding: 1rem;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background-image: url('https://via.placeholder.com/1200x400?text=Transform+Your+Balcony');
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    }
-    .section {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .carousel {
-      margin-bottom: 3rem;
-    }
-    .kit {
-      padding: 0.5rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin: 10px;
-      text-align: center;
-      font-size: 0.85rem;
-      width: 220px;
-    }
-    .kit img {
-      width: 100%;
-      border-radius: 10px;
-      height: 140px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-    .kit button {
-      margin-top: 0.5rem;
-      padding: 0.4rem 0.8rem;
-      background: #00796b;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .kit input {
-      width: 50px;
-      margin-top: 0.3rem;
-    }
-    .card-container {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .card {
-      flex: 1 1 45%;
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .cart-icon {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #00796b;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 2000;
-    }
-    .cart-popup {
-      position: fixed;
-      bottom: 70px;
-      right: 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      display: none;
-      z-index: 3000;
-      width: 300px;
-    }
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 4000;
-      overflow: hidden;
-    }
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 1000px;
-      height: 70%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-    .modal-content img {
-      max-width: 100%;
-      height: auto;
-    }
-    .modal .slick-slide img {
-      max-height: 500px;
-    }
-
-    /* Mobile responsiveness */
+    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+    header { background-color: #00796b; color: white; padding: 1rem; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
+    .nav-links { list-style: none; display: flex; gap: 1rem; }
+    .nav-links a { color: white; text-decoration: none; font-weight: bold; }
+    .hero { background-image: url('https://via.placeholder.com/1200x400?text=Transform+Your+Balcony'); background-size: cover; background-position: center; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+    .section { padding: 2rem; max-width: 1200px; margin: auto; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; }
+    .carousel { margin-bottom: 3rem; }
+    .kit { padding: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 10px; text-align: center; font-size: 0.85rem; width: 220px; }
+    .kit img { width: 100%; border-radius: 10px; height: 140px; object-fit: cover; cursor: pointer; }
+    .kit button { margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: #00796b; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; }
+    .kit input { width: 50px; margin-top: 0.3rem; }
+    .cart-icon { position: fixed; bottom: 20px; right: 20px; background: #00796b; color: white; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 2000; }
+    .cart-popup { position: fixed; bottom: 70px; right: 20px; background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 1rem; display: none; z-index: 3000; width: 300px; }
+    .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: none; align-items: center; justify-content: center; z-index: 4000; }
+    .modal-content { background: white; padding: 1rem; border-radius: 15px; width: 90%; max-width: 400px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .modal-images { width: 100%; height: 600px; }
+    .modal-images .slick-slide img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
     @media (max-width: 768px) {
-      .hero {
-        height: 200px;
-        font-size: 1.5rem;
-      }
-      .kit {
-        width: 100%;
-      }
-      .modal-content {
-        width: 90%;
-        height: 80%;
-      }
-      .carousel {
-        display: flex;
-        flex-direction: column;
-      }
+      .hero { height: 200px; font-size: 1.5rem; }
+      .kit { width: 100%; }
+      .modal-content { width: 90%; max-width: 90vw; height: auto; }
+      .modal-images { height: 400px; }
     }
   </style>
 </head>
@@ -200,164 +53,63 @@
   </header>
   <div class="hero">Transform Your NYC Balcony</div>
 
-  <!-- Services -->
-  <section class="section fade-in" id="services">
-    <h2>Our Services</h2>
-    <p>We design, plan, and style your balcony with curated kits and custom options for cozy, urban outdoor living.</p>
-  </section>
-
-  <!-- Shop -->
-  <section class="section fade-in" id="shop">
+  <section class="section" id="shop">
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
-      <!-- Kit 1 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1" data-kit="cozy1">
-        <h3>Urban Retreat</h3>
-        <p>Create a chic evening oasis with plush throws, decorative candles, and elegant string lights.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 2 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+2" alt="Cozy Kit 2" data-kit="cozy2">
-        <h3>Midnight Comfort</h3>
-        <p>Transform your balcony into a cozy escape with soft cushions, ambient lighting, and a warm blanket.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 3 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+3" alt="Cozy Kit 3" data-kit="cozy3">
-        <h3>Twilight Vibes</h3>
-        <p>Bring your space to life with a mix of cozy textures and gentle lighting for those perfect evening moments.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 4 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+4" alt="Cozy Kit 4" data-kit="cozy4">
-        <h3>Serenity Now</h3>
-        <p>Turn your balcony into a tranquil retreat with soft textures and gentle lighting.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 5 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+5" alt="Cozy Kit 5" data-kit="cozy5">
-        <h3>Evening Escape</h3>
-        <p>Set the mood for an intimate evening with a blend of comfort and serenity.</p>
-        <button>Shop Now</button>
-      </div>
-    </div>
-
-    <h2>Plant Lover Kits</h2>
-    <div class="carousel">
-      <!-- Kit 1 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+1" alt="Plant Kit 1" data-kit="plant1">
-        <h3>Urban Jungle</h3>
-        <p>Bring lush greenery to your balcony with a mix of indoor plants that thrive in the urban environment.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 2 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+2" alt="Plant Kit 2" data-kit="plant2">
-        <h3>Botanical Bliss</h3>
-        <p>Elevate your space with a curated collection of easy-to-care-for plants, including ferns and succulents.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 3 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+3" alt="Plant Kit 3" data-kit="plant3">
-        <h3>Evergreen Escape</h3>
-        <p>Transform your balcony into a lush haven with plants that bring natural beauty and a fresh atmosphere.</p>
-        <button>Shop Now</button>
-      </div>
-    </div>
-
-    <h2>Rental Friendly Kits</h2>
-    <div class="carousel">
-      <!-- Kit 1 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+1" alt="Rental Kit 1" data-kit="rental1">
-        <h3>Instant Makeover</h3>
-        <p>Stylish, removable pieces to give your balcony an instant makeover with minimal effort.</p>
-        <button>Shop Now</button>
-      </div>
-      <!-- Kit 2 -->
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+2" alt="Rental Kit 2" data-kit="rental2">
-        <h3>Versatile Living</h3>
-        <p>Our versatile rental-friendly kit includes everything you need for a stylish outdoor space.</p>
-        <button>Shop Now</button>
-      </div>
+      <div class="kit"><img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" data-kit="cozy1"><h3>Urban Retreat</h3><p>Chic evening oasis.</p><button>Shop Now</button></div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Got a question? Get in touch with us!</p>
-    <p>Email: support@skynest.com | Phone: +1 (555) 123-4567</p>
-  </footer>
-
-  <div class="cart-icon">
-    <span>🛒</span>
-  </div>
-  <div class="cart-popup">
-    <p>Your cart is empty</p>
-  </div>
-
-  <!-- Modal for detail view slideshow -->
-  <div class="modal" style="display: none;">
+  <div class="modal">
     <div class="modal-content">
-      <div class="slick-carousel">
-        <img src="https://via.placeholder.com/800x1200?text=Kit+Image+1" alt="Detail View Image 1" />
-        <img src="https://via.placeholder.com/800x1200?text=Kit+Image+2" alt="Detail View Image 2" />
-        <img src="https://via.placeholder.com/800x1200?text=Kit+Image+3" alt="Detail View Image 3" />
-      </div>
+      <div class="modal-images"></div>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    // Slick Carousel Initialization
-    $(document).ready(function(){
-      $('.carousel').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: true,
-        centerMode: true,
-        focusOnSelect: true,
-      });
+    const images = {
+      cozy1: [
+        "https://via.placeholder.com/800x1000?text=Cozy+Kit+1+Image+1",
+        "https://via.placeholder.com/800x1000?text=Cozy+Kit+1+Image+2",
+        "https://via.placeholder.com/800x1000?text=Cozy+Kit+1+Image+3"
+      ]
+    };
 
-      // Modal functionality with multiple images
-      $(".kit img").click(function() {
-        var kit = $(this).data('kit');
-        var images = {
-          cozy1: ["https://via.placeholder.com/800x1200?text=Cozy+1+Image+1", "https://via.placeholder.com/800x1200?text=Cozy+1+Image+2", "https://via.placeholder.com/800x1200?text=Cozy+1+Image+3"],
-          plant1: ["https://via.placeholder.com/800x1200?text=Plant+1+Image+1", "https://via.placeholder.com/800x1200?text=Plant+1+Image+2", "https://via.placeholder.com/800x1200?text=Plant+1+Image+3"],
-          rental1: ["https://via.placeholder.com/800x1200?text=Rental+1+Image+1", "https://via.placeholder.com/800x1200?text=Rental+1+Image+2", "https://via.placeholder.com/800x1200?text=Rental+1+Image+3"],
-        };
-        
-        var kitImages = images[kit] || [];
-        var modalCarousel = $('.slick-carousel');
-        modalCarousel.empty();
-
-        kitImages.forEach(function(image) {
-          modalCarousel.append('<img src="' + image + '" alt="Detail View Image">');
+    $(document).ready(function() {
+      $('.kit img').click(function() {
+        const kit = $(this).data('kit');
+        const imgs = images[kit] || [];
+        const $modalImages = $('.modal-images');
+        $modalImages.empty();
+        imgs.forEach(src => {
+          $modalImages.append(`<div><img src="${src}" alt="${kit}"></div>`);
         });
 
-        $(".modal").fadeIn();
-        modalCarousel.slick({
+        if ($modalImages.hasClass('slick-initialized')) {
+          $modalImages.slick('unslick');
+        }
+
+        $modalImages.slick({
+          dots: true,
           infinite: true,
+          speed: 300,
           slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true
+          adaptiveHeight: true,
+          arrows: true
         });
+
+        $('.modal').css('display', 'flex').hide().fadeIn();
       });
 
-      $(".modal").click(function() {
-        $(this).fadeOut();
-        $('.slick-carousel').slick('unslick'); // destroy slick instance
+      $('.modal').click(function(e) {
+        if (!$(e.target).closest('.modal-content').length) {
+          $('.modal').fadeOut();
+          if ($('.modal-images').hasClass('slick-initialized')) {
+            $('.modal-images').slick('unslick');
+          }
+        }
       });
     });
   </script>
