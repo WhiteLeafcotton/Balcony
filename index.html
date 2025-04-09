@@ -22,8 +22,9 @@
     h2 { font-size: 2rem; margin-bottom: 1rem; }
     .carousel { margin-bottom: 3rem; }
     .carousel .slick-slide { padding: 10px; }
-    .kit { padding: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; font-size: 0.85rem; }
-    .kit img { width: 100%; border-radius: 10px; height: 140px; object-fit: cover; cursor: pointer; }
+    .kit { padding: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; font-size: 0.85rem; cursor: pointer; }
+    .kit img { width: 100%; border-radius: 10px; height: 140px; object-fit: cover; }
+    .kit h3 { font-size: 1.1rem; margin-top: 10px; }
     .kit button { margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: #00796b; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9rem; }
     .kit input { width: 50px; margin-top: 0.3rem; }
     .cart-icon { position: fixed; bottom: 20px; right: 20px; background: #00796b; color: white; padding: 10px 15px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 2000; }
@@ -32,14 +33,13 @@
     .modal-content { background: white; padding: 1rem; border-radius: 15px; width: 90%; max-width: 400px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .modal-images { width: 100%; height: 600px; }
     .modal-images .slick-slide img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
-    .blog-entry { background: #fff; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; }
-    .blog-entry img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+    .blog-entry { background: #fff; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .blog-entry img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; }
+    .blog-entry div { flex-grow: 1; margin-left: 1rem; }
     .contact-btn { position: fixed; bottom: 20px; left: 20px; background-color: #00796b; color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 2000; font-size: 1rem; }
-    @media (max-width: 768px) {
-      .hero { height: 200px; font-size: 1.5rem; }
-      .modal-content { width: 90%; max-width: 90vw; height: auto; }
-      .modal-images { height: 400px; }
-    }
+    .contact-form { width: 100%; max-width: 400px; margin: 20px auto; background-color: white; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; }
+    .contact-form input, .contact-form textarea { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    .contact-form button { background-color: #00796b; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
   </style>
 </head>
 <body>
@@ -64,26 +64,34 @@
     <h2>Latest Blog Posts</h2>
     <div class="blog-entry">
       <img src="https://via.placeholder.com/1200x800?text=Blog+Post+1" alt="Blog Image 1"/>
-      <h3>Transform Your Small Balcony into a Cozy Retreat</h3>
-      <p>Explore design tips and kits for transforming your small balcony into a cozy retreat for relaxation and enjoyment.</p>
-      <a href="#">Read more</a>
+      <div>
+        <h3>Transform Your Small Balcony into a Cozy Retreat</h3>
+        <p>Explore design tips and kits for transforming your small balcony into a cozy retreat.</p>
+        <a href="#">Read more</a>
+      </div>
     </div>
     <div class="blog-entry">
       <img src="https://via.placeholder.com/1200x800?text=Blog+Post+2" alt="Blog Image 2"/>
-      <h3>How to Choose the Right Balcony Furniture</h3>
-      <p>Choosing the right furniture for your balcony is key to making the most of your outdoor space. Here’s what you need to know.</p>
-      <a href="#">Read more</a>
+      <div>
+        <h3>How to Choose the Right Balcony Furniture</h3>
+        <p>Choosing the right furniture for your balcony is key to making the most of your outdoor space.</p>
+        <a href="#">Read more</a>
+      </div>
     </div>
     <div class="blog-entry">
       <img src="https://via.placeholder.com/1200x800?text=Blog+Post+3" alt="Blog Image 3"/>
-      <h3>Creating the Perfect Balcony Garden</h3>
-      <p>Learn how to create a stunning balcony garden, even in a small space. Tips for the best plants and setup!</p>
-      <a href="#">Read more</a>
+      <div>
+        <h3>Creating the Perfect Balcony Garden</h3>
+        <p>Learn how to create a stunning balcony garden, even in a small space.</p>
+        <a href="#">Read more</a>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Us Form Popup -->
-  <div class="contact-popup" style="display:none;">
+  <!-- Contact Us Button and Popup -->
+  <button id="contact-btn" class="contact-btn">Contact Us</button>
+  
+  <div class="modal">
     <div class="contact-form">
       <h3>Contact Us</h3>
       <form id="contact-form">
@@ -97,9 +105,6 @@
       </form>
     </div>
   </div>
-
-  <!-- Floating Contact Button -->
-  <button id="contact-btn" class="contact-btn">Contact Us</button>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
@@ -191,52 +196,16 @@
         }
       });
 
-      // Shopping Cart System
-      $('.cart-icon').click(function() {
-        $('.cart-popup').fadeIn();
-        updateCart();
-      });
-
-      $(document).on('click', '.cart-popup', function(e) {
-        if (!$(e.target).closest('.cart-popup .cart-items').length) {
-          $('.cart-popup').fadeOut();
-        }
-      });
-
-      function updateCart() {
-        const $cartItems = $('.cart-items');
-        $cartItems.empty();
-
-        if (cart.length === 0) {
-          $cartItems.append('<p>Your cart is empty.</p>');
-        } else {
-          cart.forEach(item => {
-            $cartItems.append(`<p>${item}</p>`);
-          });
-        }
-      }
-
-      $('#checkout-btn').click(function() {
-        alert('Proceeding to checkout...');
-      });
-
       // Contact Us Button
       $('#contact-btn').click(function() {
-        $('.contact-popup').fadeIn();
-      });
-
-      // Close contact form on outside click
-      $(document).on('click', '.contact-popup', function(e) {
-        if (!$(e.target).closest('.contact-form').length) {
-          $('.contact-popup').fadeOut();
-        }
+        $('.modal').fadeIn();
       });
 
       // Submit Contact Form
       $('#contact-form').submit(function(e) {
         e.preventDefault();
-        alert('Message sent!');
-        $('.contact-popup').fadeOut();
+        alert("Form submitted!");
+        $('.modal').fadeOut();
       });
     });
   </script>
