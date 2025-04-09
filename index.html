@@ -55,7 +55,7 @@
     </nav>
   </header>
   <div class="hero">Transform Your NYC Balcony</div>
-  
+
   <!-- Shop Section -->
   <section class="section" id="shop"></section>
 
@@ -88,11 +88,12 @@
     </div>
   </section>
 
-  <!-- Contact Us Button and Popup -->
+  <!-- Contact Us Button -->
   <button id="contact-btn" class="contact-btn">Contact Us</button>
-  
-  <div class="modal">
-    <div class="contact-form">
+
+  <!-- Contact Us Form Modal -->
+  <div class="modal" id="contact-modal">
+    <div class="modal-content">
       <h3>Contact Us</h3>
       <form id="contact-form">
         <label for="name">Your Name</label>
@@ -103,6 +104,13 @@
         <textarea id="message" name="message" required></textarea>
         <button type="submit">Submit</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Kit Details Modal -->
+  <div class="modal" id="kit-modal">
+    <div class="modal-content">
+      <div class="modal-images"></div>
     </div>
   </div>
 
@@ -120,6 +128,7 @@
     $(document).ready(function() {
       const $shop = $('#shop');
 
+      // Add Kits to Shop Section
       Object.entries(categories).forEach(([title, prefix]) => {
         const $section = $(`
           <div>
@@ -162,49 +171,48 @@
         });
       });
 
+      // Show Kit Details Modal on Kit Image Click
       $(document).on('click', '.kit img', function() {
         const kit = $(this).data('kit');
         const imgs = images[kit] || [];
-        const $modalImages = $('.modal-images');
+        const $modalImages = $('#kit-modal .modal-images');
         $modalImages.empty();
         imgs.forEach(src => {
           $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
         });
 
-        if ($modalImages.hasClass('slick-initialized')) {
-          $modalImages.slick('unslick');
+        if ($('#kit-modal .modal-images').hasClass('slick-initialized')) {
+          $('#kit-modal .modal-images').slick('unslick');
         }
 
-        $modalImages.slick({
-          dots: true,
-          infinite: true,
-          speed: 300,
+        $('#kit-modal .modal-images').slick({
           slidesToShow: 1,
-          adaptiveHeight: true,
-          arrows: true
+          slidesToScroll: 1,
+          dots: true
         });
 
-        $('.modal').css('display', 'flex').hide().fadeIn();
+        $('#kit-modal').fadeIn();
       });
 
-      $('.modal').click(function(e) {
-        if (!$(e.target).closest('.modal-content').length) {
-          $('.modal').fadeOut();
-          if ($('.modal-images').hasClass('slick-initialized')) {
-            $('.modal-images').slick('unslick');
-          }
-        }
+      // Close Kit Detail Modal
+      $('#kit-modal').click(function() {
+        $(this).fadeOut();
       });
 
-      // Contact Us Button
+      // Open Contact Us Modal
       $('#contact-btn').click(function() {
-        $('.modal').fadeIn();
+        $('#contact-modal').fadeIn();
+      });
+
+      // Close Contact Us Modal
+      $('#contact-modal').click(function() {
+        $(this).fadeOut();
       });
 
       $('#contact-form').submit(function(e) {
         e.preventDefault();
         alert("Form submitted!");
-        $('.modal').fadeOut();
+        $('#contact-modal').fadeOut();
       });
     });
   </script>
