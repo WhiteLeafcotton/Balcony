@@ -145,15 +145,15 @@
       background: white;
       padding: 1rem;
       border-radius: 10px;
-      max-width: 500px;
+      max-width: 600px;
       text-align: center;
     }
     .modal-content img {
       max-width: 100%;
       border-radius: 10px;
     }
-    .modal-content button {
-      margin: 0.5rem;
+    .modal-content .slick-prev, .modal-content .slick-next {
+      color: #00796b;
     }
   </style>
 </head>
@@ -181,67 +181,82 @@
   <section class="section fade-in" id="shop">
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
+      <!-- Kit 1 -->
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1">
         <h3>Urban Retreat</h3>
         <p>Create a chic evening oasis with plush throws, decorative candles, and elegant string lights.</p>
         <button>Shop Now</button>
       </div>
+      <!-- Kit 2 -->
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+2" alt="Cozy Kit 2">
         <h3>Midnight Comfort</h3>
         <p>Transform your balcony into a cozy escape with soft cushions, ambient lighting, and a warm blanket.</p>
         <button>Shop Now</button>
       </div>
+      <!-- Kit 3 -->
       <div class="kit">
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+3" alt="Cozy Kit 3">
         <h3>Twilight Vibes</h3>
         <p>Bring your space to life with a mix of cozy textures and gentle lighting for those perfect evening moments.</p>
         <button>Shop Now</button>
       </div>
+      <!-- Add more kits (7 more kits added) -->
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+4" alt="Cozy Kit 4">
+        <h3>Dreamy Dusk</h3>
+        <p>Perfect for quiet evenings with soft, plush fabrics and ambient lighting.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+5" alt="Cozy Kit 5">
+        <h3>Starry Night</h3>
+        <p>A magical blend of string lights and comfortable cushions to relax under the stars.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+6" alt="Cozy Kit 6">
+        <h3>Fireside Relaxation</h3>
+        <p>Embrace warmth with a portable heater and soft throws.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+7" alt="Cozy Kit 7">
+        <h3>Zen Haven</h3>
+        <p>Serenity comes with this calming setup, perfect for meditation and relaxation.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+8" alt="Cozy Kit 8">
+        <h3>Rustic Charm</h3>
+        <p>Natural wood accents and soft lighting bring rustic beauty to your balcony.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+9" alt="Cozy Kit 9">
+        <h3>Garden Glow</h3>
+        <p>Mix of outdoor-friendly lanterns and soft cushions for a garden-like feel.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+10" alt="Cozy Kit 10">
+        <h3>Calm Sanctuary</h3>
+        <p>A cozy, quiet sanctuary for peaceful evenings with friends or alone.</p>
+        <button>Shop Now</button>
+      </div>
     </div>
 
-    <h2>Plant Lover Kits</h2>
-    <div class="carousel">
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+1" alt="Plant Kit 1">
-        <h3>Urban Jungle</h3>
-        <p>Bring lush greenery to your balcony with a mix of indoor plants that thrive in the urban environment.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+2" alt="Plant Kit 2">
-        <h3>Botanical Bliss</h3>
-        <p>Elevate your space with a curated collection of easy-to-care-for plants, including ferns and succulents.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Plant+Kit+3" alt="Plant Kit 3">
-        <h3>Zen Garden</h3>
-        <p>Perfect for relaxation: a balanced mix of plants that promote tranquility and clean air.</p>
-        <button>Shop Now</button>
-      </div>
-    </div>
-
-    <h2>Rental-Friendly Kits</h2>
-    <div class="carousel">
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+1" alt="Rental Kit 1">
-        <h3>Easy Setup</h3>
-        <p>Perfect for renters—temporary and stylish solutions that are easy to set up and remove without damage.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+2" alt="Rental Kit 2">
-        <h3>Quick Refresh</h3>
-        <p>Transform your balcony with removable furniture and decor that’s perfect for rental spaces.</p>
-        <button>Shop Now</button>
-      </div>
-      <div class="kit">
-        <img src="https://via.placeholder.com/220x140?text=Rental+Kit+3" alt="Rental Kit 3">
-        <h3>Flexible Design</h3>
-        <p>Our rental-friendly kit includes lightweight furniture and versatile decor to suit any balcony.</p>
-        <button>Shop Now</button>
+    <!-- Modal with slideshow -->
+    <div class="modal">
+      <div class="modal-content">
+        <h2>Product Details</h2>
+        <div class="modal-slideshow">
+          <div><img src="https://via.placeholder.com/300x200?text=Item+1" alt="Item 1"></div>
+          <div><img src="https://via.placeholder.com/300x200?text=Item+2" alt="Item 2"></div>
+          <div><img src="https://via.placeholder.com/300x200?text=Item+3" alt="Item 3"></div>
+        </div>
+        <button>Close</button>
       </div>
     </div>
   </section>
@@ -260,14 +275,6 @@
   <div class="cart-popup">
     <h3>Your Cart</h3>
     <p>No items in the cart.</p>
-  </div>
-
-  <div class="modal">
-    <div class="modal-content">
-      <h2>Product Details</h2>
-      <img src="" alt="Product Image">
-      <button>Close</button>
-    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -300,8 +307,28 @@
       });
 
       $('.kit').click(function() {
-        const productImg = $(this).find('img').attr('src');
-        $('.modal img').attr('src', productImg);
+        // Get images for the slideshow
+        const img1 = "https://via.placeholder.com/300x200?text=Item+1";
+        const img2 = "https://via.placeholder.com/300x200?text=Item+2";
+        const img3 = "https://via.placeholder.com/300x200?text=Item+3";
+        
+        // Update modal images
+        $('.modal-slideshow').slick('unslick');
+        $('.modal-slideshow').html(`
+          <div><img src="${img1}" alt="Item 1"></div>
+          <div><img src="${img2}" alt="Item 2"></div>
+          <div><img src="${img3}" alt="Item 3"></div>
+        `);
+        
+        // Initialize the slideshow
+        $('.modal-slideshow').slick({
+          dots: true,
+          infinite: true,
+          arrows: true,
+          prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+          nextArrow: '<button type="button" class="slick-next">Next</button>',
+        });
+        
         $('.modal').fadeIn();
       });
 
