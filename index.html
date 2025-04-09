@@ -20,8 +20,7 @@
     .hero { background-image: url('https://via.placeholder.com/1200x400?text=Transform+Your+Balcony'); background-size: cover; background-position: center; height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
     .section { padding: 2rem; max-width: 1200px; margin: auto; }
     h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .carousel { margin-bottom: 3rem; }
-    .carousel .slick-slide { padding: 10px; }
+    .carousel { margin-bottom: 3rem; display: flex; gap: 10px; flex-wrap: wrap; }
     .kit { padding: 0.5rem; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; font-size: 0.85rem; cursor: pointer; }
     .kit img { width: 100%; border-radius: 10px; height: 140px; object-fit: cover; }
     .kit h3 { font-size: 1.1rem; margin-top: 10px; }
@@ -33,9 +32,6 @@
     .modal-content { background: white; padding: 1rem; border-radius: 15px; width: 90%; max-width: 600px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .modal-images { width: 100%; height: 400px; margin: auto; display: flex; justify-content: center; align-items: center; }
     .modal-images .slick-slide img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
-    .blog-entry { background: #fff; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
-    .blog-entry img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; }
-    .blog-entry div { flex-grow: 1; margin-left: 1rem; }
     .contact-btn { position: fixed; bottom: 20px; left: 20px; background-color: #00796b; color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; z-index: 2000; font-size: 1rem; }
     .contact-form { width: 100%; max-width: 400px; margin: 20px auto; background-color: white; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; }
     .contact-form input, .contact-form textarea { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
@@ -57,33 +53,24 @@
   <div class="hero">Transform Your NYC Balcony</div>
 
   <!-- Shop Section -->
-  <section class="section" id="shop"></section>
-
-  <!-- Blog Section -->
-  <section class="section" id="blog">
-    <h2>Latest Blog Posts</h2>
-    <div class="blog-entry">
-      <img src="https://via.placeholder.com/1200x800?text=Blog+Post+1" alt="Blog Image 1"/>
-      <div>
-        <h3>Transform Your Small Balcony into a Cozy Retreat</h3>
-        <p>Explore design tips and kits for transforming your small balcony into a cozy retreat.</p>
-        <a href="#">Read more</a>
+  <section class="section" id="shop">
+    <h2>Shop Our Kits</h2>
+    <div class="carousel">
+      <!-- Kit Items -->
+      <div class="kit" data-kit-id="kit1">
+        <img src="https://via.placeholder.com/400x400?text=Cozy+Kit" alt="Cozy Kit"/>
+        <h3>Cozy Balcony Kit</h3>
+        <button>View Details</button>
       </div>
-    </div>
-    <div class="blog-entry">
-      <img src="https://via.placeholder.com/1200x800?text=Blog+Post+2" alt="Blog Image 2"/>
-      <div>
-        <h3>How to Choose the Right Balcony Furniture</h3>
-        <p>Choosing the right furniture for your balcony is key to making the most of your outdoor space.</p>
-        <a href="#">Read more</a>
+      <div class="kit" data-kit-id="kit2">
+        <img src="https://via.placeholder.com/400x400?text=Boho+Kit" alt="Boho Kit"/>
+        <h3>Boho Balcony Kit</h3>
+        <button>View Details</button>
       </div>
-    </div>
-    <div class="blog-entry">
-      <img src="https://via.placeholder.com/1200x800?text=Blog+Post+3" alt="Blog Image 3"/>
-      <div>
-        <h3>Creating the Perfect Balcony Garden</h3>
-        <p>Learn how to create a stunning balcony garden, even in a small space.</p>
-        <a href="#">Read more</a>
+      <div class="kit" data-kit-id="kit3">
+        <img src="https://via.placeholder.com/400x400?text=Garden+Kit" alt="Garden Kit"/>
+        <h3>Garden Balcony Kit</h3>
+        <button>View Details</button>
       </div>
     </div>
   </section>
@@ -117,62 +104,33 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    let cart = [];
-    const images = {};
-    const categories = {
-      "Cozy Nights Kits": "cozy",
-      "Boho Bliss Kits": "boho",
-      "Garden Glow Kits": "garden"
+    const kitDetails = {
+      kit1: [
+        "https://via.placeholder.com/600x400?text=Cozy+Kit+Image+1",
+        "https://via.placeholder.com/600x400?text=Cozy+Kit+Image+2",
+        "https://via.placeholder.com/600x400?text=Cozy+Kit+Image+3"
+      ],
+      kit2: [
+        "https://via.placeholder.com/600x400?text=Boho+Kit+Image+1",
+        "https://via.placeholder.com/600x400?text=Boho+Kit+Image+2",
+        "https://via.placeholder.com/600x400?text=Boho+Kit+Image+3"
+      ],
+      kit3: [
+        "https://via.placeholder.com/600x400?text=Garden+Kit+Image+1",
+        "https://via.placeholder.com/600x400?text=Garden+Kit+Image+2",
+        "https://via.placeholder.com/600x400?text=Garden+Kit+Image+3"
+      ]
     };
 
     $(document).ready(function() {
-      const $shop = $('#shop');
+      // Open Kit Detail Modal
+      $('.kit button').click(function() {
+        const kitId = $(this).closest('.kit').data('kit-id');
+        const images = kitDetails[kitId];
 
-      // Add Kits to Shop Section
-      Object.entries(categories).forEach(([title, prefix]) => {
-        const $section = $(`
-          <div>
-            <h2>${title}</h2>
-            <div class="carousel"></div>
-          </div>
-        `);
-
-        const kitImages = [1, 2, 3, 4].map(i => `${prefix}-kit${i}.jpg`);
-        images[prefix] = kitImages;
-
-        kitImages.forEach((img, index) => {
-          $section.find('.carousel').append(`
-            <div class="kit">
-              <img src="${img}" alt="Kit ${index + 1}" data-kit="${prefix}">
-              <h3>Kit ${index + 1}</h3>
-              <button class="add-to-cart">Add to Cart</button>
-              <input type="number" min="1" value="1">
-            </div>
-          `);
-        });
-
-        $shop.append($section);
-      });
-
-      // Initialize Slick Carousel
-      $('.carousel').slick({
-        infinite: false,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-          { breakpoint: 768, settings: { slidesToShow: 2 } },
-          { breakpoint: 480, settings: { slidesToShow: 1 } }
-        ]
-      });
-
-      // Open Kit Detail View Modal
-      $(document).on('click', '.kit img', function() {
-        const key = $(this).data('kit');
-        $('#kit-modal .modal-images').html(`
-          <div class="slick-slide"><img src="${images[key][0]}" /></div>
-          <div class="slick-slide"><img src="${images[key][1]}" /></div>
-          <div class="slick-slide"><img src="${images[key][2]}" /></div>
-        `);
+        $('#kit-modal .modal-images').html(images.map(img => `
+          <div class="slick-slide"><img src="${img}" alt="Kit Detail Image" /></div>
+        `).join(''));
 
         // Initialize Slick Carousel for modal images
         $('#kit-modal .modal-images').slick({
