@@ -22,13 +22,13 @@
     header {
       background-color: #000;
       color: #fff;
-      padding: 10px 20px;
+      padding: 8px 20px; /* Thinner header */
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      height: 60px;
+      height: 50px; /* Thinner header */
       font-weight: 500;
     }
 
@@ -41,7 +41,7 @@
     }
 
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: bold;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -50,7 +50,7 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
 
     .nav-links a {
@@ -80,24 +80,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 3rem;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
     }
 
     /* Section for Products or Kits */
@@ -189,47 +171,45 @@
 </head>
 <body>
   <!-- Header -->
-<header>
-  <nav class="navbar">
-    <div class="logo">SkyNest</div>
-    <ul class="nav-links">
-      <li><a href="#shop"><i data-lucide="shopping-bag"></i> Shop</a></li>
-      <li><a href="#favorites"><i data-lucide="heart"></i> Favorites</a></li>
-      <li><a href="#contact"><i data-lucide="mail"></i> Contact</a></li>
-      <li><a href="#" id="menu-btn"><i data-lucide="menu"></i> Menu</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav class="navbar">
+      <div class="logo">SkyNest</div>
+      <ul class="nav-links">
+        <li><a href="#shop"><i data-lucide="shopping-bag"></i> Shop</a></li>
+        <li><a href="#favorites"><i data-lucide="heart"></i> Favorites</a></li>
+        <li><a href="#contact"><i data-lucide="mail"></i> Contact</a></li>
+        <li><a href="#" id="menu-btn"><i data-lucide="menu"></i> Menu</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Hero Section -->
-<div class="hero">
-  <div>
-    <h1>Transform Your Balcony</h1>
-    <p>Exclusive Kits & Design Services</p>
+  <!-- Hero Section with Image -->
+  <div class="hero">
+    <!-- Placeholder for the main image -->
+    <img src="https://via.placeholder.com/1500x800?text=Balcony+Design+Image" alt="Main Image" style="width: 100%; height: 100%; object-fit: cover;"/>
   </div>
-</div>
 
-<!-- Product Section -->
-<section class="section" id="shop">
-  <h2>Explore Our Kits</h2>
-  <div class="carousel">
-    <div class="kit">
-      <img src="https://via.placeholder.com/400x400?text=Cozy+Kit" alt="Cozy Kit">
-      <h3>Cozy Kit 1</h3>
-      <p>Perfect for intimate nights</p>
+  <!-- Product Section -->
+  <section class="section" id="shop">
+    <h2>Explore Our Kits</h2>
+    <div class="carousel">
+      <div class="kit">
+        <img src="https://via.placeholder.com/400x400?text=Cozy+Kit" alt="Cozy Kit">
+        <h3>Cozy Kit 1</h3>
+        <p>Perfect for intimate nights</p>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/400x400?text=Boho+Kit" alt="Boho Kit">
+        <h3>Boho Kit 2</h3>
+        <p>Ideal for a stylish setting</p>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/400x400?text=Garden+Kit" alt="Garden Kit">
+        <h3>Garden Kit 3</h3>
+        <p>Perfect for a garden retreat</p>
+      </div>
     </div>
-    <div class="kit">
-      <img src="https://via.placeholder.com/400x400?text=Boho+Kit" alt="Boho Kit">
-      <h3>Boho Kit 2</h3>
-      <p>Ideal for a stylish setting</p>
-    </div>
-    <div class="kit">
-      <img src="https://via.placeholder.com/400x400?text=Garden+Kit" alt="Garden Kit">
-      <h3>Garden Kit 3</h3>
-      <p>Perfect for a garden retreat</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <div class="modal">
     <div class="modal-content">
