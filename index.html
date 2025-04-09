@@ -146,17 +146,18 @@
       background: white;
       padding: 2rem;
       border-radius: 10px;
-      max-width: 80%;
-      max-height: 80%;
-      width: 70%;
+      width: 60%;
+      height: 80%;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
     .modal-content img {
       width: 100%;
       height: auto;
+      object-fit: contain;
       border-radius: 10px;
     }
     .modal-content .slick-prev, .modal-content .slick-next {
@@ -196,7 +197,7 @@
     <h2>Cozy Nights Kits</h2>
     <div class="carousel">
       <!-- Example Kit -->
-      <div class="kit" data-images='["https://via.placeholder.com/600x400?text=Cozy+Kit+1", "https://via.placeholder.com/600x400?text=Cozy+Kit+2", "https://via.placeholder.com/600x400?text=Cozy+Kit+3"]'>
+      <div class="kit" data-images='["https://via.placeholder.com/600x900?text=Cozy+Kit+1", "https://via.placeholder.com/600x900?text=Cozy+Kit+2", "https://via.placeholder.com/600x900?text=Cozy+Kit+3"]'>
         <img src="https://via.placeholder.com/220x140?text=Cozy+Kit+1" alt="Cozy Kit 1">
         <h3>Urban Retreat</h3>
         <p>Create a chic evening oasis with plush throws, decorative candles, and elegant string lights.</p>
@@ -249,7 +250,7 @@
         ]
       });
 
-      // Modal functionality with swiping images
+      // Modal functionality with one image showing at a time
       $('.kit').click(function() {
         const images = JSON.parse($(this).attr('data-images'));
         const modalSlides = $('.modal-slides');
@@ -283,6 +284,7 @@
   </script>
 </body>
 </html>
+
 
 
 
