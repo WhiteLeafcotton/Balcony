@@ -21,12 +21,13 @@
     header {
       background-color: #000;
       color: #fff;
-      padding: 1rem;
+      padding: 0.5rem 1rem;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      height: 50px; /* Thinner header */
     }
 
     .navbar {
@@ -40,12 +41,13 @@
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .nav-links a {
@@ -55,24 +57,29 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      transition: color 0.3s;
     }
 
     .nav-links a:hover {
       color: #ccc;
     }
 
+    .nav-links i {
+      font-size: 18px; /* Modern icon size */
+    }
+
     .hero {
-      background-image: url('https://via.placeholder.com/1200x400?text=Transform+Your+Balcony');
+      background-image: url('https://via.placeholder.com/1500x500?text=Balcony+Design+Image');
       background-size: cover;
       background-position: center;
-      height: 300px;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 2rem;
+      font-size: 2.5rem;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-      margin-top: 72px;
+      margin-top: 50px; /* Ensuring visibility of the hero image */
     }
 
     .section {
@@ -162,27 +169,22 @@
 <body>
   <!-- Inside <header> tag -->
 <header>
-  <nav class="navbar" style="padding: 0.5rem 1rem; height: 50px;">
-    <div class="logo" style="font-size: 1.5rem;">SkyNest</div>
-    <ul class="nav-links" style="display: flex; gap: 1rem; align-items: center;">
-      <li><a href="#shop"><i data-lucide="shopping-bag" style="font-size: 18px;"></i></a></li>
-      <li><a href="#favorites"><i data-lucide="heart" style="font-size: 18px;"></i></a></li>
-      <li><a href="#contact"><i data-lucide="mail" style="font-size: 18px;"></i></a></li>
-      <li><a href="#" id="menu-btn"><i data-lucide="menu" style="font-size: 18px;"></i></a></li>
+  <nav class="navbar">
+    <div class="logo">SkyNest</div>
+    <ul class="nav-links">
+      <li><a href="#shop"><i data-lucide="shopping-bag"></i></a></li>
+      <li><a href="#favorites"><i data-lucide="heart"></i></a></li>
+      <li><a href="#contact"><i data-lucide="mail"></i></a></li>
+      <li><a href="#" id="menu-btn"><i data-lucide="menu"></i></a></li>
     </ul>
   </nav>
 </header>
 
-<div class="hero" style="background-image: url('https://via.placeholder.com/1500x500?text=Balcony+Design+Image'); background-size: cover; background-position: center; height: 100vh; width: 100%;">
+<div class="hero" style="background-image: url('https://via.placeholder.com/1500x500?text=Balcony+Design+Image');">
+  <h1>Transform Your Balcony</h1>
 </div>
 
 <section class="section" id="shop"></section>
-
-
-<!-- Mock-up for the Slide-out Menu -->
-<!-- You can customize this further with a JavaScript or CSS animation to show/hide the menu -->
-
-
 
   <div class="modal">
     <div class="modal-content">
