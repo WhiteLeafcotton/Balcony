@@ -171,7 +171,55 @@
         });
       });
 
-      //
+      // Open Kit Detail View Modal
+      $(document).on('click', '.kit img', function() {
+        const key = $(this).data('kit');
+        $('#kit-modal .modal-images').html(`
+          <div class="slick-slide"><img src="${images[key][0]}" /></div>
+          <div class="slick-slide"><img src="${images[key][1]}" /></div>
+          <div class="slick-slide"><img src="${images[key][2]}" /></div>
+        `);
+
+        $('#kit-modal .modal-images').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          infinite: false
+        });
+
+        $('#kit-modal').fadeIn();
+      });
+
+      // Close Kit Modal when clicking outside the slideshow
+      $('#kit-modal').click(function(event) {
+        if (!$(event.target).closest('.modal-images').length) {
+          $(this).fadeOut();
+        }
+      });
+
+      // Open Contact Us Modal
+      $('#contact-btn').click(function() {
+        $('#contact-modal').fadeIn();
+      });
+
+      // Close Contact Us Modal when clicking outside the form
+      $('#contact-modal').click(function(event) {
+        if (!$(event.target).closest('.modal-content').length) {
+          $(this).fadeOut();
+        }
+      });
+
+      // Handle Contact Form Submission
+      $('#contact-form').submit(function(e) {
+        e.preventDefault();
+        alert("Form submitted!");
+        $('#contact-modal').fadeOut();
+      });
+    });
+  </script>
+</body>
+</html>
+
 
 
 
