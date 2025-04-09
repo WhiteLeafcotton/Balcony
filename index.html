@@ -22,14 +22,13 @@
     header {
       background-color: #000;
       color: #fff;
-      padding: 8px 20px; /* Thinner header */
+      padding: 4px 16px; /* Thinner header */
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      height: 50px; /* Thinner header */
-      font-weight: 500;
+      height: 40px; /* Thinned out header */
     }
 
     .navbar {
@@ -41,10 +40,11 @@
     }
 
     .logo {
-      font-size: 1.6rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      width: 30px; /* Keep the logo minimal */
+      height: 30px;
+      background-image: url('https://via.placeholder.com/30x30?text=SN'); /* Placeholder logo */
+      background-size: cover;
+      background-position: center;
     }
 
     .nav-links {
@@ -173,7 +173,7 @@
   <!-- Header -->
   <header>
     <nav class="navbar">
-      <div class="logo">SkyNest</div>
+      <div class="logo"></div> <!-- No words, just the logo image -->
       <ul class="nav-links">
         <li><a href="#shop"><i data-lucide="shopping-bag"></i> Shop</a></li>
         <li><a href="#favorites"><i data-lucide="heart"></i> Favorites</a></li>
@@ -185,7 +185,6 @@
 
   <!-- Hero Section with Image -->
   <div class="hero">
-    <!-- Placeholder for the main image -->
     <img src="https://via.placeholder.com/1500x800?text=Balcony+Design+Image" alt="Main Image" style="width: 100%; height: 100%; object-fit: cover;"/>
   </div>
 
@@ -271,6 +270,7 @@
   </script>
 </body>
 </html>
+
 
 
 
