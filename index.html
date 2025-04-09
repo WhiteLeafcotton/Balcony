@@ -73,7 +73,7 @@
       margin: 10px;
       text-align: center;
       font-size: 0.85rem;
-      width: 220px;
+      width: 200px; /* Adjusted width for better layout */
     }
     .kit img {
       width: 100%;
@@ -163,16 +163,17 @@
       z-index: 10;
     }
 
+    /* For category rows with swappable kits */
     .kit-row {
       display: flex;
       overflow-x: auto;
-      margin-bottom: 3rem;
       gap: 1rem;
-      padding: 0.5rem;
+      padding: 1rem;
     }
     .kit-row::-webkit-scrollbar {
       display: none;
     }
+
   </style>
 </head>
 <body>
@@ -262,62 +263,136 @@
       </div>
     </div>
 
-    <!-- Product Detail Modal -->
-    <div id="product-modal" class="modal">
-      <div class="modal-content">
-        <div class="slider">
-          <div><img src="https://via.placeholder.com/500x500?text=Product+Image+1" alt="Product 1"></div>
-          <div><img src="https://via.placeholder.com/500x500?text=Product+Image+2" alt="Product 2"></div>
-          <div><img src="https://via.placeholder.com/500x500?text=Product+Image+3" alt="Product 3"></div>
-        </div>
-        <button onclick="closeModal()">Close</button>
+    <h2>Romantic Getaway Kits</h2>
+    <div class="kit-row">
+      <!-- Romantic Kits (All 10) -->
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+1" alt="Romantic Kit 1">
+        <h3>Starlight Escape</h3>
+        <p>Fairy lights, velvet cushions, and romantic candles.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+2" alt="Romantic Kit 2">
+        <h3>Moonlit Serenity</h3>
+        <p>Outdoor seating, decorative lanterns, and soft throws.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+3" alt="Romantic Kit 3">
+        <h3>Love Nest</h3>
+        <p>Cushions, candles, and soft rugs for a cozy experience.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+4" alt="Romantic Kit 4">
+        <h3>Perfect Moment</h3>
+        <p>Dimmed lighting, soft throws, and ambient lighting.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+5" alt="Romantic Kit 5">
+        <h3>Candlelit Affair</h3>
+        <p>LED candles, plush seating, and soft blankets.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+6" alt="Romantic Kit 6">
+        <h3>Sweet Escape</h3>
+        <p>Comfortable pillows, lanterns, and a warm ambiance.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+7" alt="Romantic Kit 7">
+        <h3>Love & Lights</h3>
+        <p>String lights, soft seating, and intimate touches.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+8" alt="Romantic Kit 8">
+        <h3>Hearts & Hues</h3>
+        <p>Colorful seating, dreamy lights, and soothing scents.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+9" alt="Romantic Kit 9">
+        <h3>Sunset Charm</h3>
+        <p>Outdoor seating, wind chimes, and elegant decor.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Romantic+Kit+10" alt="Romantic Kit 10">
+        <h3>Twilight Oasis</h3>
+        <p>Fairy lights, comfy cushions, and a tranquil atmosphere.</p>
+        <button>Shop Now</button>
       </div>
     </div>
 
+    <h2>Garden Oasis Kits</h2>
+    <div class="kit-row">
+      <!-- Garden Kits (All 10) -->
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+1" alt="Garden Kit 1">
+        <h3>Urban Greenery</h3>
+        <p>Potted plants, hanging planters, and a green escape.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+2" alt="Garden Kit 2">
+        <h3>Botanical Bliss</h3>
+        <p>Fresh greenery, flowers, and rustic decor.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+3" alt="Garden Kit 3">
+        <h3>Green Haven</h3>
+        <p>Colorful plants, comfortable seating, and cozy rugs.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+4" alt="Garden Kit 4">
+        <h3>Zen Garden</h3>
+        <p>Calming plants, stones, and tranquil design.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+5" alt="Garden Kit 5">
+        <h3>Floral Retreat</h3>
+        <p>Flower-filled baskets, lanterns, and soothing seating.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+6" alt="Garden Kit 6">
+        <h3>Verdant Escape</h3>
+        <p>Hanging plants, bamboo furniture, and lush greenery.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+7" alt="Garden Kit 7">
+        <h3>Urban Jungle</h3>
+        <p>Large potted plants, natural lighting, and sleek design.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+8" alt="Garden Kit 8">
+        <h3>City Oasis</h3>
+        <p>Planters, cozy throws, and natural accessories.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+9" alt="Garden Kit 9">
+        <h3>Botanical Bliss</h3>
+        <p>Bright flowers, a comfy bench, and a tranquil vibe.</p>
+        <button>Shop Now</button>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/220x140?text=Garden+Kit+10" alt="Garden Kit 10">
+        <h3>Herb Garden</h3>
+        <p>Small plants, herb kits, and cozy seating.</p>
+        <button>Shop Now</button>
+      </div>
+    </div>
   </section>
-
-  <!-- Shopping Cart Button -->
-  <div class="cart-icon" onclick="toggleCart()">🛒</div>
-  <div class="cart-popup">
-    <h3>Your Cart</h3>
-    <div id="cart-items"></div>
-    <button onclick="checkout()">Proceed to Checkout</button>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('.slider').slick({
-        dots: true,
-        arrows: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-      });
-
-      // Modal functionality
-      function closeModal() {
-        $('#product-modal').hide();
-      }
-      
-      // Display product images in modal
-      $('.kit img').on('click', function() {
-        $('#product-modal').show();
-      });
-
-      // Cart functionality
-      function toggleCart() {
-        $('.cart-popup').toggle();
-      }
-
-      // Checkout process
-      function checkout() {
-        alert("Proceeding to checkout!");
-      }
-    });
-  </script>
 </body>
 </html>
 
