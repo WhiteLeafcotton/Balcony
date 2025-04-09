@@ -171,57 +171,7 @@
         });
       });
 
-      // Show Kit Details Modal on Kit Image Click
-      $(document).on('click', '.kit img', function() {
-        const kit = $(this).data('kit');
-        const imgs = images[kit] || [];
-        const $modalImages = $('#kit-modal .modal-images');
-        $modalImages.empty();
-        imgs.forEach(src => {
-          $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
-        });
-
-        // Initialize Slick carousel for Kit Images
-        $('#kit-modal .modal-images').slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          infinite: false
-        });
-
-        // Show the modal
-        $('#kit-modal').fadeIn();
-      });
-
-      // Close Kit Modal if clicked outside of the slideshow
-      $('#kit-modal').click(function(event) {
-        if (!$(event.target).closest('.modal-images').length) {
-          $(this).fadeOut();
-        }
-      });
-
-      // Open Contact Us Modal
-      $('#contact-btn').click(function() {
-        $('#contact-modal').fadeIn();
-      });
-
-      // Close Contact Us Modal
-      $('#contact-modal').click(function(event) {
-        if (!$(event.target).closest('.modal-content').length) {
-          $(this).fadeOut();
-        }
-      });
-
-      // Handle Contact Form Submission
-      $('#contact-form').submit(function(e) {
-        e.preventDefault();
-        alert("Form submitted!");
-        $('#contact-modal').fadeOut();
-      });
-    });
-  </script>
-</body>
-</html>
+      //
 
 
 
