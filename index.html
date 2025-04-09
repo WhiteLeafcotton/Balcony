@@ -181,14 +181,12 @@
           $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
         });
 
-        if ($('#kit-modal .modal-images').hasClass('slick-initialized')) {
-          $('#kit-modal .modal-images').slick('unslick');
-        }
-
+        // Initialize slick carousel for the modal
         $('#kit-modal .modal-images').slick({
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true
+          dots: true,
+          infinite: false
         });
 
         $('#kit-modal').fadeIn();
@@ -209,6 +207,7 @@
         $(this).fadeOut();
       });
 
+      // Handle Contact Form Submission
       $('#contact-form').submit(function(e) {
         e.preventDefault();
         alert("Form submitted!");
