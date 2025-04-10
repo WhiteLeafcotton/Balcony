@@ -50,7 +50,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem; /* Reduced gap between items */
+  gap: 0.8rem; /* Slightly reduced gap between items */
 }
 
 .nav-links a {
@@ -59,19 +59,22 @@
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Adjusted gap between icon and text */
+  gap: 0.3rem; /* Reduced gap between icon and text */
   text-transform: uppercase;
   letter-spacing: 0.8px; /* Slightly smaller letter-spacing */
   font-size: 0.75rem; /* Smaller font size for text */
 }
 
 .nav-links a i {
-  font-size: 1rem; /* Reduced icon size */
+  font-size: 1rem !important; /* Force icon size to 1rem, overriding any conflicts */
+  line-height: 1; /* Ensure the icon has the proper line height */
+  height: auto; /* Ensure icons are not stretched vertically */
 }
 
 .nav-links a:hover {
   color: #ccc;
 }
+
 
 
 
