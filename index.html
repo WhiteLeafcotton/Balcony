@@ -27,45 +27,48 @@
     }
 
     header {
-      background-color: #000;
-      color: #fff;
-      padding: 1rem 1.5rem;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem; /* Reduced padding for a thinner header */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3%; /* Space between header and content */
+}
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-      width: 100%; /* Ensure it fits within the screen */
-    }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem; /* Slightly smaller font size for a more compact header */
+}
 
-    .nav-links a:hover {
-      color: #ccc;
-    }
+.nav-links a:hover {
+  color: #ccc;
+}
+
 
     .hero {
       background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/1000_F_466414171_vlgPZ8bZ1MklzvbLwFwO9ivPLhNjhNcn.jpg?raw=true);
