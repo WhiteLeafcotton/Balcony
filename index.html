@@ -17,117 +17,108 @@
       background: #fff;
       color: #111;
       line-height: 1.6;
-      overflow-x: hidden; /* Disable horizontal scroll */
-      box-sizing: border-box; /* Apply box-sizing globally */
+      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
     *,
     *::before,
     *::after {
-      box-sizing: inherit; /* Inherit box-sizing property */
+      box-sizing: inherit;
     }
 
     header {
-  background-color: #000;
-  color: #fff;
-  padding: 0.2rem 1rem; /* Reduced padding to make the header thinner */
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1%; /* Less space between header and content */
-  height: 3rem; /* Thinner header height */
-}
+      background-color: #000;
+      color: #fff;
+      padding: 0.2rem 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1%;
+      height: 3rem;
+    }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-}
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0.3rem;
+    }
 
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.65rem;
+    }
 
+    .nav-links a i {
+      font-size: 0.8rem;
+      width: 14px;
+      height: 14px;
+      line-height: 1;
+      display: inline-block;
+    }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 0.3rem; /* Reduced gap between items */
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.1rem; /* Reduced gap between icon and text */
-  text-transform: uppercase;
-  letter-spacing: 0.5px; /* Smaller letter-spacing for compactness */
-  font-size: 0.65rem; /* Further reduced font size for a more compact layout */
-}
-
-.nav-links a i {
-  font-size: 0.8rem; /* Reduced icon size */
-  width: 14px; /* Icon size reduced */
-  height: 14px; /* Maintain proper aspect ratio for icons */
-  line-height: 1; /* No vertical stretching */
-  display: inline-block;
-}
-
-.nav-links a:hover {
-  color: #ccc;
-}
-
-
-
-
-
-
-
-
-
-
+    .nav-links a:hover {
+      color: #ccc;
+    }
 
     .hero {
-  background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true);
-  background-size: cover;
-  background-position: center;
-  height: 75vh; /* Height remains as is */
-  width: 97%; /* Set the width to 95% */
-  margin-top: 5.5%; /* Added margin-top to create 1.5% space between header and hero image */
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  padding: 1rem;
-}
-
-
-
+      background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true);
+      background-size: cover;
+      background-position: center;
+      height: 75vh;
+      width: 97%;
+      margin-top: 5.5%;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      padding: 1rem;
+    }
 
     .section {
-      padding: 4rem 0; /* Keep top/bottom padding for spacing */
-      width: 97%; /* Set the width to 95% */
-      margin: 0 auto; /* Center the section */
+      padding: 4rem 0;
+      width: 97%;
+      margin: 0 auto;
     }
 
     .boho-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem; /* Reduced gap between items */
+      gap: 1rem;
       margin-bottom: 2rem;
     }
 
     .carousel .slick-slide {
-      padding: 0.5rem; /* Reduced padding around carousel items */
+      padding: 0.5rem;
     }
 
     .kit {
-      padding: 1rem; /* Reduced padding inside kit */
+      padding: 1rem;
       background: #fff;
       border-radius: 10px;
       text-align: center;
@@ -137,7 +128,7 @@
 
     .kit img {
       width: 100%;
-      height: 400px; /* Enlarged height of the kit images */
+      height: 400px;
       object-fit: cover;
       border-radius: 10px;
     }
@@ -217,7 +208,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo"><!-- logo only --></div>
+      <div class="brand-name">Archetype</div>
       <ul class="nav-links">
         <li><a href="#shop"><i data-lucide="shopping-bag"></i></a></li>
         <li><a href="#favorites"><i data-lucide="heart"></i></a></li>
