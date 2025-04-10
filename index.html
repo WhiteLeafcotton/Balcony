@@ -262,13 +262,14 @@
           ];
 
           $container.append(`
-  <div class="kit">
-    <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
-    <h3>${title.split(' ')[0]} Kit ${i}</h3>
-    <p>Perfect setup for your balcony.</p>
-    <a href="#shop" class="shop-link">Shop <span>&rarr;</span></a>
-  </div>
-`);
+            <div class="kit">
+              <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
+              <h3>${title.split(' ')[0]} Kit ${i}</h3>
+              <p>Perfect setup for your balcony.</p>
+              <button class="button">View Details</button>
+            </div>
+          `);
+        }
 
 
         $shop.append($section);
