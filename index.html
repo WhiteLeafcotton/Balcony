@@ -15,17 +15,18 @@
       padding: 0;
       background: #fff;
       color: #111;
+      line-height: 1.6;
     }
 
     header {
       background-color: #000;
       color: #fff;
-      padding: 0.4rem 0.75rem;
+      padding: 1.5rem 2rem;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     .navbar {
@@ -39,7 +40,7 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .nav-links a {
@@ -49,6 +50,8 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .nav-links a:hover {
@@ -62,60 +65,101 @@
       height: 100vh;
       width: 100%;
       margin-top: 56px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
     }
 
     .section {
-      padding: 2rem;
+      padding: 4rem 2rem;
       max-width: 1200px;
       margin: auto;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
       color: #111;
-    }
-
-    .carousel {
-      margin-bottom: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
     }
 
     .boho-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      gap: 2rem;
       margin-bottom: 3rem;
     }
 
     .carousel .slick-slide {
-      padding: 10px;
+      padding: 15px;
     }
 
     .kit {
-      padding: 1rem;
-      background: #f0f0f0;
+      padding: 1.5rem;
+      background: #fff;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .kit:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
     }
 
     .kit img {
       width: 100%;
       border-radius: 10px;
-      height: 140px;
+      height: 200px;
       object-fit: cover;
-      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .kit img:hover {
+      opacity: 0.85;
     }
 
     .kit h3 {
-      margin: 0.5rem 0 0.3rem;
-      font-size: 1rem;
+      margin: 1.5rem 0 1rem;
+      font-size: 1.2rem;
       color: #222;
+      font-weight: 700;
     }
 
     .kit p {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: #555;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .button {
+      padding: 0.8rem 1.6rem;
+      background: #000;
+      color: #fff;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background: #444;
     }
 
     .modal {
@@ -130,10 +174,10 @@
 
     .modal-content {
       background: white;
-      padding: 1rem;
+      padding: 2rem;
       border-radius: 10px;
       width: 90%;
-      max-width: 400px;
+      max-width: 600px;
     }
 
     .modal-images {
@@ -153,6 +197,9 @@
       .hero { height: 60vh; }
       .modal-images { height: 400px; }
       .modal-images .slick-slide img { height: 400px; }
+      .boho-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -221,6 +268,7 @@
               <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
               <h3>${title.split(' ')[0]} Kit ${i}</h3>
               <p>Perfect setup for your balcony.</p>
+              <button class="button">View Details</button>
             </div>
           `);
         }
