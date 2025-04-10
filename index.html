@@ -225,6 +225,30 @@
       <div class="modal-images"></div>
     </div>
   </div>
+.shop-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.shop-link span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-left: 4px;
+}
+
+.shop-link:hover {
+  color: #444;
+}
+
+.shop-link:hover span {
+  transform: translateX(4px);
+}
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
@@ -263,14 +287,14 @@
           ];
 
           $container.append(`
-            <div class="kit">
-              <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
-              <h3>${title.split(' ')[0]} Kit ${i}</h3>
-              <p>Perfect setup for your balcony.</p>
-              <button class="button">View Details</button>
-            </div>
-          `);
-        }
+  <div class="kit">
+    <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
+    <h3>${title.split(' ')[0]} Kit ${i}</h3>
+    <p>Perfect setup for your balcony.</p>
+    <a href="#shop" class="shop-link">Shop <span>&rarr;</span></a>
+  </div>
+`);
+
 
         $shop.append($section);
 
