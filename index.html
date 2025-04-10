@@ -29,13 +29,14 @@
     header {
   background-color: #000;
   color: #fff;
-  padding: 0.1rem 1rem; /* Reduced padding for a thinner header */
+  padding: 0.05rem 1rem; /* Further reduce padding for an ultra-thin header */
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3%; /* Space between header and content */
+  margin-bottom: 2%; /* Less space between header and content */
+  height: 3.5rem; /* Fix header height for consistency */
 }
 
 .navbar {
@@ -43,7 +44,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto; /* Center navbar within the page */
   width: 100%;
 }
 
@@ -61,21 +62,22 @@
   align-items: center;
   gap: 0.2rem; /* Reduced gap between icon and text */
   text-transform: uppercase;
-  letter-spacing: 0.8px; /* Slightly smaller letter-spacing */
+  letter-spacing: 0.5px; /* Even smaller letter-spacing for compactness */
   font-size: 0.7rem; /* Smaller font size for text */
 }
 
 .nav-links a i {
-  font-size: 0.9rem; /* Significantly reduced icon size */
-  width: 16px; /* Ensure the icon is within a specific size */
-  height: 16px; /* Ensure the icon maintains proper aspect ratio */
-  line-height: 1; /* Ensure no stretching of the icon */
-  display: inline-block; /* Ensure the icon fits inline with text */
+  font-size: 0.8rem; /* Significantly reduced icon size */
+  width: 16px; /* Ensure the icon has consistent size */
+  height: 16px; /* Maintain proper aspect ratio for icons */
+  line-height: 1; /* No vertical stretching */
+  display: inline-block;
 }
 
 .nav-links a:hover {
   color: #ccc;
 }
+
 
 
 
