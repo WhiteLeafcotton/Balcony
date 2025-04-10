@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="SkyNest Balcony Co. | Transform your NYC balcony into a stunning sanctuary with curated kits and custom design services." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkyNest Balcony Co.</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -20,39 +19,53 @@
 
     header {
       background-color: #000;
-      padding: 0 1rem;
+      color: #fff;
+      padding: 0.4rem 0.75rem;
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      height: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    .nav-icons {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .nav-links {
+      list-style: none;
       display: flex;
       gap: 1rem;
-      align-items: center;
     }
 
-    .nav-icons i {
+    .nav-links a {
       color: #fff;
-      font-size: 18px;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links a:hover {
+      color: #ccc;
     }
 
     .hero {
-      background-image: url('https://via.placeholder.com/1600x700?text=Main+Balcony+Image');
+      background-image: url('https://via.placeholder.com/1600x800?text=Balcony+Design');
       background-size: cover;
       background-position: center;
       height: 100vh;
       width: 100%;
-      margin-top: 30px;
+      margin-top: 56px;
     }
 
     .section {
-      padding: 2rem 1rem;
+      padding: 2rem;
       max-width: 1200px;
       margin: auto;
     }
@@ -118,135 +131,142 @@
 
     .modal-images {
       width: 100%;
-      height: 600px;
+      height: 500px;
+      overflow: hidden;
     }
 
     .modal-images .slick-slide img {
       width: 100%;
-      height: 100%;
+      height: 500px;
       border-radius: 10px;
       object-fit: cover;
     }
 
     @media (max-width: 768px) {
-      .hero { height: 300px; }
-      .modal-content { height: auto; }
+      .hero { height: 60vh; }
       .modal-images { height: 400px; }
+      .modal-images .slick-slide img { height: 400px; }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="nav-icons">
-    <i data-lucide="shopping-bag"></i>
-    <i data-lucide="heart"></i>
-    <i data-lucide="mail"></i>
-    <i data-lucide="menu"></i>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><!-- logo only --></div>
+      <ul class="nav-links">
+        <li><a href="#shop"><i data-lucide="shopping-bag"></i></a></li>
+        <li><a href="#favorites"><i data-lucide="heart"></i></a></li>
+        <li><a href="#contact"><i data-lucide="mail"></i></a></li>
+        <li><a href="#" id="menu-btn"><i data-lucide="menu"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero"></div>
+
+  <section class="section" id="shop"></section>
+
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-images"></div>
+    </div>
   </div>
-</header>
 
-<div class="hero"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
 
-<section class="section" id="shop"></section>
+    const kitImageMap = {};
+    const kitCategoryMap = {
+      "Cozy Nights Kits": "cozy",
+      "Boho Bliss Kits": "boho",
+      "Garden Glow Kits": "garden"
+    };
 
-<div class="modal">
-  <div class="modal-content">
-    <div class="modal-images"></div>
-  </div>
-</div>
+    $(document).ready(function () {
+      const $shop = $('#shop');
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-  lucide.createIcons();
-
-  const kitImages = {};
-  const kitCategories = {
-    "Cozy Nights Kits": "cozy",
-    "Boho Bliss Kits": "boho",
-    "Garden Glow Kits": "garden"
-  };
-
-  $(document).ready(function() {
-    const $shop = $('#shop');
-
-    Object.entries(kitCategories).forEach(([title, prefix]) => {
-      const $section = $(`
-        <div>
-          <h2>${title}</h2>
-          <div class="carousel"></div>
-        </div>
-      `);
-
-      const $carousel = $section.find('.carousel');
-
-      for (let i = 1; i <= 7; i++) {
-        const key = `${prefix}${i}`;
-        kitImages[key] = [
-          `https://via.placeholder.com/800x1000?text=${key}+Image+1`,
-          `https://via.placeholder.com/800x1000?text=${key}+Image+2`,
-          `https://via.placeholder.com/800x1000?text=${key}+Image+3`
-        ];
-
-        $carousel.append(`
-          <div class="kit">
-            <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
-            <h3>${title.split(' ')[0]} Kit ${i}</h3>
-            <p>Perfect setup for your balcony.</p>
+      Object.entries(kitCategoryMap).forEach(([title, prefix]) => {
+        const $section = $(`
+          <div>
+            <h2>${title}</h2>
+            <div class="carousel"></div>
           </div>
         `);
-      }
 
-      $shop.append($section);
+        const $carousel = $section.find('.carousel');
 
-      $carousel.slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: false,
-        arrows: true,
-        responsive: [
-          { breakpoint: 768, settings: { slidesToShow: 1 } },
-          { breakpoint: 1024, settings: { slidesToShow: 2 } }
-        ]
-      });
-    });
+        for (let i = 1; i <= 7; i++) {
+          const key = `${prefix}${i}`;
+          kitImageMap[key] = [
+            `https://via.placeholder.com/800x1000?text=${key}+Image+1`,
+            `https://via.placeholder.com/800x1000?text=${key}+Image+2`,
+            `https://via.placeholder.com/800x1000?text=${key}+Image+3`
+          ];
 
-    $(document).on('click', '.kit img', function() {
-      const kit = $(this).data('kit');
-      const imgs = kitImages[kit] || [];
-      const $modalImages = $('.modal-images');
-      $modalImages.empty();
-      imgs.forEach(src => {
-        $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
-      });
-
-      if ($modalImages.hasClass('slick-initialized')) {
-        $modalImages.slick('unslick');
-      }
-
-      $modalImages.slick({
-        dots: true,
-        infinite: true,
-        vertical: true,
-        slidesToShow: 1,
-        adaptiveHeight: true,
-        arrows: true
-      });
-
-      $('.modal').css('display', 'flex').hide().fadeIn();
-    });
-
-    $('.modal').click(function(e) {
-      if (!$(e.target).closest('.modal-content').length) {
-        $('.modal').fadeOut();
-        if ($('.modal-images').hasClass('slick-initialized')) {
-          $('.modal-images').slick('unslick');
+          $carousel.append(`
+            <div class="kit">
+              <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
+              <h3>${title.split(' ')[0]} Kit ${i}</h3>
+              <p>Perfect setup for your balcony.</p>
+            </div>
+          `);
         }
-      }
+
+        $shop.append($section);
+
+        $carousel.slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: true,
+          responsive: [
+            { breakpoint: 768, settings: { slidesToShow: 1 } },
+            { breakpoint: 1024, settings: { slidesToShow: 2 } }
+          ]
+        });
+      });
+
+      $(document).on('click', '.kit img', function () {
+        const kit = $(this).data('kit');
+        const imgs = kitImageMap[kit] || [];
+        const $modalImages = $('.modal-images');
+        $modalImages.empty();
+
+        imgs.forEach(src => {
+          $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
+        });
+
+        if ($modalImages.hasClass('slick-initialized')) {
+          $modalImages.slick('unslick');
+        }
+
+        $modalImages.slick({
+          dots: true,
+          infinite: true,
+          vertical: true,
+          verticalSwiping: true,
+          speed: 300,
+          slidesToShow: 1,
+          adaptiveHeight: false,
+          arrows: true
+        });
+
+        $('.modal').css('display', 'flex').hide().fadeIn();
+      });
+
+      $('.modal').click(function (e) {
+        if (!$(e.target).closest('.modal-content').length) {
+          $('.modal').fadeOut();
+          if ($('.modal-images').hasClass('slick-initialized')) {
+            $('.modal-images').slick('unslick');
+          }
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
 
