@@ -72,7 +72,7 @@
       background-size: cover;
       background-position: center;
       height: 75vh; /* Height remains as is */
-      width: 97%; /* Set the width to 95% */
+      width: 95%; /* Set the width to 95% */
       margin-top: 56px;
       margin-left: auto;
       margin-right: auto;
@@ -82,7 +82,7 @@
 
     .section {
       padding: 4rem 0; /* Keep top/bottom padding for spacing */
-      width: 97%; /* Set the width to 95% */
+      width: 95%; /* Set the width to 95% */
       margin: 0 auto; /* Center the section */
     }
 
@@ -227,31 +227,31 @@
       Object.entries(kitCategoryMap).forEach(([title, prefix]) => {
         const isBoho = prefix === "boho";
 
-        const $section = $(
+        const $section = $(`
           <div>
             <div class="${isBoho ? 'boho-grid' : 'carousel'}"></div>
           </div>
-        );
+        `);
 
         const $container = $section.find(isBoho ? '.boho-grid' : '.carousel');
         const kitCount = isBoho ? 4 : 7;
 
         for (let i = 1; i <= kitCount; i++) {
-          const key = ${prefix}${i};
+          const key = `${prefix}${i}`;
           kitImageMap[key] = [
-            https://via.placeholder.com/800x1000?text=${key}+Image+1,
-            https://via.placeholder.com/800x1000?text=${key}+Image+2,
-            https://via.placeholder.com/800x1000?text=${key}+Image+3
+            `https://via.placeholder.com/800x1000?text=${key}+Image+1`,
+            `https://via.placeholder.com/800x1000?text=${key}+Image+2`,
+            `https://via.placeholder.com/800x1000?text=${key}+Image+3`
           ];
 
-          $container.append(
+          $container.append(`
             <div class="kit">
               <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
               <h3>${title.split(' ')[0]} Kit ${i}</h3>
               <p>Perfect setup for your balcony.</p>
               <button class="button">View Details</button>
             </div>
-          );
+          `);
         }
 
         $shop.append($section);
@@ -277,7 +277,7 @@
         $modalImages.empty();
 
         imgs.forEach(src => {
-          $modalImages.append(<div><img src="${src}" alt="${kit}" /></div>);
+          $modalImages.append(`<div><img src="${src}" alt="${kit}" /></div>`);
         });
 
         if ($modalImages.hasClass('slick-initialized')) {
