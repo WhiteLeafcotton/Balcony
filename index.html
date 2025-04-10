@@ -29,7 +29,7 @@
     header {
   background-color: #000;
   color: #fff;
-  padding: 0.1rem 1rem; /* Extremely reduced padding */
+  padding: 0.1rem 1rem; /* Reduced padding for a thinner header */
   position: fixed;
   top: 0;
   width: 100%;
@@ -50,7 +50,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 0.8rem; /* Slightly reduced gap between items */
+  gap: 0.5rem; /* Reduced gap between items */
 }
 
 .nav-links a {
@@ -59,21 +59,24 @@
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 0.3rem; /* Reduced gap between icon and text */
+  gap: 0.2rem; /* Reduced gap between icon and text */
   text-transform: uppercase;
   letter-spacing: 0.8px; /* Slightly smaller letter-spacing */
-  font-size: 0.75rem; /* Smaller font size for text */
+  font-size: 0.7rem; /* Smaller font size for text */
 }
 
 .nav-links a i {
-  font-size: 1rem !important; /* Force icon size to 1rem, overriding any conflicts */
-  line-height: 1; /* Ensure the icon has the proper line height */
-  height: auto; /* Ensure icons are not stretched vertically */
+  font-size: 0.9rem; /* Significantly reduced icon size */
+  width: 16px; /* Ensure the icon is within a specific size */
+  height: 16px; /* Ensure the icon maintains proper aspect ratio */
+  line-height: 1; /* Ensure no stretching of the icon */
+  display: inline-block; /* Ensure the icon fits inline with text */
 }
 
 .nav-links a:hover {
   color: #ccc;
 }
+
 
 
 
