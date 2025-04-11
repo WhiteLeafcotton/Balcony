@@ -124,10 +124,13 @@
     .detail-carousel {
       display: flex;
       flex-direction: column; /* Vertical direction */
-      overflow-y: auto; /* Allow vertical scroll */
+      overflow-y: scroll; /* Allow vertical scroll */
       width: 90%;
       max-width: 500px; /* Adjust width for better layout */
       height: 70%; /* Limit the height to allow scroll */
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     }
 
     .detail-carousel div {
@@ -196,7 +199,7 @@
   <section class="section">
     <div class="boho-grid">
       <div class="kit" data-kit="1">
-        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true">
+        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true" alt="Kit 1">
       </div>
       <div class="kit" data-kit="2">
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+2" alt="Kit 2">
@@ -214,27 +217,12 @@
       <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+2" alt="Slide 2" /></div>
       <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+3" alt="Slide 3" /></div>
     </div>
-
-    <div class="boho-grid">
-      <div class="kit" data-kit="5">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+5" alt="Kit 5">
-      </div>
-      <div class="kit" data-kit="6">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+6" alt="Kit 6">
-      </div>
-      <div class="kit" data-kit="7">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+7" alt="Kit 7">
-      </div>
-      <div class="kit" data-kit="8">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+8" alt="Kit 8">
-      </div>
-    </div>
   </section>
 
   <div class="detail-view" id="detailView">
     <div class="close-detail" onclick="closeDetail()">&times;</div>
     <div class="detail-carousel">
-      <div><img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true" alt="Detail View Image 1"></div>
+      <div><img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true" alt="Detail View Image 1"></div>
       <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2" alt="Detail View Image 2"></div>
       <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3" alt="Detail View Image 3"></div>
     </div>
@@ -268,7 +256,8 @@
         infinite: true,
         speed: 300,
         slidesToShow: 1,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        height: 'auto'
       });
     });
 
@@ -277,14 +266,14 @@
       switch (kitId) {
         case 1:
           images = [
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+1",
+            "https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true",
             "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
             "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
           ];
           break;
         case 2:
           images = [
-            "https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+1",
             "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
             "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
           ];
