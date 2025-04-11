@@ -87,29 +87,46 @@
     }
 
     .kit {
-      background: #fff;
-      text-align: center;
-      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-      cursor: pointer;
-      padding-bottom: 1rem;
-    }
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0; /* Remove padding that was pushing elements down */
+}
 
-    .kit-info {
-      padding: 0.8rem;
-    }
+.kit-info {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  background: rgba(255, 255, 255, 0.6); /* Optional for contrast */
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  z-index: 2;
+  text-align: left;
+}
 
-    .kit-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #222;
-    }
+.kit-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 0.4rem;
+}
 
-    .kit img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
+.shop-link {
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.kit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
     .shop-link {
       display: inline-block;
@@ -213,13 +230,13 @@
 
 <section class="section">
   <div class="boho-grid">
-    <div class="kit" data-kit="1">
-      <div class="kit-info">
-        <h3 class="kit-title">Cozy Earth Tones</h3>
-        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true" alt="Cozy Earth Tones">
-        <a href="shop.html" class="shop-link">Shop</a>
-      </div>
-    </div>
+   <div class="kit" data-kit="1">
+  <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true" alt="Cozy Earth Tones">
+  <div class="kit-info">
+    <h3 class="kit-title">Cozy Earth Tones</h3>
+    <a href="shop.html" class="shop-link">Shop</a>
+  </div>
+</div>
     <div class="kit" data-kit="2">
       <div class="kit-info">
         <h3 class="kit-title">Muted Green Layers</h3>
