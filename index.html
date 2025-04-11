@@ -8,7 +8,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       background: #fff;
@@ -16,6 +21,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
+
     header {
       background-color: #000;
       color: #fff;
@@ -28,28 +34,33 @@
       display: flex;
       align-items: center;
     }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
     }
+
     .brand-name {
       font-weight: 700;
       font-size: 1.4rem;
       text-transform: uppercase;
     }
+
     .nav-links {
       list-style: none;
       display: flex;
       gap: 1rem;
     }
+
     .nav-links a {
       color: #fff;
       text-decoration: none;
       font-size: 0.9rem;
       text-transform: uppercase;
     }
+
     .hero {
       background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true);
       background-size: cover;
@@ -59,36 +70,44 @@
       margin: calc(3.5rem + 2%) auto 2%;
       border-radius: 0;
     }
+
     .section {
       width: 96%;
       margin: 0 auto 2%;
     }
+
     .boho-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 2%;
       margin-bottom: 2%;
     }
+
     .kit {
       background: #fff;
       text-align: center;
       box-shadow: 0 10px 15px rgba(0,0,0,0.05);
       cursor: pointer;
     }
+
     .kit img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .carousel {
       margin-bottom: 2%;
       margin-top: 4%;
     }
+
     .carousel img {
       width: 100%;
       height: 400px;
       object-fit: cover;
     }
+
+    /* Detail View */
     .detail-view {
       display: none;
       position: fixed;
@@ -96,40 +115,50 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
+      background: rgba(15, 15, 15, 0.95);
       z-index: 2000;
-      overflow: hidden;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: y mandatory;
     }
+
     .detail-carousel {
-      width: 90%;
-      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
     }
+
     .detail-carousel img {
       width: 100%;
-      height: 500px;
+      max-height: 90vh;
       object-fit: contain;
+      scroll-snap-align: center;
+      margin-bottom: 2rem;
+      border-radius: 12px;
     }
-    .close-detail {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-      z-index: 2100;
-    }
+
     footer {
       text-align: center;
       padding: 1rem 0;
       font-size: 0.9rem;
       color: #888;
     }
+
     @media (max-width: 768px) {
-      .boho-grid { grid-template-columns: 1fr; }
-      .kit img { height: 350px; }
-      .carousel img { height: 300px; }
+      .boho-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kit img {
+        height: 350px;
+      }
+
+      .carousel img {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -164,7 +193,7 @@
     </div>
 
     <div class="carousel">
-      <div><img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true" /></div>
+      <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+1" alt="Slide 1" /></div>
       <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+2" alt="Slide 2" /></div>
       <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+3" alt="Slide 3" /></div>
     </div>
@@ -177,7 +206,7 @@
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+6" alt="Kit 6">
       </div>
       <div class="kit" data-kit="7">
-        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true" alt="Kit 7">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+7" alt="Kit 7">
       </div>
       <div class="kit" data-kit="8">
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+8" alt="Kit 8">
@@ -185,12 +214,9 @@
     </div>
   </section>
 
-  <div class="detail-view" id="detailView">
-    <div class="close-detail" onclick="closeDetail()">&times;</div>
-    <div class="detail-carousel">
-      <div><img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true" alt=""></div>
-      <div><img src="https://via.placeholder.com/800x1000?text=Default+Image+2" alt=""></div>
-      <div><img src="https://via.placeholder.com/800x1000?text=Default+Image+3" alt=""></div>
+  <div class="detail-view" id="detailView" onclick="closeDetail()">
+    <div class="detail-carousel" id="detailCarousel">
+      <!-- Images dynamically injected here -->
     </div>
   </div>
 
@@ -202,31 +228,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
     $(document).ready(function () {
-      $('.carousel').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
-      });
-
-      let detailCarousel = $('.detail-carousel').slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        adaptiveHeight: true
-      });
-
       $('.kit').click(function () {
         var kitId = $(this).data('kit');
         var images = getImagesForKit(kitId);
-        // Update each slide with new image
-        for (let i = 0; i < 3; i++) {
-          let imgTag = $('.detail-carousel').slick('getSlick').$slides[i].querySelector('img');
-          if (imgTag) imgTag.src = images[i];
-        }
+
+        var $carousel = $('#detailCarousel');
+        $carousel.empty(); // Clear previous images
+
+        images.forEach(src => {
+          $carousel.append(`<img src="${src}" alt="Detail Image" />`);
+        });
+
         $('#detailView').fadeIn();
+      });
+
+      $('#detailView').on('click', function (e) {
+        if (e.target.id === 'detailView') {
+          closeDetail();
+        }
       });
     });
 
