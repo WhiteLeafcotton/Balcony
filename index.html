@@ -52,6 +52,11 @@
       list-style: none;
       display: flex;
       gap: 1rem;
+      margin-left: auto; /* This aligns the nav links to the right */
+    }
+
+    .nav-links li {
+      display: inline-block;
     }
 
     .nav-links a {
@@ -59,26 +64,12 @@
       text-decoration: none;
       font-size: 0.9rem;
       text-transform: uppercase;
+      transition: color 0.3s;
     }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="navbar">
-      <div class="brand-name">Archetype</div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">Textiles</a></li>
-        <li><a href="#">Plant Atelier</a></li>
-        <li><a href="#">The Edit</a></li>
-      </ul>
-    </div>
-  </header>
 
+    .nav-links a:hover {
+      color: #f0a500; /* Example hover color */
+    }
 
     .hero {
       background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true);
@@ -114,71 +105,6 @@
       height: 100%;
       object-fit: cover;
     }
-
-    .carousel {
-      margin-bottom: 2%;
-      margin-top: 4%;
-    }
-
-    .carousel img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-    }
-
-    /* Detail View */
-    .detail-view {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(15, 15, 15, 0.95);
-      z-index: 2000;
-      overflow-y: scroll;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: y mandatory;
-    }
-
-    .detail-carousel {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 0;
-    }
-
-    .detail-carousel img {
-      width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
-      scroll-snap-align: center;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    @media (max-width: 768px) {
-      .boho-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .kit img {
-        height: 350px;
-      }
-
-      .carousel img {
-        height: 300px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -189,12 +115,16 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Shop</a></li>
         <li><a href="#">About</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Textiles</a></li>
+        <li><a href="#">Plant Atelier</a></li>
+        <li><a href="#">The Edit</a></li>
       </ul>
     </div>
   </header>
 
   <div class="hero"></div>
-
   <section class="section">
     <div class="boho-grid">
       <div class="kit" data-kit="1">
@@ -231,12 +161,6 @@
     </div>
   </section>
 
-  <div class="detail-view" id="detailView" onclick="closeDetail()">
-    <div class="detail-carousel" id="detailCarousel">
-      <!-- Images dynamically injected here -->
-    </div>
-  </div>
-
   <footer>
     &copy; 2025 SkyNest Balcony Co. All rights reserved.
   </footer>
@@ -248,14 +172,11 @@
       $('.kit').click(function () {
         var kitId = $(this).data('kit');
         var images = getImagesForKit(kitId);
-
         var $carousel = $('#detailCarousel');
         $carousel.empty(); // Clear previous images
-
         images.forEach(src => {
           $carousel.append(`<img src="${src}" alt="Detail Image" />`);
         });
-
         $('#detailView').fadeIn();
       });
 
@@ -301,4 +222,5 @@
   </script>
 </body>
 </html>
+
 
