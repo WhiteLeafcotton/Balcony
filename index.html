@@ -91,12 +91,41 @@
       text-align: center;
       box-shadow: 0 10px 15px rgba(0,0,0,0.05);
       cursor: pointer;
+      padding-bottom: 1rem;
+    }
+
+    .kit-info {
+      padding: 0.8rem;
+    }
+
+    .kit-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #222;
     }
 
     .kit img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
+    }
+
+    .shop-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #000;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+
+    .shop-link:hover {
+      background: #000;
+      color: #fff;
     }
 
     .carousel {
@@ -110,7 +139,6 @@
       object-fit: cover;
     }
 
-    /* Detail View */
     .detail-view {
       display: none;
       position: fixed;
@@ -164,126 +192,161 @@
       }
     }
   </style>
+</head>
+
+<body>
+
 <header>
   <div class="navbar">
     <div class="brand-name">Archetype</div>
     <ul class="nav-links">
-  <li><a href="gallery.html">Gallery</a></li>
-  <li><a href="collections.html">Collections</a></li>
-  <li><a href="textiles.html">Textiles</a></li>
-  <li><a href="plant-atelier.html">Plant Atelier</a></li>
-  <li><a href="edit.html">The Edit</a></li>
-</ul>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="textiles.html">Textiles</a></li>
+      <li><a href="plant-atelier.html">Plant Atelier</a></li>
+      <li><a href="edit.html">The Edit</a></li>
+    </ul>
   </div>
 </header>
 
+<div class="hero"></div>
 
-
-  <div class="hero"></div>
-
-  <section class="section">
-    <div class="boho-grid">
-      <div class="kit" data-kit="1">
-        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true">
-      </div>
-      <div class="kit" data-kit="2">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+2" alt="Kit 2">
-      </div>
-      <div class="kit" data-kit="3">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+3" alt="Kit 3">
-      </div>
-      <div class="kit" data-kit="4">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+4" alt="Kit 4">
+<section class="section">
+  <div class="boho-grid">
+    <div class="kit" data-kit="1">
+      <div class="kit-info">
+        <h3 class="kit-title">Cozy Earth Tones</h3>
+        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true" alt="Cozy Earth Tones">
+        <a href="shop.html" class="shop-link">Shop</a>
       </div>
     </div>
-
-    <div class="carousel">
-      <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+1" alt="Slide 1" /></div>
-    </div>
-
-    <div class="boho-grid">
-      <div class="kit" data-kit="5">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+5" alt="Kit 5">
-      </div>
-      <div class="kit" data-kit="6">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+6" alt="Kit 6">
-      </div>
-      <div class="kit" data-kit="7">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+7" alt="Kit 7">
-      </div>
-      <div class="kit" data-kit="8">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+8" alt="Kit 8">
+    <div class="kit" data-kit="2">
+      <div class="kit-info">
+        <h3 class="kit-title">Muted Green Layers</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+2" alt="Muted Green Layers">
+        <a href="shop.html" class="shop-link">Shop</a>
       </div>
     </div>
-  </section>
-
-  <div class="detail-view" id="detailView" onclick="closeDetail()">
-    <div class="detail-carousel" id="detailCarousel">
-      <!-- Images dynamically injected here -->
+    <div class="kit" data-kit="3">
+      <div class="kit-info">
+        <h3 class="kit-title">Neutral Nomad</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+3" alt="Neutral Nomad">
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="4">
+      <div class="kit-info">
+        <h3 class="kit-title">Botanic Calm</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+4" alt="Botanic Calm">
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 SkyNest Balcony Co. All rights reserved.
-  </footer>
+  <div class="carousel">
+    <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+1" alt="Slide 1" /></div>
+  </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.kit').click(function () {
-        var kitId = $(this).data('kit');
-        var images = getImagesForKit(kitId);
+  <div class="boho-grid">
+    <div class="kit" data-kit="5">
+      <div class="kit-info">
+        <h3 class="kit-title">Citrus Touch</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+5" alt="Citrus Touch">
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="6">
+      <div class="kit-info">
+        <h3 class="kit-title">Light Linen Mix</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+6" alt="Light Linen Mix">
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="7">
+      <div class="kit-info">
+        <h3 class="kit-title">Stone Grey Balance</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+7" alt="Stone Grey Balance">
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="8">
+      <div class="kit-info">
+        <h3 class="kit-title">Sunset Warmth</h3>
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+8" alt="Sunset Warmth">
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        var $carousel = $('#detailCarousel');
-        $carousel.empty(); // Clear previous images
+<div class="detail-view" id="detailView" onclick="closeDetail()">
+  <div class="detail-carousel" id="detailCarousel">
+    <!-- Images dynamically injected here -->
+  </div>
+</div>
 
-        images.forEach(src => {
-          $carousel.append(`<img src="${src}" alt="Detail Image" />`);
-        });
+<footer>
+  &copy; 2025 SkyNest Balcony Co. All rights reserved.
+</footer>
 
-        $('#detailView').fadeIn();
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.kit').click(function () {
+      var kitId = $(this).data('kit');
+      var images = getImagesForKit(kitId);
+
+      var $carousel = $('#detailCarousel');
+      $carousel.empty();
+
+      images.forEach(src => {
+        $carousel.append(`<img src="${src}" alt="Detail Image" />`);
       });
 
-      $('#detailView').on('click', function (e) {
-        if (e.target.id === 'detailView') {
-          closeDetail();
-        }
-      });
+      $('#detailView').fadeIn();
     });
 
-    function getImagesForKit(id) {
-      switch (id) {
-        case 1:
-          return [
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+1",
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
-          ];
-        case 2:
-          return [
-            "https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true",
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
-          ];
-        case 3:
-          return [
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+1",
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
-            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
-          ];
-        default:
-          return [
-            "https://via.placeholder.com/800x1000?text=Default+Image+1",
-            "https://via.placeholder.com/800x1000?text=Default+Image+2",
-            "https://via.placeholder.com/800x1000?text=Default+Image+3"
-          ];
+    $('#detailView').on('click', function (e) {
+      if (e.target.id === 'detailView') {
+        closeDetail();
       }
-    }
+    });
+  });
 
-    function closeDetail() {
-      $('#detailView').fadeOut();
+  function getImagesForKit(id) {
+    switch (id) {
+      case 1:
+        return [
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+1",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
+        ];
+      case 2:
+        return [
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
+        ];
+      case 3:
+        return [
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+1",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
+        ];
+      default:
+        return [
+          "https://via.placeholder.com/800x1000?text=Default+Image+1",
+          "https://via.placeholder.com/800x1000?text=Default+Image+2",
+          "https://via.placeholder.com/800x1000?text=Default+Image+3"
+        ];
     }
-  </script>
+  }
+
+  function closeDetail() {
+    $('#detailView').fadeOut();
+  }
+</script>
 </body>
 </html>
+
