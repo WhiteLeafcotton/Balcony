@@ -87,6 +87,7 @@
       background: #fff;
       text-align: center;
       box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
     }
 
     .kit img {
@@ -116,6 +117,46 @@
       width: 100%;
       height: 400px;
       object-fit: cover;
+    }
+
+    .detail-view {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .vertical-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+    }
+
+    .vertical-scroll img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .close-detail {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 2100;
     }
 
     footer {
@@ -156,22 +197,22 @@
 
   <section class="section">
     <div class="boho-grid">
-      <div class="kit">
+      <div class="kit" data-kit="1">
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+1" alt="Kit 1">
         <h3>Boho Kit 1</h3>
         <p>$199.99</p>
       </div>
-      <div class="kit">
+      <div class="kit" data-kit="2">
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+2" alt="Kit 2">
         <h3>Boho Kit 2</h3>
         <p>$229.99</p>
       </div>
-      <div class="kit">
+      <div class="kit" data-kit="3">
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+3" alt="Kit 3">
         <h3>Boho Kit 3</h3>
         <p>$249.99</p>
       </div>
-      <div class="kit">
+      <div class="kit" data-kit="4">
         <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+4" alt="Kit 4">
         <h3>Boho Kit 4</h3>
         <p>$279.99</p>
@@ -183,7 +224,39 @@
       <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+2" alt="Slide 2" /></div>
       <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+3" alt="Slide 3" /></div>
     </div>
+
+    <div class="boho-grid">
+      <div class="kit" data-kit="5">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+5" alt="Kit 5">
+        <h3>Boho Kit 5</h3>
+        <p>$289.99</p>
+      </div>
+      <div class="kit" data-kit="6">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+6" alt="Kit 6">
+        <h3>Boho Kit 6</h3>
+        <p>$299.99</p>
+      </div>
+      <div class="kit" data-kit="7">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+7" alt="Kit 7">
+        <h3>Boho Kit 7</h3>
+        <p>$319.99</p>
+      </div>
+      <div class="kit" data-kit="8">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+8" alt="Kit 8">
+        <h3>Boho Kit 8</h3>
+        <p>$339.99</p>
+      </div>
+    </div>
   </section>
+
+  <div class="detail-view" id="detailView">
+    <div class="close-detail" onclick="closeDetail()">&times;</div>
+    <div class="vertical-scroll">
+      <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main" alt="Detail 1">
+      <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Alt+1" alt="Detail 2">
+      <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Alt+2" alt="Detail 3">
+    </div>
+  </div>
 
   <footer>
     &copy; 2025 SkyNest Balcony Co. All rights reserved.
@@ -200,7 +273,15 @@
         slidesToShow: 1,
         adaptiveHeight: true
       });
+
+      $('.kit').click(function() {
+        $('#detailView').fadeIn();
+      });
     });
+
+    function closeDetail() {
+      $('#detailView').fadeOut();
+    }
   </script>
 </body>
 </html>
