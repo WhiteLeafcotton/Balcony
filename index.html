@@ -130,19 +130,21 @@
       justify-content: center;
       align-items: center;
       z-index: 2000;
+      overflow: hidden; /* Prevents internal scroll */
     }
 
     .detail-carousel {
       display: flex;
-      flex-direction: column;
-      overflow-y: scroll;
-      height: 80vh;
+      flex-direction: row; /* Change from column to row */
+      overflow-x: auto; /* Allow horizontal scroll for images */
       width: 90%;
-      max-width: 800px;
+      max-width: 1000px; /* Adjust width for better layout */
     }
 
     .detail-carousel div {
-      margin-bottom: 10px;
+      flex-shrink: 0;
+      width: 33.33%; /* Ensure each image takes 1/3 of the width */
+      margin-right: 10px;
     }
 
     .detail-carousel img {
@@ -254,9 +256,9 @@
   <div class="detail-view" id="detailView">
     <div class="close-detail" onclick="closeDetail()">&times;</div>
     <div class="detail-carousel">
-      <div><img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/28D4FC64-91E9-4E16-BA91-D66319E957D1.png?raw=true" alt="Detail View Image 1"></div>
-      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main+Image+2" alt="Detail View Image 2"></div>
-      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main+Image+3" alt="Detail View Image 3"></div>
+      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+1" alt="Detail View Image 1"></div>
+      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2" alt="Detail View Image 2"></div>
+      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3" alt="Detail View Image 3"></div>
     </div>
   </div>
 
@@ -277,6 +279,8 @@
       });
 
       $('.kit').click(function() {
+        var kitId = $(this).data('kit');
+        updateDetailImages(kitId);
         $('#detailView').fadeIn();
       });
 
@@ -290,9 +294,42 @@
       });
     });
 
+    function updateDetailImages(kitId) {
+      var images = [];
+      switch (kitId) {
+        case 1:
+          images = [
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+1",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
+          ];
+          break;
+        case 2:
+          images = [
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+1",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
+          ];
+          break;
+        case 3:
+          images = [
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+1",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
+          ];
+          break;
+        // Add more cases for other kits
+      }
+      
+      $(".detail-carousel div:nth-child(1) img").attr("src", images[0]);
+      $(".detail-carousel div:nth-child(2) img").attr("src", images[1]);
+      $(".detail-carousel div:nth-child(3) img").attr("src", images[2]);
+    }
+
     function closeDetail() {
       $('#detailView').fadeOut();
     }
   </script>
 </body>
 </html>
+
