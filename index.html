@@ -133,14 +133,21 @@
     }
 
     .detail-carousel {
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      height: 80vh;
       width: 90%;
       max-width: 800px;
+    }
+
+    .detail-carousel div {
+      margin-bottom: 10px;
     }
 
     .detail-carousel img {
       width: 100%;
       height: auto;
-      max-height: 80vh;
       object-fit: contain;
     }
 
@@ -247,7 +254,9 @@
   <div class="detail-view" id="detailView">
     <div class="close-detail" onclick="closeDetail()">&times;</div>
     <div class="detail-carousel">
-      <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main" alt="Detail View">
+      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main+Image+1" alt="Detail View Image 1"></div>
+      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main+Image+2" alt="Detail View Image 2"></div>
+      <div><img src="https://via.placeholder.com/800x1000?text=Boho+Kit+Main+Image+3" alt="Detail View Image 3"></div>
     </div>
   </div>
 
@@ -270,6 +279,15 @@
       $('.kit').click(function() {
         $('#detailView').fadeIn();
       });
+
+      $('.detail-carousel').slick({
+        vertical: true,
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+      });
     });
 
     function closeDetail() {
@@ -278,15 +296,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
