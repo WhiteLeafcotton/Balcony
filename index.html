@@ -52,11 +52,6 @@
       list-style: none;
       display: flex;
       gap: 1rem;
-      margin-left: auto;
-    }
-
-    .nav-links li {
-      display: inline-block;
     }
 
     .nav-links a {
@@ -64,11 +59,6 @@
       text-decoration: none;
       font-size: 0.9rem;
       text-transform: uppercase;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #f0a500;
     }
 
     .hero {
@@ -106,40 +96,69 @@
       object-fit: cover;
     }
 
-    .kit.wide {
-      grid-column: span 2;
+    .carousel {
+      margin-bottom: 2%;
+      margin-top: 4%;
     }
 
-    #detailView {
+    .carousel img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    /* Detail View */
+    .detail-view {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.95);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-
-    #detailCarousel {
-      width: 80%;
-      max-width: 1000px;
-    }
-
-    #detailCarousel img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      background: rgba(15, 15, 15, 0.95);
+      z-index: 2000;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: y mandatory;
     }
 
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
+    .detail-carousel {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .detail-carousel img {
+      width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      scroll-snap-align: center;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .boho-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kit img {
+        height: 350px;
+      }
+
+      .carousel img {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -148,11 +167,9 @@
     <div class="navbar">
       <div class="brand-name">Archetype</div>
       <ul class="nav-links">
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">Textiles</a></li>
-        <li><a href="#">Plant Atelier</a></li>
-        <li><a href="#">The Edit</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
       </ul>
     </div>
   </header>
@@ -162,26 +179,46 @@
   <section class="section">
     <div class="boho-grid">
       <div class="kit" data-kit="1">
-        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true" />
+        <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/eb1836be18a0b91e2f587c8c9d507426.jpg?raw=true">
       </div>
       <div class="kit" data-kit="2">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+2" />
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+2" alt="Kit 2">
       </div>
-      <div class="kit wide" data-kit="3">
-        <img src="https://via.placeholder.com/1600x1000?text=Wide+Boho+Kit+3" />
+      <div class="kit" data-kit="3">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+3" alt="Kit 3">
       </div>
       <div class="kit" data-kit="4">
-        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+4" />
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+4" alt="Kit 4">
+      </div>
+    </div>
+
+    <div class="carousel">
+      <div><img src="https://via.placeholder.com/800x500?text=Garden+Glow+1" alt="Slide 1" /></div>
+    </div>
+
+    <div class="boho-grid">
+      <div class="kit" data-kit="5">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+5" alt="Kit 5">
+      </div>
+      <div class="kit" data-kit="6">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+6" alt="Kit 6">
+      </div>
+      <div class="kit" data-kit="7">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+7" alt="Kit 7">
+      </div>
+      <div class="kit" data-kit="8">
+        <img src="https://via.placeholder.com/800x1000?text=Boho+Kit+8" alt="Kit 8">
       </div>
     </div>
   </section>
 
-  <div id="detailView">
-    <div class="close-btn" onclick="closeDetail()">×</div>
-    <div id="detailCarousel" class="carousel"></div>
+  <div class="detail-view" id="detailView" onclick="closeDetail()">
+    <div class="detail-carousel" id="detailCarousel">
+      <!-- Images dynamically injected here -->
+    </div>
   </div>
 
-  <footer style="text-align:center; padding:2rem 0; background:#f4f4f4;">
+  <footer>
     &copy; 2025 SkyNest Balcony Co. All rights reserved.
   </footer>
 
@@ -192,15 +229,14 @@
       $('.kit').click(function () {
         var kitId = $(this).data('kit');
         var images = getImagesForKit(kitId);
+
         var $carousel = $('#detailCarousel');
-        $carousel.empty();
+        $carousel.empty(); // Clear previous images
+
         images.forEach(src => {
-          $carousel.append(`<div><img src="${src}" /></div>`);
+          $carousel.append(`<img src="${src}" alt="Detail Image" />`);
         });
-        $('#detailCarousel').slick({
-          arrows: true,
-          dots: true
-        });
+
         $('#detailView').fadeIn();
       });
 
@@ -215,39 +251,34 @@
       switch (id) {
         case 1:
           return [
-            "https://via.placeholder.com/800x1000?text=Kit+1+Image+1",
-            "https://via.placeholder.com/800x1000?text=Kit+1+Image+2",
-            "https://via.placeholder.com/800x1000?text=Kit+1+Image+3"
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+1",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
           ];
         case 2:
           return [
-            "https://via.placeholder.com/800x1000?text=Kit+2+Image+1",
-            "https://via.placeholder.com/800x1000?text=Kit+2+Image+2",
-            "https://via.placeholder.com/800x1000?text=Kit+2+Image+3"
+            "https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
           ];
         case 3:
           return [
-            "https://via.placeholder.com/1600x1000?text=Wide+Kit+3+Image+1",
-            "https://via.placeholder.com/1600x1000?text=Wide+Kit+3+Image+2",
-            "https://via.placeholder.com/1600x1000?text=Wide+Kit+3+Image+3"
-          ];
-        case 4:
-          return [
-            "https://via.placeholder.com/800x1000?text=Kit+4+Image+1",
-            "https://via.placeholder.com/800x1000?text=Kit+4+Image+2",
-            "https://via.placeholder.com/800x1000?text=Kit+4+Image+3"
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+1",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
+            "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
           ];
         default:
-          return [];
+          return [
+            "https://via.placeholder.com/800x1000?text=Default+Image+1",
+            "https://via.placeholder.com/800x1000?text=Default+Image+2",
+            "https://via.placeholder.com/800x1000?text=Default+Image+3"
+          ];
       }
     }
 
     function closeDetail() {
-      $('#detailCarousel').slick('unslick');
       $('#detailView').fadeOut();
     }
   </script>
 </body>
 </html>
-
-
