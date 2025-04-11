@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Archetype</title>
+  <title>SkyNest Balcony Co.</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
@@ -97,8 +97,8 @@
     }
 
     .carousel {
+      margin-top: 3%; /* Increased margin to add more space */
       margin-bottom: 2%;
-      margin-top: 4%; /* Adds margin above the carousel to fix the overlap */
     }
 
     .carousel img {
@@ -123,22 +123,23 @@
 
     .detail-carousel {
       display: flex;
-      flex-direction: row; /* Change from column to row */
-      overflow-x: auto; /* Allow horizontal scroll for images */
+      flex-direction: column; /* Vertical direction */
+      overflow-y: auto; /* Allow vertical scroll */
       width: 90%;
-      max-width: 1000px; /* Adjust width for better layout */
+      max-width: 500px; /* Adjust width for better layout */
+      height: 70%; /* Limit the height to allow scroll */
     }
 
     .detail-carousel div {
       flex-shrink: 0;
-      width: 33.33%; /* Ensure each image takes 1/3 of the width */
-      margin-right: 10px;
+      width: 100%; /* Ensure each image takes full width */
+      height: 100%; /* Allow the images to stretch */
     }
 
     .detail-carousel img {
       width: 100%;
-      height: auto;
-      object-fit: contain;
+      height: 100%; /* Ensure images fill the container */
+      object-fit: cover;
     }
 
     .close-detail {
@@ -170,13 +171,18 @@
       .carousel img {
         height: 300px;
       }
+
+      .detail-carousel {
+        width: 90%;
+        height: 60%; /* Make it a bit smaller on smaller screens */
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="navbar">
-      <div class="brand-name">Archetype</div>
+      <div class="brand-name">SkyNest</div>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#">Shop</a></li>
@@ -304,6 +310,7 @@
   </script>
 </body>
 </html>
+
 
 
 
