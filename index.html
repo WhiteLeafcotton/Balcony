@@ -126,7 +126,7 @@
       flex-direction: column; /* Vertical direction */
       overflow-y: scroll; /* Allow vertical scroll */
       width: 90%;
-      max-width: 500px; /* Adjust width for better layout */
+      max-width: 600px; /* Adjust width for better layout */
       height: 70%; /* Limit the height to allow scroll */
       background: #fff;
       border-radius: 8px;
@@ -142,7 +142,7 @@
     .detail-carousel img {
       width: 100%;
       height: 100%; /* Ensure images fill the container */
-      object-fit: cover;
+      object-fit: contain; /* Prevents stretching of images */
     }
 
     .close-detail {
@@ -299,7 +299,3 @@
   </script>
 </body>
 </html>
-
-
-
-
