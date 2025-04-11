@@ -112,11 +112,12 @@
     }
 
     .carousel .slick-slide {
-      padding: 0.5rem;
+      padding: 0.5rem !important;
     }
 
     .kit {
       padding: 1rem;
+      margin: 0.25rem;
       background: #fff;
       border-radius: 10px;
       text-align: center;
@@ -143,23 +144,6 @@
       color: #555;
       font-weight: 400;
       margin-bottom: 1rem;
-    }
-
-    .button {
-      padding: 0.6rem 1.2rem;
-      background: #000;
-      color: #fff;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background: #444;
     }
 
     .modal {
@@ -224,7 +208,8 @@
     <div class="modal-content">
       <div class="modal-images"></div>
     </div>
-  
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -266,11 +251,9 @@
               <img src="https://via.placeholder.com/220x140?text=${title.split(' ')[0]}+Kit+${i}" data-kit="${key}" />
               <h3>${title.split(' ')[0]} Kit ${i}</h3>
               <p>Perfect setup for your balcony.</p>
-              <button class="button">View Details</button>
             </div>
           `);
         }
-
 
         $shop.append($section);
 
