@@ -385,17 +385,15 @@
       var $carousel = $('#detailCarousel');
       $carousel.empty();
 
-      images.forEach(image => {
-  $carousel.append(`
+      $carousel.append(`
   <div class="detail-slide" style="position: relative;">
     <img src="${image.src}" alt="Detail Image" />
-    <div class="overlay-content">
-      <button class="add-to-cart">Add to Cart</button>
-      <p class="kit-description">${image.description}</p>
-      <p class="kit-price">${image.price}</p>
-    </div>
+    <button class="add-to-cart">Add to Cart</button>
+    <p class="kit-description">${image.description}</p>
+    <p class="kit-price">${image.price}</p>
   </div>
 `);
+
 
 
 
