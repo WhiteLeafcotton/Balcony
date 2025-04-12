@@ -188,6 +188,25 @@
       border-radius: 12px;
     }
 
+    .shop-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .shop-button:hover {
+      opacity: 1;
+    }
+
     .add-to-cart {
       position: absolute;
       top: 10px;
@@ -311,8 +330,102 @@
         var price = "$120.00"; // You can change this based on the kit
 
         $carousel.append(`
-          <div class="detail-slide">
+          <div class="detail-slide" style="position: relative;">
             <img src="${src}" alt="Detail Image" />
+            <button class="shop-button">Shop</button>
+            <p class="kit-description">${description}</p>
+            <p class="kit-price">${price}</p>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        `);
+      });
+
+      $('#detailView').fadeIn();
+    });
+
+    $('#detailView').on('click', function (e) {
+      if (e.target.id === 'detailView') {
+        closeDetail();
+      }
+    });
+  });
+  <section class="section">
+  <div class="boho-grid">
+    <!-- Multiple kits added here, unchanged layout -->
+    <div class="kit" data-kit="1">
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Cream%20Aesthetic%20We%20Are%20Closed%20Poster-3.png?raw=true" alt="Cozy Earth Tones">
+      <div class="kit-info">
+        <h3 class="kit-title">Cozy Earth Tones</h3>
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="2">
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Cream%20Black%20Minimalist%20Art%20Deco%20Wedding%20Banner-2.png?raw=true" alt="Garden Glow">
+      <div class="kit-info">
+        <h3 class="kit-title">Garden Glow</h3>
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="3">
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9452.jpg?raw=true" alt="Citrus Touch">
+      <div class="kit-info">
+        <h3 class="kit-title">Citrus Touch</h3>
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="4">
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9463.jpg?raw=true" alt="Lavender Breeze">
+      <div class="kit-info">
+        <h3 class="kit-title">Lavender Breeze</h3>
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+    <div class="kit" data-kit="5">
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9473.jpg?raw=true" alt="Sunset Vibes">
+      <div class="kit-info">
+        <h3 class="kit-title">Sunset Vibes</h3>
+        <a href="shop.html" class="shop-link">Shop</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel featured-kit">
+    <div>
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Cream%20Black%20Minimalist%20Art%20Deco%20Wedding%20Banner-2.png?raw=true" alt="Garden Glow Feature Kit" />
+    </div>
+  </div>
+</section>
+
+<!-- Detail View Section -->
+<div class="detail-view" id="detailView" onclick="closeDetail()">
+  <div class="detail-carousel" id="detailCarousel">
+    <!-- Images dynamically injected here -->
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 SkyNest Balcony Co. All rights reserved.
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.kit').click(function () {
+      var kitId = $(this).data('kit');
+      var images = getImagesForKit(kitId);
+
+      var $carousel = $('#detailCarousel');
+      $carousel.empty();
+
+      images.forEach(src => {
+        var description = "This is a beautiful kit perfect for your balcony.";
+        var price = "$120.00"; // You can change this based on the kit
+
+        $carousel.append(`
+          <div class="detail-slide" style="position: relative;">
+            <img src="${src}" alt="Detail Image" />
+            <button class="shop-button">Shop</button>
             <p class="kit-description">${description}</p>
             <p class="kit-price">${price}</p>
             <button class="add-to-cart">Add to Cart</button>
@@ -338,7 +451,19 @@
           "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
           "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
         ];
-      // Other cases for more kits
+      case 2:
+        return [
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9453.jpg?raw=true",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
+        ];
+      case 3:
+        return [
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9452.jpg?raw=true",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
+        ];
+      // Add more kit cases as needed
       default:
         return [
           "https://via.placeholder.com/800x1000?text=Default+Image+1",
@@ -352,6 +477,7 @@
     $('#detailView').fadeOut();
   }
 </script>
+
 </body>
 </html>
 
