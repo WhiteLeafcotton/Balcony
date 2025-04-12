@@ -87,48 +87,46 @@
     }
 
     .kit {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 0; /* Remove padding that was pushing elements down */
-}
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 0;
+    }
 
-.kit-info {
-  position: absolute;
-  top: 0.7rem;
-  left: 0.7rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 6px;
-  z-index: 2;
-  text-align: left;
-}
+    .kit-info {
+      position: absolute;
+      top: 0.7rem;
+      left: 0.7rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      z-index: 2;
+      text-align: left;
+    }
 
-.kit-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 0.3rem;
-  text-transform: uppercase;
-}
+    .kit-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+    }
 
+    .shop-link {
+      font-size: 0.75rem;
+      text-decoration: none;
+      color: #000;
+      border: 1px solid #000;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
 
-.shop-link {
-  font-size: 0.75rem;
-  text-decoration: none;
-  color: #000;
-  border: 1px solid #000;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.kit img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
-
+    .kit img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
 
     .shop-link {
       display: inline-block;
@@ -210,74 +208,6 @@
         height: 300px;
       }
     }
-    /* Detail View Styles */
-    #detailView {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.75);
-      overflow-y: auto;
-      padding: 3rem 1rem;
-    }
-
-    #detailCarousel {
-      max-width: 800px;
-      margin: 0 auto;
-      scroll-snap-type: y mandatory;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .detail-slide {
-      position: relative;
-      scroll-snap-align: center;
-    }
-
-    .detail-slide img {
-      width: 100%;
-      max-height: 80vh;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .detail-meta {
-      position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 1rem;
-      border-radius: 8px;
-      max-width: 300px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .detail-meta h4 {
-      margin: 0 0 0.3rem;
-      font-size: 1.1rem;
-    }
-
-    .detail-meta p {
-      margin: 0 0 0.5rem;
-      font-weight: bold;
-      color: #444;
-    }
-
-    .add-to-cart-btn {
-      padding: 0.5rem 1rem;
-      font-size: 0.85rem;
-      background-color: #111;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .add-to-cart-btn:hover {
-      background-color: #333;
-    }
-
   </style>
 </head>
 
@@ -333,7 +263,7 @@
   <!-- Centerpiece wide kit carousel -->
   <div class="carousel featured-kit">
     <div>
-      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Cream%20Black%20Minimalist%20Art%20Deco%20Wedding%20Banner-2.png?raw=true"Garden Glow Feature Kit" />
+      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Cream%20Black%20Minimalist%20Art%20Deco%20Wedding%20Banner-2.png?raw=true" alt="Garden Glow Feature Kit" />
     </div>
   </div>
 
@@ -353,148 +283,51 @@
       </div>
     </div>
     <div class="kit" data-kit="7">
-      <img src="https://via.placeholder.com/800x1000?text=Stone+Grey+Balance" alt="Stone Grey Balance">
+      <img src="https://via.placeholder.com/800x1000?text=Boho+Blush" alt="Boho Blush">
       <div class="kit-info">
-        <h3 class="kit-title">Stone Grey Balance</h3>
+        <h3 class="kit-title">Boho Blush</h3>
         <a href="shop.html" class="shop-link">Shop</a>
       </div>
     </div>
     <div class="kit" data-kit="8">
-      <img src="https://via.placeholder.com/800x1000?text=Sunset+Warmth" alt="Sunset Warmth">
+      <img src="https://via.placeholder.com/800x1000?text=Textured+Ivory" alt="Textured Ivory">
       <div class="kit-info">
-        <h3 class="kit-title">Sunset Warmth</h3>
+        <h3 class="kit-title">Textured Ivory</h3>
         <a href="shop.html" class="shop-link">Shop</a>
       </div>
     </div>
   </div>
+
 </section>
 
-  
-
-
-<div class="detail-view" id="detailView" onclick="closeDetail()">
-  <div class="detail-carousel" id="detailCarousel">
-    <!-- Images dynamically injected here -->
-  </div>
-</div>
-
 <footer>
-  &copy; 2025 SkyNest Balcony Co. All rights reserved.
+  <p>Copyright &copy; 2025 Archetype. All rights reserved.</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 <script>
-  $(document).ready(function () {
-    $('.kit').click(function () {
+  $(document).ready(function() {
+    // Carousel initialization for featured kits
+    $('.carousel').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    });
+
+    // Image grid click behavior to show details
+    $('.kit').click(function() {
       var kitId = $(this).data('kit');
-      var images = getImagesForKit(kitId);
-
-      var $carousel = $('#detailCarousel');
-      $carousel.empty();
-
-      images.forEach(src => {
-        $carousel.append(`
-  <div style="position: relative; margin-bottom: 2rem;">
-    <img src="${src}" alt="Detail Image" style="width: 100%; max-height: 90vh; object-fit: contain; border-radius: 12px;" />
-    <div style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(255,255,255,0.85); padding: 0.6rem 0.8rem; border-radius: 6px;">
-      <div style="font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem;">Kit Name</div>
-      <div style="font-size: 0.8rem; margin: 0.2rem 0;">$129.00</div>
-      <button style="font-size: 0.75rem; padding: 0.3rem 0.6rem; border: 1px solid #111; background: transparent; cursor: pointer;">Add to Cart</button>
-    </div>
-  </div>
-`);
-
-
-      $('#detailView').fadeIn();
-    });
-
-    $('#detailView').on('click', function (e) {
-      if (e.target.id === 'detailView') {
-        closeDetail();
-      }
+      // Open detailed view here based on kitId
+      window.location.href = 'detail-view.html?kit=' + kitId;
     });
   });
-
-  function getKitData(id) {
-  switch (id) {
-    case 1:
-      return [
-        {
-          src: "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9474.jpg?raw=true",
-          title: "Cozy Earth Tones",
-          price: "$120"
-        },
-        {
-          src: "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
-          title: "Boho Image 2",
-          price: "$110"
-        },
-        {
-          src: "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3",
-          title: "Boho Image 3",
-          price: "$105"
-        }
-      ];
-    case 2:
-      return [
-        {
-          src: "https://github.com/WhiteLeafcotton/Balcony/blob/main/1.png?raw=true",
-          title: "Muted Green Layers",
-          price: "$130"
-        },
-        {
-          src: "https://github.com/WhiteLeafcotton/Balcony/blob/main/2.png?raw=true",
-          title: "Muted Layers 2",
-          price: "$125"
-        },
-        {
-          src: "https://github.com/WhiteLeafcotton/Balcony/blob/main/3.png?raw=true",
-          title: "Muted Layers 3",
-          price: "$115"
-        }
-      ];
-    default:
-      return [];
-  }
-}
-
-$(document).ready(function () {
-  $('.kit').click(function () {
-    const kitId = $(this).data('kit');
-    const images = getKitData(kitId);
-
-    const $carousel = $('#detailCarousel');
-    $carousel.empty();
-
-    images.forEach(item => {
-      $carousel.append(`
-        <div class="detail-slide">
-          <img src="${item.src}" alt="${item.title}" />
-          <div class="detail-meta">
-            <h4>${item.title}</h4>
-            <p>${item.price}</p>
-            <button class="add-to-cart-btn">Add to Cart</button>
-          </div>
-        </div>
-      `);
-    });
-
-    $('#detailView').fadeIn();
-  });
-
-  $('#detailView').on('click', function (e) {
-    if (e.target.id === 'detailView') {
-      closeDetail();
-    }
-  });
-});
-
-function closeDetail() {
-  $('#detailView').fadeOut();
-}
-
 </script>
+
 </body>
 </html>
+
 
