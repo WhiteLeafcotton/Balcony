@@ -158,56 +158,48 @@
     /* The wrapper for the slide */
 .detail-slide {
   position: relative;
-  height: 500px; /* You can adjust this as needed */
-  width: 100%;
+  height: 500px; /* Or set to whatever height works for your images */
+  width: 100%; /* Ensure it takes full width */
 }
 
-/* Image styles */
-.detail-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure image covers the space */
-}
-
-/* Detail info (description, price, add-to-cart) */
 .detail-info {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  top: 10px;  /* Adjust the distance from the top */
+  left: 10px;  /* Adjust the distance from the left */
+  background-color: rgba(0, 0, 0, 0.6); /* Optional, dark background for better visibility */
   padding: 10px;
   color: white;
-  text-align: left;
-  border-radius: 5px;
-  width: 250px; /* Adjust width to suit your design */
-  height: auto; /* Auto height to accommodate content */
+  text-align: left;  /* Align text to the left */
+  border-radius: 5px; /* Optional, for rounded corners */
   
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between description, price, and button */
+  gap: 10px; /* Adds spacing between the button, description, and price */
+  width: 250px;  /* Adjust width to fit your design */
+  height: auto;  /* Allow the height to adjust based on content */
 }
 
-/* Price and Description Styles */
-.kit-description, .kit-price {
-  margin: 0; /* Remove any extra margin */
-  font-size: 16px; /* Adjust font size */
+.detail-info p,
+.detail-info button {
+  margin: 0;
+  font-size: 14px; /* Adjust the font size as needed */
 }
 
-/* Add to cart button */
 .add-to-cart {
+  width: 100%;  /* Makes the button take full width of the container */
   padding: 10px;
   font-size: 14px;
-  background-color: #28a745;
+  background-color: #28a745; /* Green button */
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  width: 100%;
 }
 
 .add-to-cart:hover {
-  background-color: #218838;
+  background-color: #218838; /* Darker green when hovered */
 }
+
 
 
 
