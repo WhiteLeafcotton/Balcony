@@ -385,20 +385,17 @@
       var $carousel = $('#detailCarousel');
       $carousel.empty();
 
-      images.forEach(src => {
-        var description = "This is a beautiful kit perfect for your balcony.";
-        var price = "$120.00"; // You can change this based on the kit
+      images.forEach(image => {
+  $carousel.append(`
+    <div class="detail-slide" style="position: relative;">
+      <img src="${image.src}" alt="Detail Image" />
+      <button class="add-to-cart">Add to Cart</button>
+      <p class="kit-description">${image.description}</p>
+      <p class="kit-price">${image.price}</p>
+    </div>
+  `);
+});
 
-        $carousel.append(`
-          <div class="detail-slide" style="position: relative;">
-            <img src="${src}" alt="Detail Image" />
-            <button class="add-to-cart">Add to Cart</button>
-            <p class="kit-description">${description}</p>
-            <p class="kit-price">${price}</p>
-            
-          </div>
-        `);
-      });
 
       $('#detailView').fadeIn();
     });
@@ -411,75 +408,65 @@
   });
 
   function getImagesForKit(id) {
-    switch (id) {
-      case 1:
-        return [
-          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9474.jpg?raw=true",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
-        ];
-      case 2:
-        return [
-          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9453.jpg?raw=true",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3"
-        ];
-      case 3:
-        return [
-          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9452.jpg?raw=true",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
-        ];
-      case 4:
-        return [
-          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9463.jpg?raw=true",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+4+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+4+Image+3"
-        ];
-      case 5:
-        return [
-          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9473.jpg?raw=true",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+5+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+5+Image+3"
-        ];
-      case 6:
-        return [
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+6+Image+1",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+6+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+6+Image+3"
-        ];
-      case 7:
-        return [
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+7+Image+1",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+7+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+7+Image+3"
-        ];
-      case 8:
-        return [
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+8+Image+1",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+8+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+8+Image+3"
-        ];
-      case 9:
-        return [
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+9+Image+1",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+9+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+9+Image+3"
-        ];
-      case 10:
-        return [
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+10+Image+1",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+10+Image+2",
-          "https://via.placeholder.com/800x1000?text=Boho+Kit+10+Image+3"
-        ];
-      default:
-        return [
-          "https://via.placeholder.com/800x1000?text=Default+Image+1",
-          "https://via.placeholder.com/800x1000?text=Default+Image+2",
-          "https://via.placeholder.com/800x1000?text=Default+Image+3"
-        ];
-    }
+  switch (id) {
+    case 1:
+      return [
+        {
+          src: "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9474.jpg?raw=true",
+          description: "Boho Kit 1: Cozy neutral tones with hanging planters.",
+          price: "$120.00"
+        },
+        {
+          src: "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
+          description: "Comfy pillows and low seating setup.",
+          price: "$120.00"
+        },
+        {
+          src: "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3",
+          description: "Soft lighting for an intimate evening vibe.",
+          price: "$120.00"
+        }
+      ];
+    case 2:
+      return [
+        {
+          src: "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9453.jpg?raw=true",
+          description: "Boho Kit 2: Vibrant orange tones and rich textures.",
+          price: "$135.00"
+        },
+        {
+          src: "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+2",
+          description: "Terracotta and earthy decor blend beautifully.",
+          price: "$135.00"
+        },
+        {
+          src: "https://via.placeholder.com/800x1000?text=Boho+Kit+2+Image+3",
+          description: "Ambient lantern lighting with rattan accents.",
+          price: "$135.00"
+        }
+      ];
+    // Repeat similarly for kits 3–10...
+    default:
+      return [
+        {
+          src: "https://via.placeholder.com/800x1000?text=Default+Image+1",
+          description: "Default kit image one.",
+          price: "$100.00"
+        },
+        {
+          src: "https://via.placeholder.com/800x1000?text=Default+Image+2",
+          description: "Default kit image two.",
+          price: "$100.00"
+        },
+        {
+          src: "https://via.placeholder.com/800x1000?text=Default+Image+3",
+          description: "Default kit image three.",
+          price: "$100.00"
+        }
+      ];
   }
+}
+
 
   function closeDetail() {
     $('#detailView').fadeOut();
