@@ -391,15 +391,16 @@
     </div>
   `;
 
-      $('#detailView').fadeIn();
-    });
+  $carousel.append(slide);
+});
 
-    $('#detailView').on('click', function (e) {
-      if (e.target.id === 'detailView') {
-        closeDetail();
-      }
-    });
-  });
+$('#detailView').fadeIn();
+
+$('#detailView').on('click', function (e) {
+  if (e.target.id === 'detailView') {
+    closeDetail();
+  }
+});
 
   function getImagesForKit(id) {
     switch (id) {
