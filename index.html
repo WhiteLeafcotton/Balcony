@@ -89,13 +89,14 @@
     .kit {
       position: relative;
       overflow: hidden;
-      padding-bottom: 0;
+      padding-bottom: 0; /* Remove padding that was pushing elements down */
     }
 
     .kit-info {
       position: absolute;
       top: 0.7rem;
       left: 0.7rem;
+      background: rgba(255, 255, 255, 0.6); /* Optional for contrast */
       padding: 0.5rem 0.8rem;
       border-radius: 6px;
       z-index: 2;
@@ -103,46 +104,48 @@
     }
 
     .kit-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: #111;
-      margin-bottom: 0.3rem;
-      text-transform: uppercase;
+      margin-bottom: 0.4rem;
     }
 
-    .shop-link {
-      font-size: 0.75rem;
-      text-decoration: none;
+    .kit-description {
+      font-size: 0.8rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .kit-price {
+      font-size: 1rem;
+      font-weight: 700;
       color: #000;
-      border: 1px solid #000;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .add-to-cart-btn {
       display: inline-block;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #fff;
+      background-color: #000;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #444;
     }
 
     .kit img {
       width: 100%;
-      height: 300px;
+      height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .shop-link {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      text-decoration: none;
-      color: #000;
-      border: 1px solid #000;
-      padding: 0.3rem 0.7rem;
-      border-radius: 4px;
-      transition: background 0.2s ease;
-    }
-
-    .shop-link:hover {
-      background: #000;
-      color: #fff;
     }
 
     .carousel {
@@ -234,28 +237,36 @@
       <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/Cream%20Aesthetic%20We%20Are%20Closed%20Poster-3.png?raw=true" alt="Cozy Earth Tones">
       <div class="kit-info">
         <h3 class="kit-title">Cozy Earth Tones</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
+        <p class="kit-description">A calming blend of earthy tones that transform any space into a cozy haven.</p>
+        <p class="kit-price">$89.99</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
       </div>
     </div>
     <div class="kit" data-kit="2">
       <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/1.png?raw=true" alt="Muted Green Layers">
       <div class="kit-info">
         <h3 class="kit-title">Muted Green Layers</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
+        <p class="kit-description">A serene palette of muted greens for a peaceful, nature-inspired design.</p>
+        <p class="kit-price">$109.99</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
       </div>
     </div>
     <div class="kit" data-kit="3">
       <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9476.jpg?raw=true" alt="Neutral Nomad">
       <div class="kit-info">
         <h3 class="kit-title">Neutral Nomad</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
+        <p class="kit-description">Embrace neutral tones that create an effortless, laid-back atmosphere.</p>
+        <p class="kit-price">$95.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
       </div>
     </div>
     <div class="kit" data-kit="4">
       <img src="https://via.placeholder.com/800x1000?text=Botanic+Calm" alt="Botanic Calm">
       <div class="kit-info">
         <h3 class="kit-title">Botanic Calm</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
+        <p class="kit-description">Inspired by nature, this kit brings a refreshing touch of greenery into your home.</p>
+        <p class="kit-price">$85.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -267,66 +278,77 @@
     </div>
   </div>
 
-  <div class="boho-grid">
-    <div class="kit" data-kit="5">
-      <img src="https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9452.jpg?raw=true" alt="Citrus Touch">
-      <div class="kit-info">
-        <h3 class="kit-title">Citrus Touch</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
-      </div>
-    </div>
-    <div class="kit" data-kit="6">
-      <img src="https://via.placeholder.com/800x1000?text=Light+Linen+Mix" alt="Light Linen Mix">
-      <div class="kit-info">
-        <h3 class="kit-title">Light Linen Mix</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
-      </div>
-    </div>
-    <div class="kit" data-kit="7">
-      <img src="https://via.placeholder.com/800x1000?text=Boho+Blush" alt="Boho Blush">
-      <div class="kit-info">
-        <h3 class="kit-title">Boho Blush</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
-      </div>
-    </div>
-    <div class="kit" data-kit="8">
-      <img src="https://via.placeholder.com/800x1000?text=Textured+Ivory" alt="Textured Ivory">
-      <div class="kit-info">
-        <h3 class="kit-title">Textured Ivory</h3>
-        <a href="shop.html" class="shop-link">Shop</a>
-      </div>
-    </div>
-  </div>
-
+  <!-- More kits here... -->
 </section>
 
+<div class="detail-view" id="detailView" onclick="closeDetail()">
+  <div class="detail-carousel" id="detailCarousel">
+    <!-- Images dynamically injected here -->
+  </div>
+</div>
+
 <footer>
-  <p>Copyright &copy; 2025 Archetype. All rights reserved.</p>
+  &copy; 2025 SkyNest Balcony Co. All rights reserved.
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
 <script>
-  $(document).ready(function() {
-    // Carousel initialization for featured kits
-    $('.carousel').slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      adaptiveHeight: true
+  $(document).ready(function () {
+    $('.kit').click(function () {
+      var kitId = $(this).data('kit');
+      var images = getImagesForKit(kitId);
+
+      var $carousel = $('#detailCarousel');
+      $carousel.empty();
+
+      images.forEach(src => {
+        $carousel.append(`<img src="${src}" alt="Detail Image" />`);
+      });
+
+      $('#detailView').fadeIn();
     });
 
-    // Image grid click behavior to show details
-    $('.kit').click(function() {
-      var kitId = $(this).data('kit');
-      // Open detailed view here based on kitId
-      window.location.href = 'detail-view.html?kit=' + kitId;
+    $('#detailView').on('click', function (e) {
+      if (e.target.id === 'detailView') {
+        closeDetail();
+      }
     });
   });
-</script>
 
+  function getImagesForKit(id) {
+    switch (id) {
+      case 1:
+        return [
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/IMG_9474.jpg?raw=true",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+1+Image+3"
+        ];
+      case 2:
+        return [
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/1.png?raw=true",
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/2.png?raw=true",
+          "https://github.com/WhiteLeafcotton/Balcony/blob/main/3.png?raw=true"
+        ];
+      case 3:
+        return [
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+1",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+2",
+          "https://via.placeholder.com/800x1000?text=Boho+Kit+3+Image+3"
+        ];
+      default:
+        return [
+          "https://via.placeholder.com/800x1000?text=Default+Image+1",
+          "https://via.placeholder.com/800x1000?text=Default+Image+2",
+          "https://via.placeholder.com/800x1000?text=Default+Image+3"
+        ];
+    }
+  }
+
+  function closeDetail() {
+    $('#detailView').fadeOut();
+  }
+</script>
 </body>
 </html>
 
