@@ -155,60 +155,46 @@
       object-fit: cover;
     }
 
-    .detail-view {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2000;
-      overflow-y: scroll;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: y mandatory;
-    }
-
-    .detail-carousel {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 0;
-      position: relative;
-    }
-    <style>
+    /* The wrapper for the slide */
 .detail-slide {
   position: relative;
-  height: 500px; /* or whatever height works for you */
+  height: 500px; /* You can adjust this as needed */
   width: 100%;
 }
 
+/* Image styles */
 .detail-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the space without distorting */
+  object-fit: cover; /* Ensure image covers the space */
 }
 
+/* Detail info (description, price, add-to-cart) */
 .detail-info {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
   padding: 10px;
   color: white;
   text-align: left;
   border-radius: 5px;
-
+  width: 250px; /* Adjust width to suit your design */
+  height: auto; /* Auto height to accommodate content */
+  
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 250px; /* Adjust width as needed */
-  height: auto; /* Let the height adjust based on content */
+  gap: 10px; /* Space between description, price, and button */
 }
 
+/* Price and Description Styles */
+.kit-description, .kit-price {
+  margin: 0; /* Remove any extra margin */
+  font-size: 16px; /* Adjust font size */
+}
+
+/* Add to cart button */
 .add-to-cart {
-  width: 100%;
   padding: 10px;
   font-size: 14px;
   background-color: #28a745;
@@ -216,11 +202,13 @@
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  width: 100%;
 }
 
 .add-to-cart:hover {
   background-color: #218838;
 }
+
 
 
 
@@ -441,7 +429,7 @@
       images.forEach(image => {
   $carousel.append(`
     <div class="detail-slide" style="position: relative;">
-      <!-- Remove inline width and height, let the image fill the container based on its aspect ratio -->
+      <!-- Image -->
       <img src="${image.src}" alt="Detail Image" class="detail-image" />
       
       <div class="detail-info">
@@ -452,6 +440,7 @@
     </div>
   `);
 });
+
 
 
 
