@@ -198,6 +198,21 @@
   flex-direction: column-reverse; /* Reverse the order: Add to Cart button below description and price */
   gap: 10px; /* Adds spacing between the button, description, and price */
 }
+.add-to-bag {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-to-bag:hover {
+  background-color: #333;
+}
 
 .detail-info p,
 .detail-info button {
@@ -409,6 +424,7 @@
       <div class="detail-info">
         <p class="kit-description">${image.description}</p>
         <p class="kit-price">${image.price}</p>
+        <button class="add-to-bag">Add to Bag</button>
       </div>
     </div>
   `);
