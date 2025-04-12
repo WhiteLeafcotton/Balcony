@@ -177,6 +177,37 @@
       padding: 2rem 0;
       position: relative;
     }
+    <style>
+.detail-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-info {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.add-to-cart {
+  background-color: #222;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.kit-description,
+.kit-price {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
 
     .detail-carousel img {
       width: 100%;
@@ -382,13 +413,16 @@
       images.forEach(image => {
   $carousel.append(`
     <div class="detail-slide" style="position: relative;">
-      <img src="${image.src}" alt="Detail Image" />
-      <button class="add-to-cart">Add to Cart</button>
-      <p class="kit-description">${image.description}</p>
-      <p class="kit-price">${image.price}</p>
+      <img src="${image.src}" alt="Detail Image" style="width: 100%; height: auto;" />
+      <div class="detail-info">
+        <button class="add-to-cart">Add to Cart</button>
+        <p class="kit-description">${image.description}</p>
+        <p class="kit-price">${image.price}</p>
+      </div>
     </div>
   `);
 });
+
 
 
       $('#detailView').fadeIn();
