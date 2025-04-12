@@ -208,20 +208,19 @@
     }
 
     .add-to-cart {
-  position: absolute;
-  top: 10px;
-  left: 10px; /* moved from right */
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  border-radius: 5px;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
 
     .add-to-cart:hover {
       opacity: 1;
@@ -379,7 +378,7 @@
         var description = "This is a beautiful kit perfect for your balcony.";
         var price = "$120.00"; // You can change this based on the kit
 
-        $carousel.append(
+        $carousel.append(`
           <div class="detail-slide" style="position: relative;">
             <img src="${src}" alt="Detail Image" />
             <button class="shop-button">Shop</button>
@@ -387,7 +386,7 @@
             <p class="kit-price">${price}</p>
             <button class="add-to-cart">Add to Cart</button>
           </div>
-        );
+        `);
       });
 
       $('#detailView').fadeIn();
@@ -399,7 +398,6 @@
       }
     });
   });
-
 
   function getImagesForKit(id) {
     switch (id) {
