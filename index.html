@@ -180,36 +180,38 @@
     <style>
 .detail-slide {
   position: relative;
-  height: 500px; /* or whatever height you want */
-  overflow: hidden;
+  height: 500px; /* or whatever height works for you */
+  width: 100%;
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the space without distorting */
 }
 
 .detail-info {
   position: absolute;
-  top: 10px;  /* Adjust the distance from the top */
-  left: 10px;  /* Adjust the distance from the left */
-  background-color: rgba(0, 0, 0, 0.6); /* Optional, dark background for better visibility */
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
   color: white;
-  text-align: left;  /* Align text to the left */
-  border-radius: 5px; /* Optional, for rounded corners */
-  
-  display: flex;
-  flex-direction: column-reverse; /* Reverse the order: Add to Cart button below description and price */
-  gap: 10px; /* Adds spacing between the button, description, and price */
-}
+  text-align: left;
+  border-radius: 5px;
 
-.detail-info p,
-.detail-info button {
-  margin: 0;
-  font-size: 14px; /* Adjust the font size as needed */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px; /* Adjust width as needed */
+  height: auto; /* Let the height adjust based on content */
 }
 
 .add-to-cart {
-  width: auto;  /* Makes the button size fit the text */
-  padding: 5px 10px;
+  width: 100%;
+  padding: 10px;
   font-size: 14px;
-  background-color: #28a745; /* Green button */
+  background-color: #28a745;
   border: none;
   color: white;
   cursor: pointer;
@@ -217,8 +219,9 @@
 }
 
 .add-to-cart:hover {
-  background-color: #218838; /* Darker green when hovered */
+  background-color: #218838;
 }
+
 
 
 
