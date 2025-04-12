@@ -413,7 +413,7 @@
       images.forEach(image => {
   $carousel.append(`
     <div class="detail-slide" style="position: relative;">
-      <img src="${image.src}" alt="Detail Image" style="width: 100%; height: auto;" />
+      <img src="${image.src}" alt="Detail Image" style="width: 100%; height: 100%; object-fit: cover;" />
       <div class="detail-info">
         <button class="add-to-cart">Add to Cart</button>
         <p class="kit-description">${image.description}</p>
