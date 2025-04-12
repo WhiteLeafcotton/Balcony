@@ -180,18 +180,27 @@
     <style>
 .detail-slide {
   position: relative;
+  height: 500px; /* or whatever height you want */
   overflow: hidden;
 }
 
 .detail-info {
   position: absolute;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.85);
-  width: 100%;
+  top: 10px;  /* Adjust the distance from the top */
+  right: 10px;  /* Adjust the distance from the right */
+  background-color: rgba(0, 0, 0, 0.6); /* Optional, dark background for better visibility */
   padding: 10px;
-  box-sizing: border-box;
-  text-align: center;
+  color: white;
+  text-align: right;
+  border-radius: 5px; /* Optional, for rounded corners */
 }
+
+.detail-info p,
+.detail-info button {
+  margin: 5px 0;
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
 
 .add-to-cart {
   background-color: #222;
@@ -392,8 +401,13 @@
 <div class="detail-view" id="detailView" onclick="closeDetail()">
   <div class="detail-carousel" id="detailCarousel">
     <!-- Images dynamically injected here -->
+    <div class="detail-info">
+    <button class="add-to-cart">Add to Cart</button>
+    <p class="kit-description">${image.description}</p>
+    <p class="kit-price">${image.price}</p>
   </div>
 </div>
+ 
 
 <footer>
   &copy; 2025 SkyNest Balcony Co. All rights reserved.
