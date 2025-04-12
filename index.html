@@ -376,29 +376,31 @@
       $carousel.empty();
 
       images.forEach(src => {
-        var description = "This is a beautiful kit perfect for your balcony.";
-        var price = "$120.00"; // You can change this based on the kit
+  const description = "This is a beautiful kit perfect for your balcony.";
+  const price = "$120.00"; // Update this dynamically if needed
 
-        $carousel.append(
-          <div class="detail-slide" style="position: relative;">
-            <img src="${src}" alt="Detail Image" />
-            <button class="shop-button">Shop</button>
-            <p class="kit-description">${description}</p>
-            <p class="kit-price">${price}</p>
-            <button class="add-to-cart">Add to Cart</button>
-          </div>
-        );
-      });
+  const slide = `
+    <div class="detail-slide" style="position: relative;">
+      <img src="${src}" alt="Detail Image" />
+      <button class="shop-button">Shop</button>
+      <div class="kit-info">
+        <p class="kit-description">${description}</p>
+        <p class="kit-price">${price}</p>
+      </div>
+      <button class="add-to-cart" style="position: absolute; top: 10px; right: 10px;">Add to Cart</button>
+    </div>
+  `;
 
-      $('#detailView').fadeIn();
-    });
+  $carousel.append(slide);
+});
 
-    $('#detailView').on('click', function (e) {
-      if (e.target.id === 'detailView') {
-        closeDetail();
-      }
-    });
-  });
+$('#detailView').fadeIn();
+
+$('#detailView').on('click', function (e) {
+  if (e.target.id === 'detailView') {
+    closeDetail();
+  }
+});
 
  
 
