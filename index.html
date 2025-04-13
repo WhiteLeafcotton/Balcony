@@ -65,14 +65,30 @@
     }
 
     .hero {
-      background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true);
-      background-size: cover;
-      background-position: center;
-      height: 75vh;
-      width: 96%;
-      margin: calc(3.5rem + 2%) auto 2%;
-      border-radius: 0;
-    }
+  background-image: url(https://github.com/WhiteLeafcotton/Balcony/blob/main/Image%201.jpg?raw=true);
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+  width: 96%;
+  margin: calc(3.5rem + 2%) auto 2%;
+  border-radius: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  z-index: 2;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
 
     .section {
       width: 96%;
