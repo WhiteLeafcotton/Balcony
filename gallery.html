@@ -1,2 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery - Archetype</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: #111;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 0.5rem 2%;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .hero-gallery-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 5rem 2rem 2rem;
+      gap: 2rem;
+    }
+
+    .hero-image {
+      flex: 1 1 40%;
+      max-width: 40%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .kits-grid {
+      flex: 1 1 55%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .kit {
+      background: #f6f6f6;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .kit img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .kit-title {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      color: #555;
+      background-color: #f8f8f8;
+      border-top: 1px solid #eaeaea;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-gallery-section {
+        flex-direction: column;
+      }
+
+      .hero-image, .kits-grid {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <div class="brand-name">Archetype</div>
+      <ul class="nav-links">
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="textiles.html">Textiles</a></li>
+        <li><a href="plant-atelier.html">Plant Atelier</a></li>
+        <li><a href="edit.html">The Edit</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO & KITS SECTION -->
+  <section class="hero-gallery-section">
+    <!-- HERO IMAGE -->
+    <div class="hero-image">
+      <img src="https://via.placeholder.com/500x800?text=Hero+Image" alt="Hero Image">
+    </div>
+
+    <!-- GRID OF 10 KITS -->
+    <div class="kits-grid">
+      <!-- Repeat this block for each kit -->
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+1" alt="Kit 1">
+        <div class="kit-title">Boho Kit 1</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+2" alt="Kit 2">
+        <div class="kit-title">Boho Kit 2</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+3" alt="Kit 3">
+        <div class="kit-title">Boho Kit 3</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+4" alt="Kit 4">
+        <div class="kit-title">Boho Kit 4</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+5" alt="Kit 5">
+        <div class="kit-title">Boho Kit 5</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+6" alt="Kit 6">
+        <div class="kit-title">Boho Kit 6</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+7" alt="Kit 7">
+        <div class="kit-title">Boho Kit 7</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+8" alt="Kit 8">
+        <div class="kit-title">Boho Kit 8</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+9" alt="Kit 9">
+        <div class="kit-title">Boho Kit 9</div>
+      </div>
+      <div class="kit">
+        <img src="https://via.placeholder.com/200x150?text=Kit+10" alt="Kit 10">
+        <div class="kit-title">Boho Kit 10</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Archetype. All rights reserved.
+  </footer>
+
+</body>
+</html>
 
 
